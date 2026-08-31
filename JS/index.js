@@ -227,45 +227,78 @@ function renderRegister() {
 }
 
 //  REGISTRO
-
 async function register() {
-  const name  = document.getElementById("inp-name").value.trim();
-  const email = document.getElementById("inp-email").value.trim();
-  const pwd   = document.getElementById("inp-pwd").value;
 
-  if (!name || !email || !pwd) {
-    alert("Por favor completa todos los campos.");
-    return;
+    const name = document.getElementById("inp-name").value.trim();
+    const email = document.getElementById("inp-email").value.trim();
+    const pwd = document.getElementById("inp-pwd").value;
+
+    if (!name || !email || !pwd) {
+        alert("Por favor completa todos los campos.");
+        return;
+    }
+
+    if (pwd.length < 8) {
+        alert("La contraseña debe tener al menos 8 caracteres.");
+        return;
+    }
+
+    try {
+
+
+        const { data, error } = await supabaseClient.auth.signUp({
+    email: email,
+    password: pwd,
+    options: {
+        data: {
+            name: name,
+            age: answers.age,
+            level: answers.level,
+            goal: answers.goal,
+            study_time: answers.time,
+            learning_style: answers.style,
+            needs: answers.needs,
+            study_days: answers.days,
+            topic: answers.topic
+        }
+    }
+});
+
+        if (error) {
+            throw error;
+        }
+        
+        const payload = {
+            name: name,
+            email: email,
+            profile: answers
+        };
+
+        localStorage.setItem(
+            "userProfile",
+            JSON.stringify(payload)
+        );
+
+        renderSuccess(name);
+
+        setTimeout(() => {
+            window.location.href = "home.html";
+        }, 2500);
+
+
+    } catch (error) {
+
+    console.error("ERROR COMPLETO:", error);
+    console.error("MENSAJE:", error?.message);
+    console.error("DETALLES:", error?.details);
+    console.error("HINT:", error?.hint);
+    console.error("CÓDIGO:", error?.code);
+
+    alert(
+        "Error: " +
+        (error?.message || "Error desconocido")
+    );
   }
-  if (pwd.length < 8) {
-    alert("La contraseña debe tener al menos 8 caracteres.");
-    return;
-  }
-
-  const payload = { name, email, password: pwd, profile: answers };
-
-  // Guardar en localStorage hasta tener backend
-  localStorage.setItem("userProfile", JSON.stringify(payload));
-
-  // Muestra pantalla de éxito y redirige al home
-  renderSuccess(name);
-  setTimeout(() => { window.location.href = "home.html"; }, 2500);
-
-  //  API ──
-  // try {
-  //   const res = await fetch("/api/register", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(payload)
-  //   });
-  //   const data = await res.json();
-  //   if (!res.ok) throw new Error(data.message || "Error al registrar");
-  //   localStorage.setItem("userProfile", JSON.stringify(payload));
-  //   renderSuccess(name);
-  //   setTimeout(() => { window.location.href = "login.html"; }, 2500);
-  // } catch (err) {
-  //   alert(err.message);
-  // }
 }
 
 
