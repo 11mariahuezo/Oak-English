@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listening A2 - Oak English</title>
+    <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/listening.css">
+     <!-- Accesibility -->
+    <link rel="stylesheet" href="css/accesibility.css">
+
+    <script src="JS/listening.js"></script>   
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg sticky-top">  
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" alt="Logo" class="Logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
+          <li class="nav-item"><a class="nav-link" href="vocabulary_home.html">Vocabulary</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+    <!-- home -->
+    <section id="home" class="section active">
+        <div class="page-title"><h1>Listening A2</h1></div>
+
+        <div class="text-center mb-20">
+            <h2 style="font-size: 32px; margin-bottom: 10px;">Why Practice With Us?</h2>
+            <p style="color: #666; font-size: 18px;">Listen at your own pace, as many times as you need, then answer simple questions.</p>
+        </div>
+
+        <div class="activities-grid" id="activities-home"></div>
+    </section>
+
+    <section id="activities" class="section">
+        <div class="practice-area">
+            <div class="practice-header">
+                <h2 id="activity-title">Activity Title</h2>
+                <p id="activity-description">Activity description goes here</p>
+            </div>
+
+            <div class="step-label">Paso 1 de 3 · Lee las instrucciones</div>
+            <div class="practice-instructions">
+                <h3>Instructions:</h3>
+                <ul id="instructions-list">
+                    <li>Press play to listen to the audio</li>
+                    <li>You can listen as many times as you want</li>
+                    <li>Then answer the questions below</li>
+                </ul>
+                <button class="tts-btn" onclick="speakInstructions()">🔊 Escuchar instrucciones</button>
+            </div>
+
+            <div class="step-label">Paso 2 de 3 · Escucha el audio</div>
+            <div class="audio-block">
+                <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+                <div class="audio-status" id="audioStatus">Sin límite de tiempo. Pulsa play cuando estés listo.</div>
+                <button class="transcript-toggle" id="transcriptToggleBtn" onclick="toggleTranscript()">Mostrar transcripción</button>
+                <div class="transcript-box" id="transcriptBox"></div>
+            </div>
+
+            <div class="step-label">Paso 3 de 3 · Responde las preguntas</div>
+            <div id="quiz-container"></div>
+
+            <div class="text-center mt-20">
+                <button type="button" class="btn-submit" id="checkAnswersBtn" onclick="checkAnswers()">Verificar respuestas</button>
+                <button type="button" class="btn-secondary" onclick="showSection('home')">Back to Home</button>
+            </div>
+
+            <div class="quiz-feedback" id="feedback">
+                <h3 id="feedback-title"></h3>
+                <p id="feedback-message"></p>
+                <ul id="feedback-details"></ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h1 style="text-align: center; margin-bottom: 40px;">Skills</h1>
+        <div class="activities-grid">
+            <div class="activity-card"><div class="activity-card-content"><h3>Reading</h3><p>Practice your reading comprehension</p></div></div>
+            <div class="activity-card"><div class="activity-card-content"><h3>Listening</h3><p>Improve your listening skills</p></div></div>
+            <div class="activity-card"><div class="activity-card-content"><h3>Writing</h3><p>Enhance your writing abilities</p></div></div>
+            <div class="activity-card"><div class="activity-card-content"><h3>Speaking</h3><p>Practice your speaking skills</p></div></div>
+        </div>
+    </section>
+
+    <section id="grammar" class="section">
+        <h1 style="text-align: center; margin-bottom: 40px;">Grammar</h1>
+        <div class="practice-area"><p>Grammar exercises and lessons will go here</p></div>
+    </section>
+
+    <section id="vocabulary" class="section">
+        <h1 style="text-align: center; margin-bottom: 40px;">Vocabulary</h1>
+        <div class="practice-area"><p>Vocabulary exercises and word lists will go here</p></div>
+    </section>
+
+    <!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+
+<footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+                    <p>A calm, inclusive space to learn English at your own pace — no pressure, no rush.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="#">Reading</a></li>
+                            <li><a href="#">Listening</a></li>
+                            <li><a href="#">Writing</a></li>
+                            <li><a href="#">Speaking</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Vocabulary</h4>
+                        <ul>
+                            <li><a href="#">A1 - A2 Vocabulary</a></li>
+                            <li><a href="#">B1 - B2 Vocabulary</a></li>
+                            <li><a href="#">Interactive Games</a></li>
+                            <li><a href="#">Play with Words</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Grammar</h4>
+                        <ul>
+                            <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+                            <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <span class="footer-social-label">Connect with us</span>
+                        <div class="social-links">
+                            <a href="#" aria-label="Oak English on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oak English. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="JS/accesibility.js" ></script>
+ 
+
+    
+</body>
+</html>

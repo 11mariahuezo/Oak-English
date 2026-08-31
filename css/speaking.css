@@ -1,0 +1,777 @@
+/* ========================================================
+OAK ENGLISH - SPEAKING
+======================================================== */
+
+/* ========================================================
+VARIABLES
+======================================================== */
+
+:root {
+--navy: #152B54;
+--navy-2: #0F2247;
+--link: #5B7FB5;
+--border: #E3E6EC;
+--text-dim: #5B6470;
+--bg: #F3F8FB;
+--surface: #FFFFFF;
+--footer: #0B2A55;
+--sky: #5B8DEF;
+--sky-dark: #3E6FD1;
+--sky-tint: #E7F0FD;
+--pink-tint: #FDEAF0;
+--ink: #2C3A4A;
+--ink-soft: #647180;
+--ring: #BFE0F0;
+--radius-lg: 26px;
+--radius-md: 16px;
+--radius-sm: 10px;
+}
+
+/* ========================================================
+RESET
+======================================================== */
+
+* {
+  box-sizing: border-box;
+  }
+
+html {
+scroll-behavior: smooth;
+}
+
+body {
+margin: 0;
+background: var(--bg);
+color: var(--navy);
+font-family: 'Inter', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+font-family: 'Baloo 2', sans-serif;
+margin: 0;
+}
+
+/* ========================================================
+NAVBAR
+Bootstrap puede seguir usando sus clases.
+Estas reglas solo personalizan nuestro navbar.
+======================================================== */
+
+.oak-navbar {
+background: var(--surface);
+padding: 14px 4vw;
+box-shadow: 0 1px 6px rgba(22, 35, 63, 0.06);
+}
+
+.oak-logo {
+height: 38px;
+}
+
+.oak-nav-link {
+font-weight: 600;
+color: var(--ink-soft);
+padding: 8px 16px !important;
+border-radius: 999px;
+transition:
+background 0.2s ease,
+color 0.2s ease;
+}
+
+.oak-nav-link:hover {
+background: var(--sky-tint);
+color: var(--sky-dark);
+}
+
+/* ========================================================
+TÍTULO
+======================================================== */
+
+.page-title {
+text-align: center;
+font-size: 3.4rem;
+font-weight: 800;
+color: var(--navy);
+margin: 34px 0 46px;
+letter-spacing: -0.01em;
+}
+
+/* ========================================================
+CARDS
+======================================================== */
+
+.oak-speaking-cards {
+max-width: 1120px;
+margin: 0 auto;
+display: flex;
+flex-direction: column;
+gap: 44px;
+padding: 0 40px 90px;
+}
+
+.oak-speaking-card {
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 44px;
+display: flex;
+align-items: center;
+gap: 48px;
+background: var(--surface);
+}
+
+.oak-card-image {
+width: 400px;
+min-width: 280px;
+height: 230px;
+border-radius: 6px;
+display: flex;
+align-items: center;
+justify-content: center;
+color: #fff;
+font-size: 3.4rem;
+background-size: cover;
+background-position: center;
+}
+
+.oak-card-content h3 {
+font-size: 1.7rem;
+font-weight: 700;
+color: var(--navy);
+margin-bottom: 14px;
+}
+
+.oak-card-content p {
+color: var(--text-dim);
+font-size: 1.02rem;
+margin: 0 0 24px;
+line-height: 1.5;
+}
+
+/* ========================================================
+BOTÓN ABRIR PRÁCTICA
+======================================================== */
+
+.oak-practice-btn {
+background: var(--navy);
+color: #fff;
+border: none;
+padding: 14px 30px;
+border-radius: 100px;
+font-weight: 600;
+font-size: 1rem;
+cursor: pointer;
+transition:
+background 0.2s ease,
+transform 0.2s ease;
+}
+
+.oak-practice-btn:hover {
+background: var(--navy-2);
+transform: translateY(-2px);
+}
+
+/* ========================================================
+SPEAKING OVERLAY
+======================================================== */
+
+.oak-speaking-overlay {
+position: fixed;
+inset: 0;
+width: 100%;
+height: 100%;
+background: rgba(15, 34, 71, 0.55);
+display: none;
+align-items: center;
+justify-content: center;
+z-index: 99999;
+padding: 20px;
+}
+
+.oak-speaking-overlay.is-open {
+display: flex;
+}
+
+/* ========================================================
+SPEAKING MODAL
+======================================================== */
+
+.oak-speaking-modal {
+background: #ffffff;
+border-radius: 18px;
+width: 100%;
+max-width: 560px;
+padding: 36px;
+position: relative;
+max-height: 90vh;
+overflow-y: auto;
+box-shadow:
+0 20px 60px rgba(15, 34, 71, 0.25);
+}
+
+/* ========================================================
+BOTÓN CERRAR
+======================================================== */
+
+.oak-modal-close {
+position: absolute;
+top: 18px;
+right: 20px;
+width: 36px;
+height: 36px;
+display: flex;
+align-items: center;
+justify-content: center;
+background: transparent;
+border: none;
+border-radius: 50%;
+font-size: 1.3rem;
+cursor: pointer;
+color: var(--text-dim);
+transition:
+background 0.2s ease,
+color 0.2s ease;
+}
+
+.oak-modal-close:hover {
+background: #F3F6FB;
+color: var(--navy);
+}
+
+/* ========================================================
+NIVEL
+======================================================== */
+
+.oak-level-tag {
+display: inline-block;
+font-size: 0.8rem;
+color: var(--link);
+font-weight: 600;
+text-transform: uppercase;
+letter-spacing: 0.03em;
+margin-bottom: 4px;
+}
+
+/* ========================================================
+TÍTULO
+======================================================== */
+
+.oak-speaking-modal h3 {
+font-size: 1.5rem;
+color: var(--navy);
+margin-top: 6px;
+}
+
+/* ========================================================
+INSTRUCCIÓN
+======================================================== */
+
+.oak-speaking-task {
+background: #F3F6FB;
+border: 1px solid #E4EAF3;
+border-radius: 10px;
+padding: 16px 18px;
+margin: 16px 0;
+font-size: 0.96rem;
+line-height: 1.5;
+color: var(--navy-2);
+}
+
+/* ========================================================
+ZONA MICRÓFONO
+======================================================== */
+
+.oak-mic-zone {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 14px;
+margin: 22px 0;
+}
+
+/* ========================================================
+BOTÓN MICRÓFONO
+======================================================== */
+
+.oak-mic-btn {
+width: 82px;
+height: 82px;
+border-radius: 50%;
+border: none;
+cursor: pointer;
+background: var(--navy);
+color: #ffffff;
+font-size: 1.6rem;
+display: flex;
+align-items: center;
+justify-content: center;
+transition:
+transform 0.15s ease,
+background 0.2s ease,
+box-shadow 0.2s ease;
+}
+
+.oak-mic-btn:hover {
+transform: scale(1.05);
+background: var(--navy-2);
+}
+
+.oak-mic-btn.is-recording {
+background: #C0433A;
+box-shadow:
+0 0 0 8px rgba(192, 67, 58, 0.15);
+}
+
+/* ========================================================
+ESTADO MICRÓFONO
+======================================================== */
+
+.oak-mic-status {
+font-size: 0.85rem;
+color: var(--text-dim);
+text-align: center;
+min-height: 20px;
+}
+
+/* ========================================================
+CANVAS
+======================================================== */
+
+#waveCanvas {
+display: block;
+width: 100%;
+height: 60px;
+border-radius: 8px;
+background: #F8FAFC;
+border: 1px solid #E6EBF2;
+margin: 12px 0;
+}
+
+/* ========================================================
+TRANSCRIPT
+======================================================== */
+
+.oak-transcript {
+width: 100%;
+min-height: 56px;
+max-height: 180px;
+background: #F3F6FB;
+border: 1px solid #E4EAF3;
+border-radius: 10px;
+padding: 14px 16px;
+font-family: 'Inter', sans-serif;
+font-size: 0.95rem;
+color: var(--navy-2);
+line-height: 1.5;
+margin-top: 10px;
+word-wrap: break-word;
+overflow-wrap: break-word;
+overflow-y: auto;
+text-align: left;
+transition:
+border-color 0.2s ease,
+background 0.2s ease,
+color 0.2s ease;
+}
+
+.oak-placeholder {
+color: var(--text-dim);
+font-style: italic;
+}
+
+.oak-transcript.is-listening {
+border-color: #185FA5;
+box-shadow:
+0 0 0 3px rgba(24, 95, 165, 0.10);
+}
+
+/* ========================================================
+SCROLLBAR
+======================================================== */
+
+.oak-transcript::-webkit-scrollbar {
+width: 6px;
+}
+
+.oak-transcript::-webkit-scrollbar-track {
+background: transparent;
+}
+
+.oak-transcript::-webkit-scrollbar-thumb {
+background: #DAD8D4;
+border-radius: 10px;
+}
+
+.oak-transcript::-webkit-scrollbar-thumb:hover {
+background: #5F5E5A;
+}
+
+/* ========================================================
+BOTÓN EVALUAR
+======================================================== */
+
+.oak-finish-btn {
+width: 100%;
+background: var(--navy);
+color: #ffffff;
+border: none;
+padding: 13px;
+border-radius: 100px;
+font-weight: 600;
+cursor: pointer;
+margin-top: 16px;
+transition:
+background 0.2s ease,
+transform 0.2s ease,
+opacity 0.2s ease;
+}
+
+.oak-finish-btn:hover:not(:disabled) {
+background: var(--navy-2);
+transform: translateY(-1px);
+}
+
+.oak-finish-btn:disabled {
+opacity: 0.45;
+cursor: not-allowed;
+transform: none;
+}
+
+/* ========================================================
+RESULTADOS
+======================================================== */
+
+.oak-results {
+display: none;
+margin-top: 22px;
+border-top: 1px solid var(--border);
+padding-top: 22px;
+}
+
+.oak-results.is-open {
+display: block;
+}
+
+/* ========================================================
+PUNTAJE
+======================================================== */
+
+.oak-score-row {
+display: flex;
+align-items: center;
+gap: 20px;
+}
+
+.oak-score-number {
+font-family: 'Baloo 2', sans-serif;
+font-size: 2.1rem;
+font-weight: 800;
+color: var(--navy);
+}
+
+.oak-score-description {
+color: var(--text-dim);
+}
+
+/* ========================================================
+MÉTRICAS
+======================================================== */
+
+.oak-metric {
+display: flex;
+justify-content: space-between;
+padding: 9px 0;
+border-bottom: 1px dashed var(--border);
+font-size: 0.9rem;
+color: var(--navy-2);
+}
+
+/* ========================================================
+FEEDBACK
+======================================================== */
+
+.oak-feedback {
+font-size: 0.88rem;
+color: var(--text-dim);
+margin-top: 14px;
+line-height: 1.5;
+background: #F3F6FB;
+padding: 12px 14px;
+border-radius: 10px;
+}
+
+/* ========================================================
+WARNING
+======================================================== */
+
+.oak-warning {
+font-size: 0.8rem;
+color: #8B4A45;
+margin-top: 10px;
+line-height: 1.4;
+}
+
+/* ========================================================
+FOOTER
+======================================================== */
+
+footer {
+margin-top: 110px;
+background: var(--navy);
+color: #C7D4EA;
+position: relative;
+}
+
+footer::before {
+content: "";
+display: block;
+height: 3px;
+background:
+linear-gradient(
+90deg,
+var(--sky),
+var(--pink-tint),
+var(--sky)
+);
+opacity: 0.7;
+}
+
+.footer-inner {
+max-width: 1180px;
+margin: 0 auto;
+padding: 64px 6vw 0;
+}
+
+.footer-top {
+display: flex;
+flex-wrap: wrap;
+justify-content: space-between;
+gap: 48px;
+padding-bottom: 48px;
+}
+
+.footer-brand {
+max-width: 280px;
+}
+
+.footer-brand .oak-logo {
+height: 34px;
+filter: brightness(0) invert(1);
+opacity: 0.92;
+margin-bottom: 16px;
+}
+
+.footer-brand p {
+color: #9FB3D6;
+font-size: 0.92rem;
+line-height: 1.65;
+margin: 0;
+font-weight: 300;
+}
+
+.footer-links {
+display: flex;
+flex-wrap: wrap;
+gap: 56px;
+}
+
+.footer-section h4 {
+color: white;
+font-weight: 600;
+font-size: 0.82rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+margin-bottom: 20px;
+opacity: 0.85;
+}
+
+.footer-section ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.footer-section ul li {
+margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+color: #B9CBE8;
+font-size: 0.94rem;
+font-weight: 300;
+position: relative;
+transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+color: white;
+}
+
+/* ========================================================
+SOCIAL
+======================================================== */
+
+.footer-social-label {
+color: white;
+font-weight: 600;
+font-size: 0.82rem;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+opacity: 0.85;
+margin-bottom: 20px;
+display: block;
+}
+
+.social-links {
+display: flex;
+gap: 12px;
+}
+
+.social-links a {
+width: 38px;
+height: 38px;
+border-radius: 50%;
+border: 1px solid rgba(255, 255, 255, 0.22);
+background: transparent;
+color: #C7D4EA;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.9rem;
+transition:
+border-color 0.2s ease,
+color 0.2s ease,
+background 0.2s ease;
+}
+
+.social-links a:hover {
+border-color: var(--sky);
+background: rgba(91, 141, 239, 0.12);
+color: white;
+}
+
+/* ========================================================
+FOOTER BOTTOM
+======================================================== */
+
+.footer-bottom {
+max-width: 1180px;
+margin: 0 auto;
+padding: 26px 6vw 30px;
+border-top: 1px solid rgba(255, 255, 255, 0.09);
+display: flex;
+align-items: center;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 14px;
+}
+
+.footer-bottom p {
+margin: 0;
+color: #8398BE;
+font-size: 0.82rem;
+font-weight: 300;
+}
+
+.footer-bottom-links {
+display: flex;
+gap: 22px;
+}
+
+.footer-bottom-links a {
+color: #8398BE;
+font-size: 0.82rem;
+font-weight: 300;
+transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover {
+color: white;
+}
+
+/* ========================================================
+TABLET
+======================================================== */
+
+@media (max-width: 991px) {
+
+.info-cards-wrap {
+    margin-top: 36px;
+}
+
+.hero {
+    padding-bottom: 60px;
+}
+
+
+}
+
+/* ========================================================
+MÓVIL
+======================================================== */
+
+@media (max-width: 800px) {
+
+
+.oak-speaking-card {
+    flex-direction: column;
+    padding: 26px;
+}
+
+.oak-card-image {
+    width: 100%;
+    min-width: 0;
+    height: 220px;
+}
+
+.page-title {
+    font-size: 2.2rem;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.oak-navbar {
+    padding: 16px 20px;
+}
+
+.oak-speaking-overlay {
+    padding: 12px;
+}
+
+.oak-speaking-modal {
+    padding: 28px 22px;
+    max-height: 94vh;
+    border-radius: 16px;
+}
+
+.oak-mic-btn {
+    width: 74px;
+    height: 74px;
+}
+
+#waveCanvas {
+    height: 50px;
+}
+
+
+}
+
+/* ========================================================
+REDUCIR MOVIMIENTO
+======================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+
+*,
+*::before,
+*::after {
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+}
+
+
+}

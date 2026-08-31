@@ -1,0 +1,821 @@
+/* =========================================================
+   OAK ENGLISH
+   ACCESSIBILITY
+   ========================================================= */
+
+
+/* =========================================================
+   1. BOTÓN FLOTANTE
+   ========================================================= */
+
+#accessibilityToggle,
+.accessibility-trigger-btn {
+
+    position: fixed !important;
+
+    bottom: 25px !important;
+
+    right: 25px !important;
+
+    z-index: 999999 !important;
+
+    background-color: #233b75 !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    border-radius: 50% !important;
+
+    width: 55px !important;
+
+    height: 55px !important;
+
+    font-size: 22px !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.25) !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease !important;
+}
+
+
+#accessibilityToggle:hover,
+.accessibility-trigger-btn:hover {
+
+    transform: scale(1.08) !important;
+
+    background-color: #1a2d5a !important;
+}
+
+
+/* =========================================================
+   2. PANEL
+   ========================================================= */
+
+#accessibilityMenu {
+
+    display: none;
+
+    position: fixed !important;
+
+    bottom: 90px !important;
+
+    right: 25px !important;
+
+    z-index: 999998 !important;
+
+    width: 340px !important;
+
+    max-width: 90vw !important;
+
+    background: #ffffff !important;
+
+    border:
+        1px solid #e2e8f0 !important;
+
+    border-radius: 16px !important;
+
+    padding: 20px !important;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.18) !important;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif !important;
+}
+
+
+#accessibilityMenu.show {
+
+    display: block !important;
+}
+
+
+/* =========================================================
+   PANEL HEADINGS
+   ========================================================= */
+
+#accessibilityMenu h3,
+#accessibilityMenu h4 {
+
+    color: #1e293b !important;
+
+    font-size: 14px !important;
+
+    font-weight: 700 !important;
+
+    text-transform: uppercase !important;
+
+    letter-spacing: 0.5px !important;
+
+    margin:
+        14px 0 8px 0 !important;
+}
+
+
+#accessibilityMenu h3:first-of-type {
+
+    margin-top: 0 !important;
+}
+
+
+/* =========================================================
+   PANEL BUTTONS
+   ========================================================= */
+
+#accessibilityMenu button {
+
+    background-color: #f8fafc !important;
+
+    color: #334155 !important;
+
+    border:
+        1px solid #cbd5e1 !important;
+
+    border-radius: 8px !important;
+
+    padding:
+        8px 12px !important;
+
+    font-size: 13px !important;
+
+    font-weight: 500 !important;
+
+    cursor: pointer !important;
+
+    transition:
+        all 0.15s ease !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    margin: 3px !important;
+}
+
+
+#accessibilityMenu button:hover {
+
+    background-color: #e2e8f0 !important;
+
+    color: #0f172a !important;
+
+    border-color: #94a3b8 !important;
+}
+
+
+/* =========================================================
+   ACTIVE BUTTON
+   ========================================================= */
+
+#accessibilityMenu button.active {
+
+    background-color: #e0e7ff !important;
+
+    color: #3730a3 !important;
+
+    border-color: #6366f1 !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+#accessibilityMenu .close-btn {
+
+    float: right !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    font-size: 16px !important;
+
+    color: #64748b !important;
+
+    padding:
+        4px 8px !important;
+}
+
+
+#accessibilityMenu .close-btn:hover {
+
+    color: #0f172a !important;
+}
+
+
+/* =========================================================
+   3. GLOBAL ACCESSIBILITY
+   ========================================================= */
+
+html {
+
+    transition:
+        font-size 0.2s ease;
+}
+
+
+/* =========================================================
+   HIGHLIGHT LINKS
+   ========================================================= */
+
+body.highlight-links a {
+
+    text-decoration:
+        underline 3px #FFE600 !important;
+
+    font-weight: bold !important;
+
+    background-color:
+        rgba(255, 230, 0, 0.2) !important;
+
+    color: #000000 !important;
+
+    padding:
+        2px 4px !important;
+
+    border-radius: 4px !important;
+}
+
+
+/* =========================================================
+   4. CALM MODE
+   ========================================================= */
+
+body.calm-mode {
+
+    filter:
+        sepia(15%)
+        saturate(80%) !important;
+}
+
+
+body.calm-mode *,
+body.calm-mode *::before,
+body.calm-mode *::after {
+
+    animation: none !important;
+
+    transition: none !important;
+
+    scroll-behavior: auto !important;
+}
+
+
+/* =========================================================
+   5. DARK MODE
+   ========================================================= */
+
+body.accessibility-dark {
+
+    background-color: #0d1527 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Main containers */
+
+body.accessibility-dark main,
+body.accessibility-dark section,
+body.accessibility-dark header,
+body.accessibility-dark nav,
+body.accessibility-dark .hero,
+body.accessibility-dark .container,
+body.accessibility-dark .container-fluid,
+body.accessibility-dark [class*="bg-light"],
+body.accessibility-dark [class*="bg-white"] {
+
+    background-color: #0d1527 !important;
+}
+
+
+/* Cards */
+
+body.accessibility-dark .card,
+body.accessibility-dark .info-card,
+body.accessibility-dark .course-card,
+body.accessibility-dark .feature-card,
+body.accessibility-dark .suggestion-box,
+body.accessibility-dark div[class*="card"] {
+
+    background-color: #162238 !important;
+
+    border:
+        1px solid #2a3b5c !important;
+}
+
+
+/* Text */
+
+body.accessibility-dark h1,
+body.accessibility-dark h2,
+body.accessibility-dark h3,
+body.accessibility-dark h4,
+body.accessibility-dark h5,
+body.accessibility-dark h6,
+body.accessibility-dark p,
+body.accessibility-dark span,
+body.accessibility-dark li,
+body.accessibility-dark label,
+body.accessibility-dark strong,
+body.accessibility-dark a:not(.btn) {
+
+    color: #ffffff !important;
+}
+
+
+/* Secondary buttons */
+
+body.accessibility-dark .btn-light,
+body.accessibility-dark .btn-outline-primary,
+body.accessibility-dark button:not(#accessibilityToggle):not(.main-btn) {
+
+    background-color: #233352 !important;
+
+    color: #ffffff !important;
+
+    border-color: #3b517a !important;
+}
+
+
+/* Badges */
+
+body.accessibility-dark .badge,
+body.accessibility-dark .eyebrow {
+
+    background-color: #ffffff !important;
+
+    color: #0d1527 !important;
+}
+
+
+/* =========================================================
+   6. HIGH CONTRAST
+   ========================================================= */
+
+body.high-contrast {
+
+    background-color: #000000 !important;
+
+    color: #ffffff !important;
+}
+
+
+body.high-contrast * {
+
+    border-color: #ffffff !important;
+}
+
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast p,
+body.high-contrast a,
+body.high-contrast button {
+
+    color: #ffffff !important;
+}
+
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast .accent {
+
+    color: #ffff00 !important;
+}
+
+
+/* =========================================================
+   7. SPEAKING - DARK MODE
+   ========================================================= */
+
+/*
+   Estas reglas son IMPORTANTES.
+   Evitan que las reglas generales de accesibilidad
+   destruyan el diseño de la práctica.
+*/
+
+
+body.accessibility-dark .speaking-modal {
+
+    background: #162238 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #2a3b5c !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+h3 {
+
+    color: #ffffff !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.level-tag {
+
+    color: #9FC2FF !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.mic-status {
+
+    color: #C7D4EA !important;
+}
+
+
+/* Task */
+
+body.accessibility-dark
+.speaking-modal
+.task {
+
+    background: #233352 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Transcript */
+
+body.accessibility-dark
+.speaking-modal
+.transcript-box {
+
+    background: #233352 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #3b517a !important;
+}
+
+
+/* Placeholder */
+
+body.accessibility-dark
+.speaking-modal
+.transcript-box
+.placeholder {
+
+    background: transparent !important;
+
+    background-color: transparent !important;
+
+    background-image: none !important;
+
+    color: #C7D4EA !important;
+}
+
+
+/* Wave */
+
+body.accessibility-dark
+.speaking-modal
+#waveCanvas {
+
+    background: #233352 !important;
+}
+
+
+/* Results */
+
+body.accessibility-dark
+.speaking-modal
+.results {
+
+    color: #ffffff !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.metric {
+
+    color: #ffffff !important;
+
+    border-color: #3b517a !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.feedback-note {
+
+    background: #233352 !important;
+
+    color: #C7D4EA !important;
+}
+
+
+/* Close */
+
+body.accessibility-dark
+.speaking-modal
+.modal-close {
+
+    color: #C7D4EA !important;
+
+    background: transparent !important;
+}
+
+
+/* Evaluate */
+
+body.accessibility-dark
+.speaking-modal
+.finish-btn {
+
+    background: #31548F !important;
+
+    color: #ffffff !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.finish-btn:disabled {
+
+    background: #59677F !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   8. SPEAKING - HIGH CONTRAST
+   ========================================================= */
+
+body.high-contrast
+.speaking-modal {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border:
+        2px solid #ffffff !important;
+}
+
+
+body.high-contrast
+.speaking-modal
+h3 {
+
+    color: #ffff00 !important;
+}
+
+
+body.high-contrast
+.speaking-modal
+.level-tag {
+
+    color: #ffff00 !important;
+}
+
+
+body.high-contrast
+.speaking-modal
+.mic-status {
+
+    color: #ffffff !important;
+}
+
+
+/* Task */
+
+body.high-contrast
+.speaking-modal
+.task {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #ffffff !important;
+}
+
+
+/* Transcript */
+
+body.high-contrast
+.speaking-modal
+.transcript-box {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #ffffff !important;
+}
+
+
+/* Placeholder */
+
+body.high-contrast
+.speaking-modal
+.transcript-box
+.placeholder {
+
+    background: transparent !important;
+
+    background-color: transparent !important;
+
+    background-image: none !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Canvas */
+
+body.high-contrast
+.speaking-modal
+#waveCanvas {
+
+    background: #000000 !important;
+
+    border:
+        1px solid #ffffff !important;
+}
+
+
+/* Metrics */
+
+body.high-contrast
+.speaking-modal
+.metric {
+
+    color: #ffffff !important;
+
+    border-color: #ffffff !important;
+}
+
+
+/* Feedback */
+
+body.high-contrast
+.speaking-modal
+.feedback-note {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #ffffff !important;
+}
+
+
+/* Close */
+
+body.high-contrast
+.speaking-modal
+.modal-close {
+
+    color: #ffffff !important;
+
+    background: transparent !important;
+
+    border: none !important;
+}
+
+
+/* Evaluate */
+
+body.high-contrast
+.speaking-modal
+.finish-btn {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border:
+        2px solid #ffffff !important;
+}
+
+
+body.high-contrast
+.speaking-modal
+.finish-btn:disabled {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    opacity: 0.65 !important;
+}
+
+
+/* Microphone */
+
+body.high-contrast
+.speaking-modal
+.mic-btn {
+
+    background: #000000 !important;
+
+    color: #ffffff !important;
+
+    border:
+        2px solid #ffffff !important;
+}
+
+
+/* =========================================================
+   9. FLOATING BUTTON
+   ========================================================= */
+
+#accessibilityToggle,
+.accessibility-trigger-btn {
+
+    position: fixed !important;
+
+    bottom: 25px !important;
+
+    right: 25px !important;
+
+    z-index: 999999 !important;
+}
+
+
+/* =========================================================
+   10. ACCESSIBILITY MENU POSITION
+   ========================================================= */
+
+#accessibilityMenu {
+
+    position: fixed !important;
+
+    bottom: 90px !important;
+
+    right: 25px !important;
+
+    z-index: 999998 !important;
+}
+
+
+/* =========================================================
+   11. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #accessibilityMenu {
+
+        right: 15px !important;
+
+        bottom: 85px !important;
+
+        width: calc(100vw - 30px) !important;
+
+    }
+
+
+    #accessibilityToggle,
+    .accessibility-trigger-btn {
+
+        right: 15px !important;
+
+        bottom: 15px !important;
+
+    }
+
+}

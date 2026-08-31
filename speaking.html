@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Speaking A2</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+
+<!-- Bootstrap Icons -->
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+>
+
+<!-- Speaking CSS -->
+<link rel="stylesheet" href="css/speaking.css">
+
+<!-- Accessibility CSS -->
+<link rel="stylesheet" href="css/accesibility.css">
+```
+
+</head>
+
+<body>
+
+```
+<!-- =====================================================
+     NAVBAR
+====================================================== -->
+
+<nav class="oak-navbar navbar navbar-expand-lg sticky-top">
+
+    <div class="oak-nav-container container-fluid">
+
+        <a
+            class="oak-navbar-brand navbar-brand"
+            href="#"
+        >
+            <img
+                src="img/Logo.png"
+                alt="Oak English"
+                class="oak-logo"
+            >
+        </a>
+
+
+        <button
+            class="oak-navbar-toggler navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#oakMenu"
+            aria-label="Abrir menú"
+            aria-controls="oakMenu"
+        >
+            <span class="oak-navbar-toggler-icon navbar-toggler-icon"></span>
+        </button>
+
+
+        <div
+            class="oak-navbar-collapse collapse navbar-collapse oak-nav-end justify-content-end"
+            id="oakMenu"
+        >
+
+            <ul class="oak-nav-list navbar-nav oak-nav-align align-items-center">
+
+                <li class="oak-nav-item nav-item">
+                    <a
+                        class="oak-nav-link nav-link"
+                        href="home.html"
+                    >
+                        Home
+                    </a>
+                </li>
+
+                <li class="oak-nav-item nav-item">
+                    <a
+                        class="oak-nav-link nav-link"
+                        href="skills-menu.html"
+                    >
+                        Skills
+                    </a>
+                </li>
+
+                <li class="oak-nav-item nav-item">
+                    <a
+                        class="oak-nav-link nav-link"
+                        href="grammar-menu.html"
+                    >
+                        Grammar
+                    </a>
+                </li>
+
+                <li class="oak-nav-item nav-item">
+                    <a
+                        class="oak-nav-link nav-link"
+                        href="vocabulary_home.html"
+                    >
+                        Vocabulary
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =====================================================
+     TITLE
+====================================================== -->
+
+<h1 class="page-title">
+    Speaking&nbsp;&nbsp;A2
+</h1>
+
+
+<!-- =====================================================
+     PRACTICE CARDS
+====================================================== -->
+
+<div
+    class="oak-speaking-cards"
+    id="cardsGrid"
+></div>
+
+
+<!-- =====================================================
+     SPEAKING OVERLAY
+====================================================== -->
+
+<div
+    class="oak-speaking-overlay"
+    id="overlay"
+    aria-hidden="true"
+>
+
+    <div
+        class="oak-speaking-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="mTitle"
+    >
+
+        <!-- Close -->
+
+        <button
+            class="oak-modal-close"
+            id="closeModalBtn"
+            type="button"
+            aria-label="Cerrar práctica"
+        >
+            ✕
+        </button>
+
+
+        <!-- Level -->
+
+        <div
+            class="oak-level-tag"
+            id="mLevel"
+        >
+            A2 · Speaking
+        </div>
+
+
+        <!-- Title -->
+
+        <h3 id="mTitle"></h3>
+
+
+        <!-- Task -->
+
+        <div
+            class="oak-speaking-task"
+            id="mTask"
+        ></div>
+
+
+        <!-- =================================================
+             MICROPHONE
+        ================================================== -->
+
+        <div class="oak-mic-zone">
+
+            <button
+                class="oak-mic-btn"
+                id="micBtn"
+                type="button"
+                aria-label="Comenzar grabación"
+            >
+                🎤
+            </button>
+
+
+            <div
+                class="oak-mic-status"
+                id="micStatus"
+            >
+                Pulsa para empezar a grabar
+            </div>
+
+
+            <!-- Audio Wave -->
+
+            <canvas
+                id="waveCanvas"
+                width="480"
+                height="60"
+                aria-hidden="true"
+            ></canvas>
+
+        </div>
+
+
+        <!-- =================================================
+             TRANSCRIPT
+        ================================================== -->
+
+        <div
+            class="oak-transcript"
+            id="transcriptBox"
+            aria-live="polite"
+        >
+
+            <span class="oak-placeholder">
+                Tu transcripción aparecerá aquí mientras hablas…
+            </span>
+
+        </div>
+
+
+        <!-- Warning -->
+
+        <div
+            id="micWarn"
+            class="oak-warning"
+            style="display: none;"
+            role="alert"
+        ></div>
+
+
+        <!-- =================================================
+             EVALUATE
+        ================================================== -->
+
+        <button
+            class="oak-finish-btn"
+            id="finishBtn"
+            type="button"
+            disabled
+        >
+            Evaluar mi respuesta
+        </button>
+
+
+        <!-- =================================================
+             RESULTS
+        ================================================== -->
+
+        <div
+            class="oak-results"
+            id="resultsBox"
+        >
+
+            <div class="oak-score-row">
+
+                <div
+                    class="oak-score-number"
+                    id="scoreNum"
+                >
+                    0%
+                </div>
+
+                <div class="oak-score-description">
+                    puntuación general
+                </div>
+
+            </div>
+
+
+            <div class="oak-metrics">
+
+                <div class="oak-metric">
+
+                    <span>
+                        Cobertura de contenido
+                    </span>
+
+                    <b id="mContent">
+                        –
+                    </b>
+
+                </div>
+
+
+                <div class="oak-metric">
+
+                    <span>
+                        Ritmo (palabras/min)
+                    </span>
+
+                    <b id="mPace">
+                        –
+                    </b>
+
+                </div>
+
+
+                <div class="oak-metric">
+
+                    <span>
+                        Muletillas detectadas
+                    </span>
+
+                    <b id="mFillers">
+                        –
+                    </b>
+
+                </div>
+
+
+                <div class="oak-metric">
+
+                    <span>
+                        Duración
+                    </span>
+
+                    <b id="mDur">
+                        –
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="oak-feedback"
+                id="feedbackNote"
+            ></div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+<!--  Footer -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+
+                <img
+                    src="img/Logo2.png"
+                    alt="Oak English logo"
+                    class="oak-logo"
+                >
+
+                <p>
+                    A calm, inclusive space to learn English
+                    at your own pace — no pressure, no rush.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <!-- Skills -->
+
+                <div class="footer-section">
+
+                    <h4>Skills</h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="#">Reading</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Listening</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Writing</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Speaking</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Vocabulary -->
+
+                <div class="footer-section">
+
+                    <h4>Vocabulary</h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="#">
+                                A1 - A2 Vocabulary
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                B1 - B2 Vocabulary
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Interactive Games
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                Play with Words
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Grammar -->
+
+                <div class="footer-section">
+
+                    <h4>Grammar</h4>
+
+                    <ul>
+
+                        <li>
+                            <a href="grammar-games.html">
+                                A1 - A2 Grammar
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="b1-b2-grammar.html">
+                                B1 - B2 Grammar
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Social -->
+
+                <div class="footer-section">
+
+                    <span class="footer-social-label">
+                        Connect with us
+                    </span>
+
+                    <div class="social-links">
+
+                        <a
+                            href="#"
+                            aria-label="Oak English on Facebook"
+                        >
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Oak English on Twitter"
+                        >
+                            <i class="fab fa-twitter"></i>
+                        </a>
+
+                        <a
+                            href="#"
+                            aria-label="Oak English on Instagram"
+                        >
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            &copy; 2026 Oak English. All rights reserved.
+        </p>
+
+        <div class="footer-bottom-links">
+
+            <a href="#">Privacy</a>
+
+            <a href="#">Accessibility</a>
+
+            <a href="#">Contact</a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script src="JS/speaking.js"></script>
+
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+></script>
+```
+
+</body>
+
+</html>

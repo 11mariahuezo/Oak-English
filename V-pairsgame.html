@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Inclusive English vocabulary matching game for Oak English.">
+<title>Oak English · Find the Pair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="css/V-pairsgame.css">
+<link rel="stylesheet" href="css/accesibility.css">
+
+</head>
+
+<body>
+<main class="app-shell">
+
+  <div class="back-container">
+    <a href="vocabulary_home.html" class="back-btn" aria-label="Back to vocabulary">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      Back to Vocabulary
+    </a>
+  </div>
+
+  <header class="hero">
+    <div class="badge"><i class="bi bi-puzzle" aria-hidden="true"></i> Vocabulary practice</div>
+    <h1>Find the Pair</h1>
+    <p>Match each English word with the picture that represents it and learn at your own pace.</p>
+  </header>
+
+  <section class="settings" aria-label="Game settings">
+    <div class="setting-card">
+      <span class="setting-label">Difficulty</span>
+      <div class="segmented" role="group" aria-label="Choose difficulty level">
+        <button class="level-btn active" data-level="basico" type="button">Basic</button>
+        <button class="level-btn" data-level="intermedio" type="button">Intermediate</button>
+      </div>
+    </div>
+
+    <div class="setting-card">
+      <span class="setting-label">Number of words</span>
+      <div class="segmented" role="group" aria-label="Choose number of words">
+        <button class="size-btn active" data-size="6" type="button">6 Words</button>
+        <button class="size-btn" data-size="10" type="button">10 Words</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="game-panel" aria-labelledby="instructions-title">
+    <div class="instructions-head">
+      <h2 id="instructions-title">How to play</h2>
+      <span class="pace-pill"><i class="bi bi-clock" aria-hidden="true"></i> No time limit</span>
+    </div>
+
+    <div class="instructions">
+      <article class="instruction">
+        <span class="step">1</span>
+        <strong>Choose</strong>
+        <span>Select your level and how many words you want to practice.</span>
+      </article>
+      <article class="instruction">
+        <span class="step">2</span>
+        <strong>Match</strong>
+        <span>Select an English word and then choose the picture that matches it.</span>
+      </article>
+      <article class="instruction">
+        <span class="step">3</span>
+        <strong>Keep learning</strong>
+        <span>Correct pairs stay green. If they do not match, simply try again.</span>
+      </article>
+    </div>
+
+    <p class="helper">
+      <i class="bi bi-heart" aria-hidden="true"></i>
+      <span><strong>Take your time.</strong> There is no timer, and you can use a mouse, touch screen, or keyboard.</span>
+    </p>
+
+    <div class="progress" aria-label="Game progress">
+      <span class="progress-label">YOUR PROGRESS</span>
+      <span id="parejas-stars" aria-live="polite"></span>
+    </div>
+
+    <div class="pairs-wrap">
+      <div>
+        <div class="column-title"><i class="bi bi-translate" aria-hidden="true"></i> English words</div>
+        <div class="pairs-col" id="parejas-words" aria-label="English words"></div>
+      </div>
+
+      <div>
+        <div class="column-title"><i class="bi bi-image" aria-hidden="true"></i> Pictures</div>
+        <div class="pairs-col" id="parejas-images" aria-label="Pictures"></div>
+      </div>
+    </div>
+
+    <div class="feedback-msg" id="parejas-feedback" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <div class="action-row">
+      <button class="btn btn-primary" id="parejas-reset" type="button">
+        <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+        New Game
+      </button>
+    </div>
+  </section>
+</main>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Skills</h4>
+      <ul>
+        <li><a href="#">Reading</a></li>
+        <li><a href="#">Listening</a></li>
+        <li><a href="#">Writing</a></li>
+        <li><a href="#">Speaking</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Vocabulary</h4>
+      <ul>
+        <li><a href="#">A1 - A2 Vocabulary</a></li>
+        <li><a href="#">B1 - B2 Vocabulary</a></li>
+        <li><a href="#">Interactive Games</a></li>
+        <li><a href="#">Play with Words</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Grammar</h4>
+      <ul>
+        <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+        <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h4>Connect with us</h4>
+      <div class="social-links" aria-label="Social media">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+    <span>&copy; 2026 Oak English. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+const VOCAB = {
+  basico: [
+    {en:"cat", emoji:"🐱"}, {en:"dog", emoji:"🐶"}, {en:"sun", emoji:"☀️"}, {en:"moon", emoji:"🌙"},
+    {en:"apple", emoji:"🍎"}, {en:"banana", emoji:"🍌"}, {en:"house", emoji:"🏠"}, {en:"book", emoji:"📖"},
+    {en:"water", emoji:"💧"}, {en:"milk", emoji:"🥛"}, {en:"fish", emoji:"🐟"}, {en:"bird", emoji:"🐦"},
+    {en:"star", emoji:"⭐"}, {en:"tree", emoji:"🌳"}, {en:"ball", emoji:"⚽"}, {en:"chair", emoji:"🪑"},
+    {en:"flower", emoji:"🌸"}, {en:"shoe", emoji:"👟"}, {en:"hat", emoji:"🧢"}, {en:"car", emoji:"🚗"},
+    {en:"bus", emoji:"🚌"}, {en:"boat", emoji:"⛵"}, {en:"egg", emoji:"🥚"}, {en:"bread", emoji:"🍞"},
+    {en:"cheese", emoji:"🧀"}, {en:"cake", emoji:"🎂"}, {en:"cookie", emoji:"🍪"}, {en:"orange", emoji:"🍊"},
+    {en:"grape", emoji:"🍇"}, {en:"strawberry", emoji:"🍓"}, {en:"carrot", emoji:"🥕"}, {en:"corn", emoji:"🌽"},
+    {en:"pizza", emoji:"🍕"}, {en:"rabbit", emoji:"🐰"}, {en:"horse", emoji:"🐴"}, {en:"cow", emoji:"🐮"},
+    {en:"pig", emoji:"🐷"}, {en:"sheep", emoji:"🐑"}, {en:"duck", emoji:"🦆"}, {en:"frog", emoji:"🐸"},
+    {en:"bee", emoji:"🐝"}, {en:"butterfly", emoji:"🦋"}, {en:"snake", emoji:"🐍"}, {en:"lion", emoji:"🦁"},
+    {en:"elephant", emoji:"🐘"}, {en:"monkey", emoji:"🐒"}, {en:"door", emoji:"🚪"}, {en:"window", emoji:"🪟"},
+    {en:"bed", emoji:"🛏️"}, {en:"clock", emoji:"🕐"}
+  ],
+  intermedio: [
+    {en:"happy", emoji:"😊"}, {en:"sad", emoji:"😢"}, {en:"angry", emoji:"😠"}, {en:"tired", emoji:"😴"},
+    {en:"scared", emoji:"😨"}, {en:"surprised", emoji:"😲"}, {en:"excited", emoji:"🤩"}, {en:"run", emoji:"🏃"},
+    {en:"jump", emoji:"🤸"}, {en:"swim", emoji:"🏊"}, {en:"dance", emoji:"💃"}, {en:"sing", emoji:"🎤"},
+    {en:"read", emoji:"📚"}, {en:"write", emoji:"✍️"}, {en:"draw", emoji:"🎨"}, {en:"listen", emoji:"👂"},
+    {en:"talk", emoji:"🗣️"}, {en:"walk", emoji:"🚶"}, {en:"fly", emoji:"✈️"}, {en:"climb", emoji:"🧗"},
+    {en:"build", emoji:"🧱"}, {en:"clean", emoji:"🧹"}, {en:"wash", emoji:"🚿"}, {en:"cook", emoji:"🍳"},
+    {en:"teacher", emoji:"👩‍🏫"}, {en:"doctor", emoji:"👨‍⚕️"}, {en:"nurse", emoji:"🩺"}, {en:"police officer", emoji:"👮"},
+    {en:"firefighter", emoji:"👨‍🚒"}, {en:"pilot", emoji:"👨‍✈️"}, {en:"chef", emoji:"👨‍🍳"}, {en:"artist", emoji:"👩‍🎨"},
+    {en:"scientist", emoji:"👩‍🔬"}, {en:"farmer", emoji:"👨‍🌾"}, {en:"rain", emoji:"🌧️"}, {en:"cloud", emoji:"☁️"},
+    {en:"snow", emoji:"❄️"}, {en:"wind", emoji:"💨"}, {en:"storm", emoji:"⛈️"}, {en:"rainbow", emoji:"🌈"},
+    {en:"hot", emoji:"🔥"}, {en:"cold", emoji:"🥶"}, {en:"morning", emoji:"🌅"}, {en:"night", emoji:"🌃"},
+    {en:"garden", emoji:"🌳"}, {en:"school", emoji:"🏫"}, {en:"kitchen", emoji:"🍽️"}, {en:"friend", emoji:"🤝"},
+    {en:"family", emoji:"👪"}, {en:"music", emoji:"🎵"}
+  ]
+};
+
+let state = { level:"basico", size:6 };
+
+function shuffle(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}
+  return a;
+}
+function getWordSet(){
+  const list = VOCAB[state.level];
+  return shuffle(list).slice(0, Math.min(state.size, list.length));
+}
+function starsHTML(n){ return "⭐".repeat(n); }
+
+document.querySelectorAll('.level-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.level-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active'); state.level = btn.dataset.level; initParejas();
+  });
+});
+document.querySelectorAll('.size-btn').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active'); state.size = parseInt(btn.dataset.size,10); initParejas();
+  });
+});
+
+let parejasState = { words:[], selectedWord:null, selectedImage:null, matchedCount:0 };
+
+function initParejas(){
+  const words = getWordSet();
+  parejasState = { words, selectedWord:null, selectedImage:null, matchedCount:0 };
+
+  const wordsCol = document.getElementById('parejas-words');
+  const imagesCol = document.getElementById('parejas-images');
+  wordsCol.innerHTML=''; imagesCol.innerHTML='';
+
+  const shuffledWords = shuffle(words.map((w,idx)=>({...w, pairId:idx})));
+  const shuffledImages = shuffle(words.map((w,idx)=>({...w, pairId:idx})));
+
+shuffledWords.forEach(w => {
+    const el = document.createElement('button');
+    el.className = 'pair-item';
+    el.type = 'button';
+    el.setAttribute('aria-label', `English word: ${w.en}`);
+    el.textContent = w.en;
+    el.addEventListener('click', () => onParejasWordClick(el, w));
+    wordsCol.appendChild(el);
+});
+
+shuffledImages.forEach(w => {
+    const el = document.createElement('button');
+    el.className = 'pair-item emoji-item';
+    el.type = 'button';
+    el.setAttribute('aria-label', `Picture for: ${w.en}`);
+    el.textContent = w.emoji;
+    el.addEventListener('click', () => onParejasImageClick(el, w));
+    imagesCol.appendChild(el);
+});
+
+  document.getElementById('parejas-feedback').textContent='';
+  document.getElementById('parejas-feedback').className='feedback-msg';
+  updateParejasStars();
+}
+function updateParejasStars(){
+  document.getElementById('parejas-stars').textContent = starsHTML(parejasState.matchedCount)+` (${parejasState.matchedCount}/${parejasState.words.length})`;
+}
+function onParejasWordClick(el,data){
+  if(el.classList.contains('matched')) return;
+  if(parejasState.selectedWord) parejasState.selectedWord.el.classList.remove('selected');
+  parejasState.selectedWord = { el, data };
+  el.classList.add('selected');
+  checkParejasMatch();
+}
+function onParejasImageClick(el,data){
+  if(el.classList.contains('matched')) return;
+  if(parejasState.selectedImage) parejasState.selectedImage.el.classList.remove('selected');
+  parejasState.selectedImage = { el, data };
+  el.classList.add('selected');
+  checkParejasMatch();
+}
+function checkParejasMatch(){
+  if(!parejasState.selectedWord || !parejasState.selectedImage) return;
+  const feedback = document.getElementById('parejas-feedback');
+  const w = parejasState.selectedWord;
+  const im = parejasState.selectedImage;
+  if(w.data.pairId === im.data.pairId){
+    w.el.classList.remove('selected'); im.el.classList.remove('selected');
+    w.el.classList.add('matched'); im.el.classList.add('matched');
+    parejasState.matchedCount++;
+    updateParejasStars();
+    feedback.textContent='Great match! You found a pair. 🎉';
+    feedback.className='feedback-msg success';
+    if(parejasState.matchedCount===parejasState.words.length){
+      feedback.textContent='Amazing! You found all the pairs. 🌟';
+    }
+  } else {
+    feedback.textContent='Good try! Look carefully and try another pair. 💙';
+    feedback.className='feedback-msg retry';
+    setTimeout(()=>{ w.el.classList.remove('selected'); im.el.classList.remove('selected'); }, 500);
+  }
+  parejasState.selectedWord=null; parejasState.selectedImage=null;
+}
+document.getElementById('parejas-reset').addEventListener('click', initParejas);
+
+const urlParams = new URLSearchParams(window.location.search);
+const nivelFromUrl = urlParams.get('nivel');
+if(nivelFromUrl === 'basico' || nivelFromUrl === 'intermedio'){
+  state.level = nivelFromUrl;
+  document.querySelectorAll('.level-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.level === nivelFromUrl);
+  });
+}
+initParejas();
+
+</script>
+</body>
+</html>

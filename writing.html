@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing A1 - Oak English</title>
+    <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/writing.css">
+
+     <!-- Accesibility -->
+<link rel="stylesheet" href="css/accesibility.css">
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top">  
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" alt="Logo" class="Logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
+          <li class="nav-item"><a class="nav-link" href="vocabulary_home.html">Vocabulary</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+    <!-- home -->
+    <section id="home" class="section active">
+        <div class="page-title">
+    <h1>Writing A1</h1>
+</div>
+
+        <div class="text-center mb-20">
+            <h2 style="font-size: 32px; margin-bottom: 10px;">Why Practice With Us?</h2>
+            <p style="color: #666; font-size: 18px;">Interactive exercises designed for A1 level learners</p>
+        </div>
+
+        <div class="activities-grid" id="activities-home"></div>
+    </section>
+
+    <section id="activities" class="section">
+        <div class="practice-area">
+            <div class="practice-header">
+                <h2 id="activity-title">Activity Title</h2>
+                <p id="activity-description">Activity description goes here</p>
+            </div>
+
+            <div class="practice-instructions">
+                <h3>Instructions:</h3>
+                <ul id="instructions-list">
+                    <li>Write your answer in the text box below</li>
+                    <li>Use at least 30-50 words</li>
+                    <li>Check your grammar and spelling</li>
+                </ul>
+            </div>
+
+            <form id="practice-form">
+                <div class="form-group">
+                    <label for="student-name">Your Name:</label>
+                    <input type="text" id="student-name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="writing-answer">Your Answer:</label>
+                    <textarea id="writing-answer" placeholder="Start writing here..." required></textarea>
+                    <div class="word-count">Words: <span id="word-count">0</span></div>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn-submit">Submit Answer</button>
+                    <button type="button" class="btn-secondary" onclick="showSection('home')">Back to Home</button>
+                </div>
+            </form>
+
+            <div class="spinner" id="loading-spinner"></div>
+
+            <div class="feedback" id="feedback">
+                <h3 id="feedback-title"></h3>
+                <p id="feedback-message"></p>
+            </div>
+
+            <div class="examples-section">
+                <h3>Examples:</h3>
+                <div id="examples-container">
+                    <div class="example-box">
+                        <h4>Example 1:</h4>
+                        <p>Your example text here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+<!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+                    <p>A calm, inclusive space to learn English at your own pace — no pressure, no rush.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="#">Reading</a></li>
+                            <li><a href="#">Listening</a></li>
+                            <li><a href="#">Writing</a></li>
+                            <li><a href="#">Speaking</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Vocabulary</h4>
+                        <ul>
+                            <li><a href="#">A1 - A2 Vocabulary</a></li>
+                            <li><a href="#">B1 - B2 Vocabulary</a></li>
+                            <li><a href="#">Interactive Games</a></li>
+                            <li><a href="#">Play with Words</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Grammar</h4>
+                        <ul>
+                            <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+                            <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <span class="footer-social-label">Connect with us</span>
+                        <div class="social-links">
+                            <a href="#" aria-label="Oak English on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oak English. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const activities = [
+            {
+                id: 1,
+                title: "A message to say you are late",
+                description: "Learn how to write a message to express you are late",
+                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop",
+                level: "A1",
+                instructions: ["Write a message to your friend", "Explain why you are late", "Say when you will arrive", "Use 30-50 words"],
+                examples: [{ title: "Example:", text: "Hi Sarah! I'm so sorry but I'm running late. My bus was delayed. I'll be there in about 20 minutes. See you soon!" }]
+            },
+            {
+                id: 2,
+                title: "Write an invitation",
+                description: "Write an invitation to your friends",
+                image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=400&h=300&fit=crop",
+                level: "A1",
+                instructions: ["Invite your friends to a party/event", "Include date, time and place", "Ask them to RSVP", "Use 40-60 words"],
+                examples: [{ title: "Example:", text: "Hi everyone! I'm having a birthday party next Saturday at 7 PM at my house. There will be food, music and games. Please let me know if you can come. Hope to see you there!" }]
+            },
+            {
+                id: 3,
+                title: "Daily Log",
+                description: "Write about what you did today",
+                image: "https://images.unsplash.com/photo-1517842645767-c639042777db?w=400&h=300&fit=crop",
+                level: "A1",
+                instructions: ["Write about your day", "Use Past Simple tense", "Include at least 3 activities", "Use 30-50 words"],
+                examples: [{ title: "Example:", text: "Today I woke up at 7 AM. I had breakfast with my family. Then I went to school. After school, I played football with my friends. In the evening, I did my homework and watched TV." }]
+            }
+        ];
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            document.querySelectorAll('.nav-links a').forEach(l => {
+                if (!l.classList.contains('btn-login') && !l.classList.contains('btn-signup')) {
+                    l.classList.remove('active');
+                }
+            });
+            window.scrollTo(0, 0);
+            if (sectionId === 'home') loadActivities();
+        }
+
+        function loadActivities() {
+            const container = document.getElementById('activities-home');
+            container.innerHTML = '';
+            activities.forEach(a => {
+                const card = document.createElement('div');
+                card.className = 'activity-card';
+                card.onclick = () => loadActivity(a.id);
+                card.innerHTML = `
+                    <img src="${a.image}" alt="${a.title}">
+                    <div class="activity-card-content">
+                        <h3>${a.title}</h3>
+                        <p>${a.description}</p>
+                        <span class="activity-level">${a.level}</span>
+                    </div>`;
+                container.appendChild(card);
+            });
+        }
+
+        function loadActivity(id) {
+            const a = activities.find(x => x.id === id);
+            if (!a) return;
+            document.getElementById('activity-title').textContent = a.title;
+            document.getElementById('activity-description').textContent = a.description;
+            const il = document.getElementById('instructions-list');
+            il.innerHTML = '';
+            a.instructions.forEach(i => { const li = document.createElement('li'); li.textContent = i; il.appendChild(li); });
+            const ec = document.getElementById('examples-container');
+            ec.innerHTML = '';
+            a.examples.forEach(e => {
+                const box = document.createElement('div');
+                box.className = 'example-box';
+                box.innerHTML = `<h4>${e.title}</h4><p>${e.text}</p>`;
+                ec.appendChild(box);
+            });
+            document.getElementById('practice-form').reset();
+            document.getElementById('word-count').textContent = '0';
+            document.getElementById('feedback').classList.remove('show');
+            showSection('activities');
+        }
+
+        document.getElementById('writing-answer')?.addEventListener('input', function() {
+            const text = this.value.trim();
+            document.getElementById('word-count').textContent = text ? text.split(/\s+/).length : 0;
+        });
+
+        document.getElementById('practice-form')?.addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('loading-spinner').classList.add('show');
+            setTimeout(() => {
+                document.getElementById('loading-spinner').classList.remove('show');
+                const feedback = document.getElementById('feedback');
+                const wc = parseInt(document.getElementById('word-count').textContent);
+                if (wc >= 30) {
+                    feedback.className = 'feedback success show';
+                    document.getElementById('feedback-title').textContent = 'Great job!';
+                    document.getElementById('feedback-message').textContent = 'Your answer has been submitted successfully.';
+                } else {
+                    feedback.className = 'feedback error show';
+                    document.getElementById('feedback-title').textContent = 'Keep writing!';
+                    document.getElementById('feedback-message').textContent = 'Your answer is too short. Try to write at least 30 words.';
+                }
+                feedback.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1500);
+        });
+
+        document.addEventListener('DOMContentLoaded', loadActivities);
+    </script>
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vocabulary — Learn with Clarity</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+ <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="css/vocabulary-menu.css">
+
+   <!-- Accesibility -->
+<link rel="stylesheet" href="css/accesibility.css">
+</head>
+<body>
+
+ <!-- Navbar -->
+ <nav class="navbar navbar-expand-lg sticky-top">  
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" alt="Logo" class="Logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
+          <li class="nav-item"><a class="nav-link" href="vocabulary_home.html">Vocabulary</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+<section class="hero" id="home">
+  <span class="hero-blob blob-1"></span>
+  <span class="hero-blob blob-2"></span>
+  <span class="hero-blob blob-3"></span>
+
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Learn at your own pace</span>
+      <h1>English vocabulary, <span class="accent">made clear</span></h1>
+      <p>Grow your English vocabulary in a clear, organized way — from the basics to more complete words. Take your time, no pressure, with games that make practice feel like play.</p>
+      <div class="hero-ctas">
+        <a href="#levels" class="btn btn-primary"> Start learning</a>
+        <a href="#games" class="btn btn-ghost"> Go to the games</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="chips-row">
+    <div class="chip" id="chip-what">
+      <button class="chip-head" aria-expanded="false">
+        <span> What will you learn?</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="chip-body">
+        <p>Essential words for everyday life: animals, food, emotions, routines, jobs, and more — organized by level, from the simplest to the most complete.</p>
+      </div>
+    </div>
+    <div class="chip" id="chip-how">
+      <button class="chip-head" aria-expanded="false">
+        <span> How will you learn?</span>
+        <span class="arrow">▾</span>
+      </button>
+      <div class="chip-body">
+        <p>With short games and no time limit: memory, matching pairs, and picture puzzles. You can listen to the pronunciation of any word whenever you want.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="path-section" id="levels">
+  <div class="section-heading">
+    <span class="eyebrow">Your learning path</span>
+    <h2>One step at a time</h2>
+    <p>Move at your own pace: start with the basics, then intermediate, and practice everything with games whenever you like.</p>
+  </div>
+
+  <div class="trail">
+    <span class="trail-line"></span>
+
+    <div class="stone" style="--stone-color:#9DC7E4;">
+      <div class="stone-num"></div>
+      <div class="stone-card">
+        <span class="stone-label">Step 1</span>
+        <h3>A1–A2 Vocabulary (Basic)</h3>
+        <p>The most common words to describe yourself and the world around you: animals, food, home, colors, and everyday objects.</p>
+        <div class="stone-actions">
+          <a href="1_memoria.html?nivel=basico" class="mini-btn">Practice with games</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stone" style="--stone-color:#153A63;">
+      <div class="stone-num"></div>
+      <div class="stone-card">
+        <span class="stone-label">Step 2</span>
+        <h3>B1–B2 Vocabulary (Intermediate)</h3>
+        <p>Words to express emotions, actions, jobs, and weather — fuller phrases to help you communicate with more confidence.</p>
+        <div class="stone-actions">
+          <a href="1_memoria.html?nivel=intermedio" class="mini-btn" style="background:#153A63;">Practice with games</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stone" id="games" style="--stone-color:#5A7893;">
+      <div class="stone-num"></div>
+      <div class="stone-card">
+        <span class="stone-label">Step 3</span>
+        <h3>Interactive games: learn by playing</h3>
+        <p>Choose a game to practice the vocabulary you've already learned. Play as many times as you like — there's no score to lose.</p>
+        <div class="games-grid">
+          <a href="memoriagame-V.html" class="game-tile">
+            <span class="name">Memory</span>
+          </a>
+          <a href="pairsgame-V.html" class="game-tile">
+            <span class="name">Matching pairs</span>
+          </a>
+          <a href="puzzletgame-V.html" class="game-tile">
+            <span class="name">Puzzle</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+    
+<script src="JS/accesibility.js"></script>
+
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+                    <p>A calm, inclusive space to learn English at your own pace — no pressure, no rush.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="#">Reading</a></li>
+                            <li><a href="#">Listening</a></li>
+                            <li><a href="#">Writing</a></li>
+                            <li><a href="#">Speaking</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Vocabulary</h4>
+                        <ul>
+                            <li><a href="#">A1 - A2 Vocabulary</a></li>
+                            <li><a href="#">B1 - B2 Vocabulary</a></li>
+                            <li><a href="#">Interactive Games</a></li>
+                            <li><a href="#">Play with Words</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Grammar</h4>
+                        <ul>
+                            <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+                            <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <span class="footer-social-label">Connect with us</span>
+                        <div class="social-links">
+                            <a href="#" aria-label="Oak English on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oak English. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="JS/accesibility.js" ></script>
+ 
+  
+</body>
+</html>
+
+<script>
+  document.querySelectorAll('.chip-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const chip = head.closest('.chip');
+      const isOpen = chip.classList.contains('open');
+      document.querySelectorAll('.chip').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.chip-head').setAttribute('aria-expanded', 'false');
+      });
+      if(!isOpen){
+        chip.classList.add('open');
+        head.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Inclusive English vocabulary memory game for learning at your own pace.">
+<title>Oak English · Memory Match</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" href="css/V-memorygame.css">
+<link rel="stylesheet" href="css/accesibility.css">
+</head>
+
+<body>
+<main class="app-shell">
+
+  <div class="back-container">
+    <a href="vocabulary_home.html" class="back-btn" aria-label="Back to vocabulary">
+      <i class="bi bi-arrow-left" aria-hidden="true"></i>
+      Back to Vocabulary
+    </a>
+  </div>
+
+  <header class="hero">
+    <div class="badge"><i class="bi bi-lightbulb" aria-hidden="true"></i> Vocabulary practice</div>
+    <h1>Memory Match</h1>
+    <p>Connect each picture with its English word and learn at your own pace.</p>
+  </header>
+
+  <section class="settings" aria-label="Game settings">
+
+    <div class="setting-card">
+      <span class="setting-label">Difficulty</span>
+      <div class="segmented" role="group" aria-label="Choose difficulty level">
+        <button class="level-btn active" data-level="basico" type="button">Basic</button>
+        <button class="level-btn" data-level="intermedio" type="button">Intermediate</button>
+      </div>
+    </div>
+
+    <div class="setting-card">
+      <span class="setting-label">Number of words</span>
+      <div class="segmented" role="group" aria-label="Choose number of words">
+        <button class="size-btn active" data-size="6" type="button">6 Words</button>
+        <button class="size-btn" data-size="10" type="button">10 Words</button>
+        <button class="size-btn" data-size="15" type="button">15 Words</button>
+      </div>
+    </div>
+
+  </section>
+
+  <section class="game-panel" aria-labelledby="instructions-title">
+
+    <div class="instructions-head">
+      <h2 id="instructions-title">How to play</h2>
+      <span class="pace-pill"><i class="bi bi-clock" aria-hidden="true"></i> No time limit</span>
+    </div>
+
+    <div class="instructions">
+      <article class="instruction">
+        <span class="step">1</span>
+        <strong>Choose</strong>
+        <span>Select a level and the number of words you want to practice.</span>
+      </article>
+
+      <article class="instruction">
+        <span class="step">2</span>
+        <strong>Find a pair</strong>
+        <span>Open two cards and look for the matching picture and English word.</span>
+      </article>
+
+      <article class="instruction">
+        <span class="step">3</span>
+        <strong>Keep learning</strong>
+        <span>A correct pair stays open. If they do not match, try again.</span>
+      </article>
+    </div>
+
+    <p class="helper">
+      <i class="bi bi-heart" aria-hidden="true"></i>
+      <span><strong>Take your time.</strong> There is no timer. You can play with a mouse, touch screen, or keyboard.</span>
+    </p>
+
+    <div class="progress" aria-label="Game progress">
+      <span class="progress-label">YOUR PROGRESS</span>
+      <span id="memoria-stars" aria-live="polite"></span>
+    </div>
+
+    <div class="card-grid" id="memoria-grid" role="group" aria-label="Memory game cards"></div>
+
+    <div
+      class="feedback-msg"
+      id="memoria-feedback"
+      role="status"
+      aria-live="polite"
+      aria-atomic="true">
+    </div>
+
+    <div class="action-row">
+      <button class="btn btn-primary" id="memoria-reset" type="button">
+        <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
+        New Game
+      </button>
+    </div>
+
+  </section>
+</main>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h4>Skills</h4>
+      <ul>
+        <li><a href="#">Reading</a></li>
+        <li><a href="#">Listening</a></li>
+        <li><a href="#">Writing</a></li>
+        <li><a href="#">Speaking</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Vocabulary</h4>
+      <ul>
+        <li><a href="#">A1 - A2 Vocabulary</a></li>
+        <li><a href="#">B1 - B2 Vocabulary</a></li>
+        <li><a href="#">Interactive Games</a></li>
+        <li><a href="#">Play with Words</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Grammar</h4>
+      <ul>
+        <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+        <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h4>Connect with us</h4>
+      <div class="social-links" aria-label="Social media">
+        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+    <span>&copy; 2026 Oak English. All rights reserved.</span>
+  </div>
+</footer>
+
+<script>
+const VOCAB = {
+  basico: [
+    {en:"cat", emoji:"🐱"}, {en:"dog", emoji:"🐶"}, {en:"sun", emoji:"☀️"}, {en:"moon", emoji:"🌙"},
+    {en:"apple", emoji:"🍎"}, {en:"banana", emoji:"🍌"}, {en:"house", emoji:"🏠"}, {en:"book", emoji:"📖"},
+    {en:"water", emoji:"💧"}, {en:"milk", emoji:"🥛"}, {en:"fish", emoji:"🐟"}, {en:"bird", emoji:"🐦"},
+    {en:"star", emoji:"⭐"}, {en:"tree", emoji:"🌳"}, {en:"ball", emoji:"⚽"}, {en:"chair", emoji:"🪑"},
+    {en:"flower", emoji:"🌸"}, {en:"shoe", emoji:"👟"}, {en:"hat", emoji:"🧢"}, {en:"car", emoji:"🚗"},
+    {en:"bus", emoji:"🚌"}, {en:"boat", emoji:"⛵"}, {en:"egg", emoji:"🥚"}, {en:"bread", emoji:"🍞"},
+    {en:"cheese", emoji:"🧀"}, {en:"cake", emoji:"🎂"}, {en:"cookie", emoji:"🍪"}, {en:"orange", emoji:"🍊"},
+    {en:"grape", emoji:"🍇"}, {en:"strawberry", emoji:"🍓"}, {en:"carrot", emoji:"🥕"}, {en:"corn", emoji:"🌽"},
+    {en:"pizza", emoji:"🍕"}, {en:"rabbit", emoji:"🐰"}, {en:"horse", emoji:"🐴"}, {en:"cow", emoji:"🐮"},
+    {en:"pig", emoji:"🐷"}, {en:"sheep", emoji:"🐑"}, {en:"duck", emoji:"🦆"}, {en:"frog", emoji:"🐸"},
+    {en:"bee", emoji:"🐝"}, {en:"butterfly", emoji:"🦋"}, {en:"snake", emoji:"🐍"}, {en:"lion", emoji:"🦁"},
+    {en:"elephant", emoji:"🐘"}, {en:"monkey", emoji:"🐒"}, {en:"door", emoji:"🚪"}, {en:"window", emoji:"🪟"},
+    {en:"bed", emoji:"🛏️"}, {en:"clock", emoji:"🕐"}
+  ],
+  intermedio: [
+    {en:"happy", emoji:"😊"}, {en:"sad", emoji:"😢"}, {en:"angry", emoji:"😠"}, {en:"tired", emoji:"😴"},
+    {en:"scared", emoji:"😨"}, {en:"surprised", emoji:"😲"}, {en:"excited", emoji:"🤩"}, {en:"run", emoji:"🏃"},
+    {en:"jump", emoji:"🤸"}, {en:"swim", emoji:"🏊"}, {en:"dance", emoji:"💃"}, {en:"sing", emoji:"🎤"},
+    {en:"read", emoji:"📚"}, {en:"write", emoji:"✍️"}, {en:"draw", emoji:"🎨"}, {en:"listen", emoji:"👂"},
+    {en:"talk", emoji:"🗣️"}, {en:"walk", emoji:"🚶"}, {en:"fly", emoji:"✈️"}, {en:"climb", emoji:"🧗"},
+    {en:"build", emoji:"🧱"}, {en:"clean", emoji:"🧹"}, {en:"wash", emoji:"🚿"}, {en:"cook", emoji:"🍳"},
+    {en:"teacher", emoji:"👩‍🏫"}, {en:"doctor", emoji:"👨‍⚕️"}, {en:"nurse", emoji:"🩺"}, {en:"police officer", emoji:"👮"},
+    {en:"firefighter", emoji:"👨‍🚒"}, {en:"pilot", emoji:"👨‍✈️"}, {en:"chef", emoji:"👨‍🍳"}, {en:"artist", emoji:"👩‍🎨"},
+    {en:"scientist", emoji:"👩‍🔬"}, {en:"farmer", emoji:"👨‍🌾"}, {en:"rain", emoji:"🌧️"}, {en:"cloud", emoji:"☁️"},
+    {en:"snow", emoji:"❄️"}, {en:"wind", emoji:"💨"}, {en:"storm", emoji:"⛈️"}, {en:"rainbow", emoji:"🌈"},
+    {en:"hot", emoji:"🔥"}, {en:"cold", emoji:"🥶"}, {en:"morning", emoji:"🌅"}, {en:"night", emoji:"🌃"},
+    {en:"garden", emoji:"🌳"}, {en:"school", emoji:"🏫"}, {en:"kitchen", emoji:"🍽️"}, {en:"friend", emoji:"🤝"},
+    {en:"family", emoji:"👪"}, {en:"music", emoji:"🎵"}
+  ]
+};
+
+/*
+ * The game logic below intentionally keeps the original behavior:
+ * - Basic / Intermediate levels
+ * - 6 / 10 / 15 words
+ * - one emoji card + one English-word card per vocabulary item
+ * - shuffled deck
+ * - two-card matching
+ * - matched pairs remain visible
+ * - unmatched cards turn back after 1.1 seconds
+ * - progress counter
+ * - New Game button
+ * - URL parameter ?nivel=basico or ?nivel=intermedio
+ */
+
+let state = { level:"basico", size:6 };
+
+function shuffle(arr){
+  const a = [...arr];
+  for(let i = a.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function getWordSet(){
+  const list = VOCAB[state.level];
+  return shuffle(list).slice(0, Math.min(state.size, list.length));
+}
+
+function starsHTML(n){
+  return "⭐".repeat(n);
+}
+
+document.querySelectorAll('.level-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.level = btn.dataset.level;
+    initMemoria();
+  });
+});
+
+document.querySelectorAll('.size-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    state.size = parseInt(btn.dataset.size, 10);
+    initMemoria();
+  });
+});
+
+let memoriaState = {
+  cards: [],
+  flipped: [],
+  matchedCount: 0,
+  lock: false
+};
+
+function initMemoria(){
+  const words = getWordSet();
+  let deck = [];
+
+  words.forEach((w, idx) => {
+    deck.push({ pairId:idx, type:'emoji', content:w.emoji });
+    deck.push({ pairId:idx, type:'word', content:w.en });
+  });
+
+  deck = shuffle(deck);
+
+  memoriaState = {
+    cards:deck,
+    flipped:[],
+    matchedCount:0,
+    lock:false
+  };
+
+  const grid = document.getElementById('memoria-grid');
+  grid.innerHTML = '';
+
+  deck.forEach((card, i) => {
+    const el = document.createElement('button');
+
+    el.type = 'button';
+    el.className = 'memory-card hidden-content';
+    el.setAttribute('aria-pressed', 'false');
+    el.setAttribute('aria-label', `Card ${i + 1}, hidden. Select to reveal.`);
+    el.textContent = '?';
+
+    el.addEventListener('click', () => onMemoriaCardClick(i));
+    grid.appendChild(el);
+  });
+
+  const feedback = document.getElementById('memoria-feedback');
+  feedback.textContent = '';
+  feedback.className = 'feedback-msg';
+
+  updateMemoriaStars(words.length);
+}
+
+function updateMemoriaStars(total){
+  document.getElementById('memoria-stars').textContent =
+    starsHTML(memoriaState.matchedCount) +
+    ` (${memoriaState.matchedCount}/${total})`;
+}
+
+function onMemoriaCardClick(i){
+  if(memoriaState.lock) return;
+
+  const cardData = memoriaState.cards[i];
+  const cardEl = document.querySelectorAll('#memoria-grid .memory-card')[i];
+
+  if(cardEl.classList.contains('flipped') || cardEl.classList.contains('matched')) return;
+
+  cardEl.classList.remove('hidden-content');
+  cardEl.classList.add('flipped');
+  cardEl.setAttribute('aria-pressed', 'true');
+
+  if(cardData.type === 'word'){
+    cardEl.classList.add('small-text');
+    cardEl.setAttribute('aria-label', `Word card: ${cardData.content}`);
+  } else {
+    cardEl.setAttribute('aria-label', `Picture card: ${cardData.content}`);
+  }
+
+  cardEl.textContent = cardData.content;
+
+  memoriaState.flipped.push({ i, cardData, el:cardEl });
+
+  if(memoriaState.flipped.length === 2){
+    memoriaState.lock = true;
+
+    const [a,b] = memoriaState.flipped;
+    const feedback = document.getElementById('memoria-feedback');
+
+    if(
+      a.cardData.pairId === b.cardData.pairId &&
+      a.cardData.type !== b.cardData.type
+    ){
+      a.el.classList.add('matched');
+      b.el.classList.add('matched');
+      a.el.classList.remove('flipped');
+      b.el.classList.remove('flipped');
+
+      memoriaState.matchedCount++;
+
+      const total = memoriaState.cards.length / 2;
+      updateMemoriaStars(total);
+
+      feedback.textContent = 'Great match! You found a pair. 🎉';
+      feedback.className = 'feedback-msg success';
+
+      memoriaState.flipped = [];
+      memoriaState.lock = false;
+
+      if(memoriaState.matchedCount === total){
+        feedback.textContent = 'Amazing! You completed the game. 🌟';
+      }
+
+    } else {
+      feedback.textContent = 'Good try! Look closely and try another pair. 💙';
+      feedback.className = 'feedback-msg retry';
+
+      setTimeout(() => {
+        [a,b].forEach(card => {
+          card.el.classList.remove('flipped');
+          card.el.classList.add('hidden-content');
+          card.el.classList.remove('small-text');
+          card.el.textContent = '?';
+          card.el.setAttribute('aria-pressed', 'false');
+          card.el.setAttribute(
+            'aria-label',
+            `Card ${card.i + 1}, hidden. Select to reveal.`
+          );
+        });
+
+        memoriaState.flipped = [];
+        memoriaState.lock = false;
+        feedback.textContent = '';
+      }, 1100);
+    }
+  }
+}
+
+document.getElementById('memoria-reset').addEventListener('click', initMemoria);
+
+const urlParams = new URLSearchParams(window.location.search);
+const nivelFromUrl = urlParams.get('nivel');
+
+if(nivelFromUrl === 'basico' || nivelFromUrl === 'intermedio'){
+  state.level = nivelFromUrl;
+
+  document.querySelectorAll('.level-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.level === nivelFromUrl);
+  });
+}
+
+initMemoria();
+</script>
+</body>
+</html>

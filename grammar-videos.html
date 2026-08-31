@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Videos - YouTube Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/grammar-videos.css">
+<link rel="stylesheet" href="css/accesibility.css">
+
+</head>
+<body>
+
+ <!-- BACK -->
+  <div class="back-container">
+   
+    <button class="back-btn" class="bi bi-arrow-left" aria-hidden="true" onclick="history.back()">Back</button>
+    
+  </div>
+
+<div class="gallery-wrap">
+  <header class="gallery-header">
+    <span class="section-eyebrow">Video lessons</span>
+    <h2>Grammar A1-A2</h2>
+    <p>Click any video to watch it full screen. Some videos include a checkpoint question you need to answer to keep watching.</p>
+  </header>
+
+  <div class="videos-grid" id="videosGrid"></div>
+</div>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-player">
+    <button class="modal-close" id="modalClose" aria-label="Close video">✕</button>
+    <div class="modal-video-wrap">
+      <div id="modal-yt-player"></div>
+      <div class="question-overlay" id="questionOverlay">
+        <div class="question-card">
+          <span class="question-tag">Checkpoint · answer to continue</span>
+          <div class="question-text" id="questionText"></div>
+          <div class="q-options" id="qOptions"></div>
+          <div class="q-feedback" id="qFeedback"></div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-title-bar" id="modalTitleBar"></div>
+  </div>
+</div>
+
+<!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        🔊
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+            <button id="btnPause" type="button">
+                ⏸ Pause
+            </button>
+
+            <button id="btnResume" type="button">
+                ▶ Resume
+            </button>
+
+            <button id="btnStop" type="button">
+                ⏹ Stop
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+<script src="JS/grammar-videos.js"></script>
+
+ <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+                    <p>A calm, inclusive space to learn English at your own pace — no pressure, no rush.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="#">Reading</a></li>
+                            <li><a href="#">Listening</a></li>
+                            <li><a href="#">Writing</a></li>
+                            <li><a href="#">Speaking</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Vocabulary</h4>
+                        <ul>
+                            <li><a href="#">A1 - A2 Vocabulary</a></li>
+                            <li><a href="#">B1 - B2 Vocabulary</a></li>
+                            <li><a href="#">Interactive Games</a></li>
+                            <li><a href="#">Play with Words</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Grammar</h4>
+                        <ul>
+                            <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+                            <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <span class="footer-social-label">Connect with us</span>
+                        <div class="social-links">
+                            <a href="#" aria-label="Oak English on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oak English. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
