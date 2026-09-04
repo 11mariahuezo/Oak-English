@@ -72,8 +72,8 @@
                 items: [
                     { eng: "Sunny", esp: "Soleado", def: "Bright with sunlight and minimal or no clouds.", img:"https://i.pinimg.com/1200x/f8/fe/74/f8fe74e49374c31ec8dd2dd9471b154f.jpg" },
                     { eng: "Rainy", esp: "Lluvioso", def: "Having a great deal of rainfall over a period.", img:"https://i.pinimg.com/1200x/7b/11/6b/7b116bc5e657189c3cf2f0ed18e22c48.jpg" },
-                    { eng: "Windy", esp: "Ventoso", def: "Characterized by strong winds or moving air.", img:"" },
-                    { eng: "Cloudy", esp: "Nublado", def: "Overcast with clouds, blocking direct sunlight.", img:""}
+                    { eng: "Windy", esp: "Ventoso", def: "Characterized by strong winds or moving air.", img:"https://i.pinimg.com/1200x/7b/11/6b/7b116bc5e657189c3cf2f0ed18e22c48.jpg" },
+                    { eng: "Cloudy", esp: "Nublado", def: "Overcast with clouds, blocking direct sunlight.", img:"https://i.pinimg.com/1200x/7b/11/6b/7b116bc5e657189c3cf2f0ed18e22c48.jpg"}
                 ]
             },
             sports: {
