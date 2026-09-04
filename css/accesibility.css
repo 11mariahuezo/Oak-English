@@ -1,21 +1,14 @@
-/* =========================================================
-   OAK ENGLISH
-   ACCESSIBILITY
-   ========================================================= */
-
-
-/* =========================================================
-   1. BOTÓN FLOTANTE
-   ========================================================= */
 
 #accessibilityToggle,
 .accessibility-trigger-btn {
 
     position: fixed !important;
 
-    bottom: 25px !important;
+    top: 12px !important;
 
-    right: 25px !important;
+    right: 24px !important;
+
+    bottom: auto !important;
 
     z-index: 999999 !important;
 
@@ -25,11 +18,11 @@
 
     border: none !important;
 
-    border-radius: 50% !important;
+    border-radius: 999px !important;
 
-    width: 55px !important;
+    width: 118px !important;
 
-    height: 55px !important;
+    height: 40px !important;
 
     font-size: 22px !important;
 
@@ -60,9 +53,6 @@
 }
 
 
-/* =========================================================
-   2. PANEL
-   ========================================================= */
 
 #accessibilityMenu {
 
@@ -106,10 +96,6 @@
 }
 
 
-/* =========================================================
-   PANEL HEADINGS
-   ========================================================= */
-
 #accessibilityMenu h3,
 #accessibilityMenu h4 {
 
@@ -134,9 +120,6 @@
 }
 
 
-/* =========================================================
-   PANEL BUTTONS
-   ========================================================= */
 
 #accessibilityMenu button {
 
@@ -181,9 +164,6 @@
 }
 
 
-/* =========================================================
-   ACTIVE BUTTON
-   ========================================================= */
 
 #accessibilityMenu button.active {
 
@@ -197,9 +177,6 @@
 }
 
 
-/* =========================================================
-   CLOSE BUTTON
-   ========================================================= */
 
 #accessibilityMenu .close-btn {
 
@@ -224,10 +201,6 @@
 }
 
 
-/* =========================================================
-   3. GLOBAL ACCESSIBILITY
-   ========================================================= */
-
 html {
 
     transition:
@@ -235,9 +208,6 @@ html {
 }
 
 
-/* =========================================================
-   HIGHLIGHT LINKS
-   ========================================================= */
 
 body.highlight-links a {
 
@@ -258,9 +228,6 @@ body.highlight-links a {
 }
 
 
-/* =========================================================
-   4. CALM MODE
-   ========================================================= */
 
 body.calm-mode {
 
@@ -281,20 +248,11 @@ body.calm-mode *::after {
     scroll-behavior: auto !important;
 }
 
-
-/* =========================================================
-   5. DARK MODE
-   ========================================================= */
-
 body.accessibility-dark {
-
-    background-color: #0d1527 !important;
-
     color: #ffffff !important;
 }
 
 
-/* Main containers */
 
 body.accessibility-dark main,
 body.accessibility-dark section,
@@ -412,9 +370,117 @@ body.high-contrast .accent {
 }
 
 
-/* =========================================================
-   7. SPEAKING - DARK MODE
-   ========================================================= */
+#accessibilityToggle,
+.accessibility-trigger-btn {
+    top: auto !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 16px !important;
+    background-color: #52a5f2 !important;
+    font-size: 0 !important;
+    box-shadow: 0 5px 16px rgba(41, 66, 93, 0.22) !important;
+}
+
+#accessibilityToggle::after,
+.accessibility-trigger-btn::after {
+    content: "Aa";
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#accessibilityToggle:hover,
+.accessibility-trigger-btn:hover,
+#accessibilityToggle:focus-visible,
+.accessibility-trigger-btn:focus-visible {
+    transform: none !important;
+    background-color: #3c88df !important;
+}
+
+#accessibilityMenu {
+    bottom: 92px !important;
+    right: 20px !important;
+    width: 360px !important;
+    max-height: calc(100vh - 112px);
+    overflow-y: auto;
+    border: 2px solid #f2dfc4 !important;
+    border-radius: 20px !important;
+    padding: 22px !important;
+    color: #29425d !important;
+}
+
+#accessibilityMenu h3,
+#accessibilityMenu h4 {
+    font-size: 16px !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    margin: 18px 0 10px !important;
+}
+
+#accessibilityMenu button {
+    min-height: 46px !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    font-size: 15px !important;
+    line-height: 1.25 !important;
+}
+
+#accessibilityMenu button:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 4px solid #4b99f2 !important;
+    outline-offset: 3px !important;
+}
+
+#accessibilityMenu .close-btn {
+    min-width: 46px !important;
+    min-height: 46px !important;
+    font-size: 25px !important;
+}
+
+#accessibilityMenu .accessibility-reset {
+    width: 100% !important;
+    margin: 18px 0 0 !important;
+    justify-content: center !important;
+}
+
+body.calm-mode {
+    background-image: none !important;
+}
+
+body.calm-mode .hero-blob,
+body.calm-mode .teacher-chat-launcher {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #accessibilityMenu {
+        right: 12px !important;
+        bottom: 84px !important;
+        width: calc(100vw - 24px) !important;
+        max-height: calc(100vh - 100px);
+    }
+
+    #accessibilityToggle,
+    .accessibility-trigger-btn {
+        right: 14px !important;
+        bottom: 14px !important;
+    }
+}
 
 /*
    Estas reglas son IMPORTANTES.
@@ -521,6 +587,91 @@ body.accessibility-dark
     color: #ffffff !important;
 }
 
+/* Accessibility panel layout and stacking */
+#accessibilityToggle,
+.accessibility-trigger-btn {
+    z-index: 1000001 !important;
+}
+
+#accessibilityMenu {
+    z-index: 1000000 !important;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    background: #fffdf8 !important;
+    border: 3px solid #f2dfc4 !important;
+    box-shadow: 0 16px 40px rgba(41, 66, 93, 0.24) !important;
+}
+
+#accessibilityMenu.show {
+    display: flex !important;
+}
+
+#accessibilityMenu .accessibility-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f2dfc4;
+}
+
+#accessibilityMenu .accessibility-header strong {
+    color: #193a63 !important;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+}
+
+#accessibilityMenu .accessibility-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 0 0;
+    border-top: 2px solid #f7ead7;
+}
+
+#accessibilityMenu .accessibility-section h3 {
+    width: 100%;
+    color: #193a63 !important;
+    margin: 0 !important;
+}
+
+#accessibilityMenu .accessibility-section button {
+    flex: 1 1 140px;
+    margin: 0 !important;
+}
+
+#accessibilityMenu .accessibility-reset {
+    order: 5;
+}
+
+#accessibilityMenu .text-size-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+#accessibilityMenu .text-size-controls button {
+    flex: 1;
+}
+
+#accessibilityMenu .text-size-controls span {
+    min-width: 60px;
+    color: #193a63;
+    font-size: 17px;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    #accessibilityMenu {
+        bottom: 88px !important;
+        max-height: calc(100vh - 104px) !important;
+    }
+}
+
 
 body.accessibility-dark
 .speaking-modal
@@ -577,189 +728,6 @@ body.accessibility-dark
 
 
 /* =========================================================
-   8. SPEAKING - HIGH CONTRAST
-   ========================================================= */
-
-body.high-contrast
-.speaking-modal {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border:
-        2px solid #ffffff !important;
-}
-
-
-body.high-contrast
-.speaking-modal
-h3 {
-
-    color: #ffff00 !important;
-}
-
-
-body.high-contrast
-.speaking-modal
-.level-tag {
-
-    color: #ffff00 !important;
-}
-
-
-body.high-contrast
-.speaking-modal
-.mic-status {
-
-    color: #ffffff !important;
-}
-
-
-/* Task */
-
-body.high-contrast
-.speaking-modal
-.task {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border:
-        1px solid #ffffff !important;
-}
-
-
-/* Transcript */
-
-body.high-contrast
-.speaking-modal
-.transcript-box {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border:
-        1px solid #ffffff !important;
-}
-
-
-/* Placeholder */
-
-body.high-contrast
-.speaking-modal
-.transcript-box
-.placeholder {
-
-    background: transparent !important;
-
-    background-color: transparent !important;
-
-    background-image: none !important;
-
-    color: #ffffff !important;
-}
-
-
-/* Canvas */
-
-body.high-contrast
-.speaking-modal
-#waveCanvas {
-
-    background: #000000 !important;
-
-    border:
-        1px solid #ffffff !important;
-}
-
-
-/* Metrics */
-
-body.high-contrast
-.speaking-modal
-.metric {
-
-    color: #ffffff !important;
-
-    border-color: #ffffff !important;
-}
-
-
-/* Feedback */
-
-body.high-contrast
-.speaking-modal
-.feedback-note {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border:
-        1px solid #ffffff !important;
-}
-
-
-/* Close */
-
-body.high-contrast
-.speaking-modal
-.modal-close {
-
-    color: #ffffff !important;
-
-    background: transparent !important;
-
-    border: none !important;
-}
-
-
-/* Evaluate */
-
-body.high-contrast
-.speaking-modal
-.finish-btn {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border:
-        2px solid #ffffff !important;
-}
-
-
-body.high-contrast
-.speaking-modal
-.finish-btn:disabled {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    opacity: 0.65 !important;
-}
-
-
-/* Microphone */
-
-body.high-contrast
-.speaking-modal
-.mic-btn {
-
-    background: #000000 !important;
-
-    color: #ffffff !important;
-
-    border:
-        2px solid #ffffff !important;
-}
-
-
-/* =========================================================
    9. FLOATING BUTTON
    ========================================================= */
 
@@ -768,11 +736,42 @@ body.high-contrast
 
     position: fixed !important;
 
-    bottom: 25px !important;
+    top: 12px !important;
 
-    right: 25px !important;
+    right: 24px !important;
+
+    bottom: auto !important;
 
     z-index: 999999 !important;
+
+    width: 118px !important;
+
+    height: 40px !important;
+
+    padding: 0 !important;
+
+    font-size: 22px !important;
+
+    border-radius: 999px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+}
+
+#accessibilityToggle::before,
+.accessibility-trigger-btn::before {
+    content: none !important;
+}
+
+#accessibilityToggle img,
+.accessibility-trigger-btn img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
 }
 
 
@@ -784,11 +783,20 @@ body.high-contrast
 
     position: fixed !important;
 
-    bottom: 90px !important;
+    top: 62px !important;
+
+    bottom: auto !important;
 
     right: 25px !important;
 
     z-index: 999998 !important;
+}
+
+@media (min-width: 992px) {
+
+    .navbar {
+        padding-right: 170px !important;
+    }
 }
 
 
@@ -802,7 +810,9 @@ body.high-contrast
 
         right: 15px !important;
 
-        bottom: 85px !important;
+        top: 60px !important;
+
+        bottom: auto !important;
 
         width: calc(100vw - 30px) !important;
 
@@ -814,8 +824,190 @@ body.high-contrast
 
         right: 15px !important;
 
-        bottom: 15px !important;
+        top: 68px !important;
+
+        bottom: auto !important;
 
     }
 
+    #accessibilityMenu {
+        top: 118px !important;
+    }
+
+}
+
+/* =========================================
+   ACCESSIBILITY - DARK MODE
+========================================= */
+
+body.accessibility-dark {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+}
+
+/* Fondos generales */
+body.accessibility-dark main,
+body.accessibility-dark section,
+body.accessibility-dark article {
+    color: #f5f5f5;
+}
+
+/* Tarjetas */
+body.accessibility-dark .card,
+body.accessibility-dark .skill-card,
+body.accessibility-dark .level-card,
+body.accessibility-dark .activity-card,
+body.accessibility-dark .topic-card,
+body.accessibility-dark .practice-card,
+body.accessibility-dark .grammar-card,
+body.accessibility-dark .vocabulary-card,
+body.accessibility-dark .reading-card,
+body.accessibility-dark .listening-card,
+body.accessibility-dark .writing-card,
+body.accessibility-dark .speaking-card {
+    background-color: #242424 !important;
+    color: #f5f5f5 !important;
+    border-color: #444 !important;
+}
+
+/* Textos dentro de las tarjetas */
+body.accessibility-dark .skill-card *,
+body.accessibility-dark .level-card *,
+body.accessibility-dark .activity-card *,
+body.accessibility-dark .topic-card *,
+body.accessibility-dark .practice-card * {
+    color: inherit;
+}
+
+/* Títulos */
+body.accessibility-dark h1,
+body.accessibility-dark h2,
+body.accessibility-dark h3,
+body.accessibility-dark h4,
+body.accessibility-dark h5,
+body.accessibility-dark h6 {
+    color: #ffffff !important;
+}
+
+/* Párrafos */
+body.accessibility-dark p,
+body.accessibility-dark span,
+body.accessibility-dark li {
+    color: #e5e5e5;
+}
+
+/* Inputs */
+body.accessibility-dark input,
+body.accessibility-dark textarea,
+body.accessibility-dark select {
+    background-color: #292929 !important;
+    color: #ffffff !important;
+    border-color: #555 !important;
+}
+
+/* Botones */
+body.accessibility-dark button {
+    color: inherit;
+}
+
+/* Links */
+body.accessibility-dark a {
+    color: #9ecbff;
+}
+
+
+/* =========================================
+   HIGHLIGHT LINKS
+========================================= */
+
+body.highlight-links a {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    text-decoration: underline !important;
+    outline: 2px solid #000000 !important;
+    font-weight: bold !important;
+}
+
+body.accessibility-dark .card {
+    background-color: #242424 !important;
+    color: white !important;
+}
+
+/* =========================================
+   HIGH CONTRAST - FIX COMPLETO
+========================================= */
+
+body.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+/* Fondo general de la página */
+body.high-contrast main,
+body.high-contrast section,
+body.high-contrast article,
+body.high-contrast .container {
+    color: #fff !important;
+}
+
+/* TODAS LAS TARJETAS */
+body.high-contrast .card,
+body.high-contrast [class*="card"] {
+    background: #000 !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+    box-shadow: none !important;
+}
+
+/* Todo el texto dentro de las tarjetas */
+body.high-contrast .card h1,
+body.high-contrast .card h2,
+body.high-contrast .card h3,
+body.high-contrast .card h4,
+body.high-contrast .card p,
+body.high-contrast .card span,
+body.high-contrast .card li,
+body.high-contrast [class*="card"] h1,
+body.high-contrast [class*="card"] h2,
+body.high-contrast [class*="card"] h3,
+body.high-contrast [class*="card"] h4,
+body.high-contrast [class*="card"] p,
+body.high-contrast [class*="card"] span,
+body.high-contrast [class*="card"] li {
+    color: #fff !important;
+}
+
+/* Iconos y cuadritos de iconos */
+body.high-contrast [class*="icon"] {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+/* SVG */
+body.high-contrast svg {
+    color: #fff !important;
+}
+
+/* Enlaces */
+body.high-contrast a {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+/* Botones */
+body.high-contrast button {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+}
+
+/* Inputs */
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
 }

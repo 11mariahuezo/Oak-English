@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>English Vocabulary · Level A</title>
+ <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="css/home.css">
+
+     <!-- Accesibility -->
+<link rel="stylesheet" href="css/accesibility.css">
+<style>
+  :root{
+    --navy:#16233F;
+    --navy-2:#233B75;
+    --sky:#5B8DEF;
+    --sky-dark:#3E6FD1;
+    --sky-tint:#E7F0FD;
+    --pink-tint:#FDEAF0;
+    --bg:#F3F8FB;
+    --surface:#FFFFFF;
+    --ink:#2C3A4A;
+    --ink-soft:#647180;
+    --ring:#BFE0F0;
+    --radius-lg:26px;
+    --radius-md:16px;
+    --radius-sm:10px;
+
+    --bg-soft: var(--sky-tint);
+    --panel: var(--surface);
+    --line: #DCE9F7;
+
+    --a1: var(--sky);     --a1-soft: var(--sky-tint);  --a1-deep: var(--sky-dark);
+    --a2: var(--navy-2);  --a2-soft: var(--sky-tint);  --a2-deep: var(--navy);
+
+    --amber: #E38CB0;
+    --amber-soft: var(--pink-tint);
+    --good: #3FA974;
+    --good-soft: #E4F5EC;
+
+    --radius: var(--radius-lg);
+    --fs-base: 18px;
+    --motion: 1;
+  }
+
+  [data-font="large"]{ --fs-base: 21px; }
+  [data-font="xlarge"]{ --fs-base: 25px; }
+  [data-motion="reduced"]{ --motion: 0; }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Lexend', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: var(--fs-base);
+    font-weight: 400;
+    line-height: 1.65;
+    letter-spacing: 0.005em;
+    min-height: 100vh;
+  }
+
+  .app{ max-width: 960px; margin: 0 auto; padding: 20px 20px 80px; }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    padding: 10px 4px 22px; position: sticky; top: 0; background: var(--bg); z-index: 5;
+  }
+  .brand{ display:flex; align-items:center; gap:10px; font-weight:700; font-size: 1.05rem; color: var(--ink); }
+  .brand-mark{ width: 34px; height:34px; border-radius: var(--radius-md);
+    background: linear-gradient(135deg, var(--sky), var(--navy)); flex-shrink:0; }
+  .top-actions{ display:flex; gap:8px; }
+
+  button{ font-family: inherit; cursor: pointer; }
+  button:focus-visible, a:focus-visible, [tabindex]:focus-visible{
+    outline: 3px solid var(--ring); outline-offset: 2px;
+  }
+
+  .icon-btn{
+    width: 42px; height:42px; border-radius: var(--radius-md);
+    border: 1px solid var(--line); background: var(--panel);
+    display:flex; align-items:center; justify-content:center; font-size: 1.1rem; color: var(--ink);
+    transition: transform calc(var(--motion) * 0.15s) ease, background .15s ease;
+  }
+  .icon-btn:hover{ background: var(--bg-soft); }
+  .icon-btn:active{ transform: scale(calc(1 - var(--motion) * 0.06)); }
+
+  .back-btn{
+    display:inline-flex; align-items:center; gap:8px; border: 1px solid var(--line);
+    background: var(--panel); color: var(--ink); padding: 9px 16px; border-radius: 999px;
+    font-size: 0.95rem; font-weight: 600;
+  }
+  .back-btn:hover{ background: var(--bg-soft); }
+
+  .crumb{ display:flex; align-items:center; flex-wrap:wrap; gap: 6px; font-size: 0.92rem; color: var(--ink-soft); margin-bottom: 22px; }
+  .crumb b{ color: var(--ink); font-weight: 700; }
+
+  .screen{ display:none; }
+  .screen.active{ display:block; animation: fadein calc(var(--motion) * 0.25s) ease; }
+  @keyframes fadein{ from{ opacity: calc(1 - var(--motion)); } to{ opacity:1; } }
+
+  h1{ font-size: 1.7rem; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .lede{ color: var(--ink-soft); max-width: 62ch; margin: 0 0 26px; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    display:grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 36px;
+    align-items:center;
+    background: linear-gradient(180deg, var(--sky-tint), var(--bg));
+    border-radius: var(--radius-lg);
+    padding: 44px 38px;
+    overflow:hidden;
+    margin-bottom: 34px;
+  }
+  @media (max-width: 760px){ .hero{ grid-template-columns: 1fr; padding: 32px 24px; } }
+
+  .hero-badge{
+    display:inline-block;
+    background: var(--surface);
+    color: var(--sky-dark);
+    font-weight:700;
+    font-size:0.85rem;
+    padding:9px 18px;
+    border-radius:999px;
+    margin-bottom:18px;
+    box-shadow: 0 1px 4px rgba(22,35,63,0.1);
+  }
+  .hero h1.hero-title{
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.14;
+    color: var(--navy);
+    margin: 0 0 14px;
+    letter-spacing: -0.015em;
+  }
+  .hero h1.hero-title .hl{ color: var(--sky); }
+  .hero-sub{
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+    max-width: 42ch;
+    margin: 0 0 26px;
+  }
+  .hero-cta{
+    background: var(--navy);
+    color:#fff;
+    border:none;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:700;
+    font-size:0.98rem;
+  }
+  .hero-cta:hover{ background: var(--navy-2); }
+
+  .hero-visual{ position:relative; min-height: 250px; }
+  .blob{ position:absolute; border-radius:50%; z-index:0; }
+  .blob-1{ width:200px; height:200px; top:-36px; right:-24px; background: var(--sky-tint); }
+  .blob-2{ width:120px; height:120px; bottom:-26px; left:8%; background: var(--pink-tint); }
+
+  .hero-frame{
+    position:relative; z-index:1;
+    border-radius: var(--radius-lg);
+    overflow:hidden;
+    background: linear-gradient(155deg, var(--sky), var(--navy-2));
+    min-height: 250px;
+    display:flex; align-items:center; justify-content:center;
+    gap: 16px;
+    color:#fff;
+    box-shadow: 0 20px 40px rgba(22,35,63,0.18);
+    font-size: 2.6rem;
+  }
+
+  /* ---------- Level group ---------- */
+  .level-group{ margin-bottom: 30px; }
+  .level-group-head{ display:flex; align-items:baseline; gap: 10px; margin-bottom: 12px; }
+  .level-group-head h2{ font-size: 1.05rem; font-weight: 600; margin: 0; color: var(--ink); }
+  .level-group-head span{ font-size: 0.85rem; color: var(--ink-soft); }
+
+  .level-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px){ .level-grid{ grid-template-columns: 1fr; } }
+
+  .level-card{
+    text-align:left; border: none; border-radius: var(--radius); padding: 24px; color: #fff;
+    position: relative; overflow: hidden; transition: transform calc(var(--motion)*0.15s) ease;
+    min-height: 170px; display:flex; flex-direction:column; justify-content: flex-end;
+  }
+  .level-card:hover{ transform: translateY(calc(var(--motion) * -3px)); }
+  .level-card.a1{ background: linear-gradient(160deg, var(--a1), var(--a1-deep)); }
+  .level-card.a2{ background: linear-gradient(160deg, var(--a2), var(--a2-deep)); }
+  .level-card .tag{
+    position:absolute; top:18px; left:24px; font-size: 0.78rem;
+    background: rgba(255,255,255,0.22); padding: 4px 11px; border-radius: 999px;
+    letter-spacing: 0.04em; font-weight: 700;
+  }
+  .level-card h3{ margin: 0 0 4px; font-size: 1.25rem; font-weight: 700; }
+  .level-card p{ margin:0; opacity: 0.94; font-size: 0.9rem; font-weight: 300; }
+
+  /* ---------- Topics ---------- */
+  .cat-grid{ display:grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 640px){ .cat-grid{ grid-template-columns: 1fr; } }
+
+  .cat-card{
+    text-align:left; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 18px 20px; display:flex; align-items:center; gap: 14px;
+    transition: border-color .15s ease, transform calc(var(--motion)*0.15s) ease;
+  }
+  .cat-card:hover{ border-color: var(--accent, var(--a1)); transform: translateY(calc(var(--motion) * -2px)); }
+  .cat-emoji{
+    width: 48px; height:48px; border-radius: var(--radius-md);
+    background: var(--accent-soft, var(--a1-soft));
+    display:flex; align-items:center; justify-content:center; font-size: 1.5rem; flex-shrink:0;
+  }
+  .cat-info h3{ margin:0 0 3px; font-size: 1.05rem; font-weight: 600; }
+  .cat-info span{ font-size: 0.85rem; color: var(--ink-soft); }
+  .cat-progress{ margin-top:6px; height:5px; width: 100%; background: var(--bg-soft); border-radius: 999px; overflow:hidden; }
+  .cat-progress i{ display:block; height:100%; background: var(--accent, var(--a1)); width: 0%; transition: width calc(var(--motion)*.3s) ease; }
+
+  /* ---------- Mode picker ---------- */
+  .mode-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 6px; }
+  @media (max-width: 640px){ .mode-grid{ grid-template-columns: 1fr; } }
+  .mode-card{ background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; text-align:left; }
+  .mode-card .m-emoji{ font-size: 1.6rem; margin-bottom: 10px; display:block; }
+  .mode-card h3{ margin: 0 0 6px; font-weight: 700; }
+  .mode-card p{ margin: 0 0 16px; color: var(--ink-soft); font-size: 0.92rem; }
+  .go-btn{ background: var(--accent, var(--a1-deep)); color: #fff; border:none; border-radius: 999px; padding: 10px 20px; font-weight: 700; font-size: 0.95rem; }
+  .go-btn:hover{ filter: brightness(1.08); }
+
+  /* ---------- Flashcard ---------- */
+  .study-wrap{ display:flex; flex-direction:column; align-items:center; gap: 18px; }
+  .flashcard{
+    width: 100%; max-width: 520px; min-height: 320px; background: var(--panel); border: 1px solid var(--line);
+    border-radius: var(--radius); padding: 34px 30px; display:flex; flex-direction:column; align-items:center;
+    justify-content:center; text-align:center; gap: 14px;
+  }
+  .fc-emoji{ font-size: 3rem; }
+  .fc-word{ font-size: 2rem; font-weight: 800; margin: 0; }
+  .fc-back{ width:100%; display:none; flex-direction:column; align-items:center; gap: 10px; border-top: 1px dashed var(--line); margin-top: 6px; padding-top: 16px; }
+  .fc-back.show{ display:flex; }
+  .fc-translation{ font-size: 1.25rem; font-weight: 700; color: var(--accent-deep, var(--a1-deep)); }
+  .fc-example{ font-size: 1rem; color: var(--ink); max-width: 42ch; }
+  .fc-example em{ color: var(--ink-soft); font-style: normal; display:block; margin-top:4px; font-size: 0.92rem; font-weight: 300; }
+
+  .flip-btn{ border: 1px solid var(--line); background: var(--bg-soft); padding: 10px 18px; border-radius: 999px; font-weight: 600; font-size: 0.92rem; }
+  .flip-btn:hover{ background: var(--line); }
+  .speak-btn{ border: 1px solid var(--line); background: var(--panel); width: 40px; height: 40px; border-radius: 50%; display:flex; align-items:center; justify-content:center; font-size: 1.05rem; }
+  .speak-btn:hover{ background: var(--bg-soft); }
+  .fc-controls{ display:flex; align-items:center; gap: 10px; }
+
+  .study-nav{ display:flex; align-items:center; justify-content:space-between; width:100%; max-width: 520px; gap: 10px; }
+  .nav-btn{ border: 1px solid var(--line); background: var(--panel); padding: 12px 18px; border-radius: var(--radius-sm); font-weight: 700; display:flex; align-items:center; gap:6px; }
+  .nav-btn:hover{ background: var(--bg-soft); }
+  .nav-btn:disabled{ opacity: 0.4; cursor: not-allowed; }
+  .study-count{ font-size: 0.9rem; color: var(--ink-soft); font-weight:600; }
+
+  .dots{ display:flex; gap: 6px; flex-wrap:wrap; justify-content:center; max-width: 520px; }
+  .dot{ width: 9px; height:9px; border-radius: 50%; background: var(--line); }
+  .dot.seen{ background: var(--accent, var(--a1)); }
+  .dot.current{ background: var(--accent-deep, var(--a1-deep)); transform: scale(1.3); }
+
+  /* ---------- Quiz ---------- */
+  .quiz-wrap{ display:flex; flex-direction:column; align-items:center; gap: 20px; }
+  .quiz-card{ width:100%; max-width: 560px; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; text-align:center; }
+  .quiz-eyebrow{ font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 10px; }
+  .quiz-prompt{ font-size: 1.5rem; font-weight: 800; margin: 0 0 24px; }
+  .quiz-options{ display:grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px){ .quiz-options{ grid-template-columns: 1fr; } }
+  .opt{ border: 2px solid var(--line); background: var(--panel); padding: 14px 16px; border-radius: var(--radius-sm); font-size: 1rem; font-weight: 600; color: var(--ink); transition: border-color .15s ease, background .15s ease; }
+  .opt:hover{ border-color: var(--accent, var(--a1)); }
+  .opt.correct{ border-color: var(--good); background: var(--good-soft); }
+  .opt.incorrect{ border-color: var(--amber); background: var(--amber-soft); }
+  .opt:disabled{ cursor: default; }
+
+  .feedback{ min-height: 30px; font-weight: 700; font-size: 1rem; }
+  .feedback.good{ color: var(--good); }
+  .feedback.retry{ color: var(--amber); }
+  .quiz-footer{ display:flex; justify-content:center; max-width: 560px; width:100%; }
+
+  /* ---------- Done ---------- */
+  .done-card{ text-align:center; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 40px 30px; max-width: 520px; margin: 0 auto; }
+  .done-emoji{ font-size: 2.6rem; margin-bottom: 10px; }
+  .done-card h2{ margin: 0 0 8px; font-weight: 700; }
+  .done-card p{ color: var(--ink-soft); margin: 0 0 24px; }
+  .done-actions{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
+
+  /* ---------- Settings ---------- */
+  .overlay{ position: fixed; inset:0; background: rgba(22,35,63,0.4); display:none; align-items:center; justify-content:center; z-index: 20; padding: 20px; }
+  .overlay.open{ display:flex; }
+  .settings-panel{ background: var(--panel); border-radius: var(--radius); padding: 26px; max-width: 420px; width:100%; max-height: 85vh; overflow:auto; }
+  .settings-panel h2{ margin:0 0 4px; font-size: 1.2rem; font-weight: 700; }
+  .settings-panel > p{ color: var(--ink-soft); font-size: 0.9rem; margin: 0 0 20px; }
+  .setting-row{ margin-bottom: 20px; }
+  .setting-row label{ display:block; font-weight: 700; font-size: 0.92rem; margin-bottom: 8px; }
+  .seg{ display:flex; border: 1px solid var(--line); border-radius: 999px; overflow:hidden; }
+  .seg button{ flex:1; border:none; background: var(--panel); padding: 9px 8px; font-size: 0.85rem; font-weight:600; color: var(--ink); border-right: 1px solid var(--line); }
+  .seg button:last-child{ border-right:none; }
+  .seg button.active{ background: var(--a1-deep); color:#fff; }
+  .close-settings{ width:100%; margin-top: 4px; background: var(--navy); color:#fff; border:none; border-radius: var(--radius-sm); padding: 12px; font-weight:700; }
+
+  @media (prefers-reduced-motion: reduce){ :root{ --motion: 0; } }
+</style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top">  
+    <div class="container-fluid">
+
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" alt="Logo" class="Logo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
+          <li class="nav-item"><a class="nav-link" href="vocabulary-menu.html">Vocabulary</a></li>
+          <li class="nav-item"><a class="nav-link" href="Mascota.html">My Pet</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+<div class="app" data-font="normal" data-motion="normal" id="app">
+
+  <section class="screen active" id="screen-home">
+
+    <div class="hero">
+      <div class="hero-text">
+        <span class="hero-badge">Learn at your own pace</span>
+        <h1 class="hero-title">Learn English with <span class="hl">Confidence</span>, one step at a time</h1>
+        <p class="hero-sub">Level A is where it all begins — colors, family, animals, and the words you use every day. No timers, no pressure, just steady progress.</p>
+        <button class="hero-cta" id="heroCta">See A1 &amp; A2 topics</button>
+      </div>
+      <div class="hero-visual">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+      </div>
+    </div>
+
+    <div class="level-group" id="levels">
+      <div class="level-group-head">
+        <h2>Level A — Beginner</h2>
+        <span>basic, concrete vocabulary</span>
+      </div>
+      <div class="level-grid">
+        <button class="level-card a1" data-level="A1">
+          <span class="tag">A1</span>
+          <h3>First Steps</h3>
+          <p>Colors, family, animals, house objects.</p>
+        </button>
+        <button class="level-card a2" data-level="A2">
+          <span class="tag">A2</span>
+          <h3>Everyday Life</h3>
+          <p>Food, routines, basic emotions, the city.</p>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 2: TOPICS ============ -->
+  <section class="screen" id="screen-categories">
+    <div class="crumb">
+      <button class="back-btn" id="backToHome">← Levels</button>
+      <span>·</span> <b id="crumbLevel">Level</b>
+    </div>
+    <h1 id="catTitle">Choose a topic</h1>
+    <p class="lede" id="catLede">Each topic has 8 words. You can repeat it as many times as you like.</p>
+    <div class="cat-grid" id="catGrid"></div>
+  </section>
+
+  <!-- ============ SCREEN 3: MODE ============ -->
+  <section class="screen" id="screen-mode">
+    <div class="crumb">
+      <button class="back-btn" id="backToCats">← Topics</button>
+      <span>·</span> <b id="crumbCat">Topic</b>
+    </div>
+    <h1 id="modeTitle">How would you like to practice?</h1>
+    <p class="lede">Choose whichever pace feels most comfortable. You can switch modes anytime.</p>
+    <div class="mode-grid">
+      <div class="mode-card">
+        <span class="m-emoji"></span>
+        <h3>Study</h3>
+        <p>Look at the cards at your own pace. You decide when to move to the next one.</p>
+        <button class="go-btn" id="startStudy">Start studying</button>
+      </div>
+      <div class="mode-card">
+        <span class="m-emoji"></span>
+        <h3>Practice</h3>
+        <p>Choose the correct translation. No timer, no pressure.</p>
+        <button class="go-btn" id="startQuiz">Start practicing</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 4: STUDY ============ -->
+  <section class="screen" id="screen-study">
+    <div class="crumb">
+      <button class="back-btn" id="backToModeFromStudy">← Exit</button>
+      <span>·</span> <b id="crumbStudy">Topic</b>
+    </div>
+    <div class="study-wrap">
+      <span class="study-count" id="studyCount">Word 1 of 8</span>
+      <div class="flashcard" id="flashcard">
+        <span class="fc-emoji" id="fcEmoji">🙂</span>
+        <p class="fc-word" id="fcWord">word</p>
+        <div class="fc-controls">
+          <button class="speak-btn" id="speakBtn" aria-label="Listen to pronunciation">🔊</button>
+          <button class="flip-btn" id="flipBtn">Show translation</button>
+        </div>
+        <div class="fc-back" id="fcBack">
+          <span class="fc-translation" id="fcTranslation">translation</span>
+          <span class="fc-example" id="fcExample">Example sentence.<em id="fcExampleEs">Translated example.</em></span>
+        </div>
+      </div>
+      <div class="dots" id="studyDots"></div>
+      <div class="study-nav">
+        <button class="nav-btn" id="prevWord">← Previous</button>
+        <button class="nav-btn" id="nextWord">Next →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 5: PRACTICE ============ -->
+  <section class="screen" id="screen-quiz">
+    <div class="crumb">
+      <button class="back-btn" id="backToModeFromQuiz">← Exit</button>
+      <span>·</span> <b id="crumbQuiz">Topic</b>
+    </div>
+    <div class="quiz-wrap">
+      <span class="study-count" id="quizCount">Question 1 of 8</span>
+      <div class="quiz-card">
+        <div class="quiz-eyebrow">What is the translation of...?</div>
+        <p class="quiz-prompt" id="quizWord">word</p>
+        <div class="quiz-options" id="quizOptions"></div>
+      </div>
+      <p class="feedback" id="quizFeedback" role="status" aria-live="polite"></p>
+      <div class="quiz-footer">
+        <button class="go-btn" id="quizNext" style="display:none;">Next question →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN 6: DONE ============ -->
+  <section class="screen" id="screen-done">
+    <div class="done-card">
+      <div class="done-emoji">🌤️</div>
+      <h2>Great job, you finished this topic</h2>
+      <p id="doneText">You reviewed 8 new words.</p>
+      <div class="done-actions">
+        <button class="back-btn" id="doneRepeat">Repeat this topic</button>
+        <button class="go-btn" id="doneCats">See other topics</button>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+ <!-- Accessibility -->
+<div class="accessibility-container">
+
+    <button
+        id="accessibilityToggle"
+        class="accessibility-toggle"
+        type="button"
+        aria-label="Open accessibility menu"
+        aria-expanded="false"
+    >
+        +
+    </button>
+
+    <div
+        id="accessibilityMenu"
+        class="accessibility-menu"
+        aria-hidden="true"
+    >
+
+        <div class="accessibility-header">
+            <strong>Accessibility</strong>
+
+            <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Close menu"
+            >
+                ×
+            </button>
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Reading</h3>
+
+            <button id="btnRead" type="button">
+                🔊 Read page
+            </button>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Text size</h3>
+
+            <div class="text-size-controls">
+
+                <button id="decreaseText" type="button">
+                    A−
+                </button>
+
+                <span id="textSizeValue">100%</span>
+
+                <button id="increaseText" type="button">
+                    A+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="accessibility-section">
+
+            <h3>Visual</h3>
+
+            <button id="highContrast" type="button">
+                 High contrast
+            </button>
+
+            <button id="highlightLinks" type="button">
+                 Highlight links
+            </button>
+
+            <button id="darkMode" type="button">
+                 Dark mode
+            </button>
+            <button id="calmMode" type="button" aria-pressed="false">
+    
+                 <span>Calm mode</span>
+            </button>
+
+        </div>
+
+        <button
+            id="resetAccessibility"
+            class="accessibility-reset"
+            type="button"
+        >
+            ↻ Reset settings
+        </button>
+
+    </div>
+
+<script src="JS/accesibility.js"></script>
+
+<!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+
+                <div class="footer-brand">
+                    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+                    <p>A calm, inclusive space to learn English at your own pace — no pressure, no rush.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="#">Reading</a></li>
+                            <li><a href="#">Listening</a></li>
+                            <li><a href="#">Writing</a></li>
+                            <li><a href="#">Speaking</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Vocabulary</h4>
+                        <ul>
+                            <li><a href="#">A1 - A2 Vocabulary</a></li>
+                            <li><a href="#">B1 - B2 Vocabulary</a></li>
+                            <li><a href="#">Interactive Games</a></li>
+                            <li><a href="#">Play with Words</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Grammar</h4>
+                        <ul>
+                            <li><a href="grammar-games.html">A1 - A2 Grammar</a></li>
+                            <li><a href="b1-b2-grammar.html">B1 - B2 Grammar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <span class="footer-social-label">Connect with us</span>
+                        <div class="social-links">
+                            <a href="#" aria-label="Oak English on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oak English. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="JS/accesibility.js" ></script>
+ 
+
+<script>
+(function(){
+
+  const DATA = {
+    A1: {
+      label: "A1 — First Steps",
+      accent: "a1",
+      categories: [
+        { id:"colors", name:"Colors", emoji:"🎨", words:[
+          {en:"red", es:"rojo", ex:"The apple is red.", exEs:"La manzana es roja.", emoji:"🔴"},
+          {en:"blue", es:"azul", ex:"The sky is blue.", exEs:"El cielo es azul.", emoji:"🔵"},
+          {en:"green", es:"verde", ex:"The grass is green.", exEs:"La hierba es verde.", emoji:"🟢"},
+          {en:"yellow", es:"amarillo", ex:"The sun is yellow.", exEs:"El sol es amarillo.", emoji:"🟡"},
+          {en:"black", es:"negro", ex:"My cat is black.", exEs:"Mi gato es negro.", emoji:"⚫"},
+          {en:"white", es:"blanco", ex:"The snow is white.", exEs:"La nieve es blanca.", emoji:"⚪"},
+          {en:"orange", es:"naranja", ex:"I like orange juice.", exEs:"Me gusta el jugo de naranja.", emoji:"🟠"},
+          {en:"purple", es:"morado", ex:"She has a purple bag.", exEs:"Ella tiene una bolsa morada.", emoji:"🟣"}
+        ]},
+        { id:"family", name:"Family", emoji:"👪", words:[
+          {en:"mother", es:"madre", ex:"My mother is kind.", exEs:"Mi madre es amable.", emoji:"👩"},
+          {en:"father", es:"padre", ex:"My father works here.", exEs:"Mi padre trabaja aquí.", emoji:"👨"},
+          {en:"brother", es:"hermano", ex:"I have one brother.", exEs:"Tengo un hermano.", emoji:"👦"},
+          {en:"sister", es:"hermana", ex:"My sister is tall.", exEs:"Mi hermana es alta.", emoji:"👧"},
+          {en:"grandmother", es:"abuela", ex:"My grandmother cooks well.", exEs:"Mi abuela cocina bien.", emoji:"👵"},
+          {en:"grandfather", es:"abuelo", ex:"My grandfather likes to read.", exEs:"A mi abuelo le gusta leer.", emoji:"👴"},
+          {en:"son", es:"hijo", ex:"This is their son.", exEs:"Este es su hijo.", emoji:"🧒"},
+          {en:"daughter", es:"hija", ex:"Their daughter is a student.", exEs:"Su hija es estudiante.", emoji:"👧"}
+        ]},
+        { id:"animals", name:"Animals", emoji:"🐶", words:[
+          {en:"dog", es:"perro", ex:"The dog is friendly.", exEs:"El perro es amigable.", emoji:"🐶"},
+          {en:"cat", es:"gato", ex:"The cat sleeps a lot.", exEs:"El gato duerme mucho.", emoji:"🐱"},
+          {en:"bird", es:"pájaro", ex:"The bird sings every morning.", exEs:"El pájaro canta cada mañana.", emoji:"🐦"},
+          {en:"fish", es:"pez", ex:"The fish swims in the water.", exEs:"El pez nada en el agua.", emoji:"🐟"},
+          {en:"horse", es:"caballo", ex:"The horse runs fast.", exEs:"El caballo corre rápido.", emoji:"🐴"},
+          {en:"cow", es:"vaca", ex:"The cow gives milk.", exEs:"La vaca da leche.", emoji:"🐄"},
+          {en:"rabbit", es:"conejo", ex:"The rabbit is small.", exEs:"El conejo es pequeño.", emoji:"🐰"},
+          {en:"elephant", es:"elefante", ex:"The elephant is very big.", exEs:"El elefante es muy grande.", emoji:"🐘"}
+        ]},
+        { id:"house", name:"The House", emoji:"🏠", words:[
+          {en:"table", es:"mesa", ex:"The table is in the kitchen.", exEs:"La mesa está en la cocina.", emoji:"🍽️"},
+          {en:"chair", es:"silla", ex:"I sit on the chair.", exEs:"Me siento en la silla.", emoji:"🪑"},
+          {en:"bed", es:"cama", ex:"My bed is very comfortable.", exEs:"Mi cama es muy cómoda.", emoji:"🛏️"},
+          {en:"door", es:"puerta", ex:"Please close the door.", exEs:"Por favor cierra la puerta.", emoji:"🚪"},
+          {en:"window", es:"ventana", ex:"The window is open.", exEs:"La ventana está abierta.", emoji:"🪟"},
+          {en:"kitchen", es:"cocina", ex:"We cook in the kitchen.", exEs:"Cocinamos en la cocina.", emoji:"🍳"},
+          {en:"bathroom", es:"baño", ex:"The bathroom is upstairs.", exEs:"El baño está arriba.", emoji:"🛁"},
+          {en:"book", es:"libro", ex:"I read a book every night.", exEs:"Leo un libro cada noche.", emoji:"📚"}
+        ]}
+      ]
+    },
+    A2: {
+      label: "A2 — Everyday Life",
+      accent: "a2",
+      categories: [
+        { id:"food", name:"Food", emoji:"🍎", words:[
+          {en:"apple", es:"manzana", ex:"I eat an apple.", exEs:"Yo como una manzana.", emoji:"🍎"},
+          {en:"bread", es:"pan", ex:"We buy fresh bread.", exEs:"Compramos pan fresco.", emoji:"🍞"},
+          {en:"water", es:"agua", ex:"I drink water every day.", exEs:"Bebo agua todos los días.", emoji:"💧"},
+          {en:"milk", es:"leche", ex:"She drinks milk at breakfast.", exEs:"Ella bebe leche en el desayuno.", emoji:"🥛"},
+          {en:"rice", es:"arroz", ex:"We eat rice with chicken.", exEs:"Comemos arroz con pollo.", emoji:"🍚"},
+          {en:"chicken", es:"pollo", ex:"The chicken is delicious.", exEs:"El pollo está delicioso.", emoji:"🍗"},
+          {en:"egg", es:"huevo", ex:"I eat an egg for breakfast.", exEs:"Como un huevo en el desayuno.", emoji:"🥚"},
+          {en:"cheese", es:"queso", ex:"He likes cheese on his sandwich.", exEs:"A él le gusta el queso en el sándwich.", emoji:"🧀"}
+        ]},
+        { id:"routine", name:"Daily Routine", emoji:"⏰", words:[
+          {en:"wake up", es:"despertarse", ex:"I wake up at seven.", exEs:"Me despierto a las siete.", emoji:"⏰"},
+          {en:"brush teeth", es:"cepillarse los dientes", ex:"I brush my teeth every morning.", exEs:"Me cepillo los dientes cada mañana.", emoji:"🪥"},
+          {en:"eat breakfast", es:"desayunar", ex:"We eat breakfast together.", exEs:"Desayunamos juntos.", emoji:"🥣"},
+          {en:"go to school", es:"ir a la escuela", ex:"I go to school by bus.", exEs:"Voy a la escuela en autobús.", emoji:"🎒"},
+          {en:"have lunch", es:"almorzar", ex:"We have lunch at noon.", exEs:"Almorzamos al mediodía.", emoji:"🍽️"},
+          {en:"take a shower", es:"ducharse", ex:"I take a shower after school.", exEs:"Me ducho después de la escuela.", emoji:"🚿"},
+          {en:"go home", es:"ir a casa", ex:"We go home at five.", exEs:"Vamos a casa a las cinco.", emoji:"🏡"},
+          {en:"sleep", es:"dormir", ex:"I sleep at nine.", exEs:"Duermo a las nueve.", emoji:"😴"}
+        ]},
+        { id:"emotions-basic", name:"Basic Emotions", emoji:"😊", words:[
+          {en:"happy", es:"feliz", ex:"I feel happy today.", exEs:"Me siento feliz hoy.", emoji:"😊"},
+          {en:"sad", es:"triste", ex:"She feels sad.", exEs:"Ella se siente triste.", emoji:"😢"},
+          {en:"angry", es:"enojado", ex:"He is angry right now.", exEs:"Él está enojado ahora mismo.", emoji:"😠"},
+          {en:"tired", es:"cansado", ex:"I am tired after school.", exEs:"Estoy cansado después de la escuela.", emoji:"🥱"},
+          {en:"scared", es:"asustado", ex:"The child is scared of the dark.", exEs:"El niño está asustado de la oscuridad.", emoji:"😨"},
+          {en:"calm", es:"tranquilo", ex:"I feel calm in my room.", exEs:"Me siento tranquilo en mi cuarto.", emoji:"😌"},
+          {en:"surprised", es:"sorprendido", ex:"We were surprised by the news.", exEs:"Nos sorprendió la noticia.", emoji:"😮"},
+          {en:"excited", es:"emocionado", ex:"I am excited about the trip.", exEs:"Estoy emocionado por el viaje.", emoji:"🤩"}
+        ]},
+        { id:"city", name:"The City", emoji:"🏙️", words:[
+          {en:"store", es:"tienda", ex:"I go to the store.", exEs:"Voy a la tienda.", emoji:"🏬"},
+          {en:"park", es:"parque", ex:"We play in the park.", exEs:"Jugamos en el parque.", emoji:"🌳"},
+          {en:"hospital", es:"hospital", ex:"My aunt works at the hospital.", exEs:"Mi tía trabaja en el hospital.", emoji:"🏥"},
+          {en:"school", es:"escuela", ex:"The school is near my house.", exEs:"La escuela está cerca de mi casa.", emoji:"🏫"},
+          {en:"restaurant", es:"restaurante", ex:"We eat at a restaurant on Sundays.", exEs:"Comemos en un restaurante los domingos.", emoji:"🍽️"},
+          {en:"bank", es:"banco", ex:"I need to go to the bank.", exEs:"Necesito ir al banco.", emoji:"🏦"},
+          {en:"library", es:"biblioteca", ex:"She reads at the library.", exEs:"Ella lee en la biblioteca.", emoji:"📖"},
+          {en:"street", es:"calle", ex:"The street is very long.", exEs:"La calle es muy larga.", emoji:"🛣️"}
+        ]}
+      ]
+    }
+  };
+
+  const ACCENTS = {
+    a1: { c: 'var(--a1)', soft: 'var(--a1-soft)', deep: 'var(--a1-deep)' },
+    a2: { c: 'var(--a2)', soft: 'var(--a2-soft)', deep: 'var(--a2-deep)' }
+  };
+
+  const state = { level:null, category:null, words:[], studyIndex:0, seen:new Set(), quizIndex:0, quizScore:0, quizPool:[] };
+  const progress = {};
+
+  function $(sel){ return document.querySelector(sel); }
+  function $all(sel){ return document.querySelectorAll(sel); }
+
+  function showScreen(id){
+    $all('.screen').forEach(s => s.classList.remove('active'));
+    $('#' + id).classList.add('active');
+    window.scrollTo({top:0, behavior: (document.getElementById('app').dataset.motion === 'reduced') ? 'auto' : 'smooth'});
+  }
+
+  function shuffle(arr){
+    const a = arr.slice();
+    for(let i=a.length-1;i>0;i--){ const j = Math.floor(Math.random()*(i+1)); [a[i],a[j]] = [a[j],a[i]]; }
+    return a;
+  }
+
+  function speak(text){
+    if(!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US'; u.rate = 0.92;
+    window.speechSynthesis.speak(u);
+  }
+
+  function setAccent(accentKey){
+    const root = document.getElementById('app');
+    const a = ACCENTS[accentKey] || ACCENTS.a1;
+    root.style.setProperty('--accent', a.c);
+    root.style.setProperty('--accent-soft', a.soft);
+    root.style.setProperty('--accent-deep', a.deep);
+  }
+
+  $('#heroCta').addEventListener('click', ()=>{
+    $('#levels').scrollIntoView({ behavior: (document.getElementById('app').dataset.motion === 'reduced') ? 'auto' : 'smooth', block:'start' });
+  });
+
+  $all('.level-card').forEach(card=>{
+    card.addEventListener('click', ()=>{
+      state.level = card.dataset.level;
+      renderCategories();
+      showScreen('screen-categories');
+    });
+  });
+
+  function renderCategories(){
+    const levelData = DATA[state.level];
+    setAccent(levelData.accent);
+    $('#crumbLevel').textContent = levelData.label;
+    $('#catTitle').textContent = `Level ${state.level} topics`;
+    const grid = $('#catGrid');
+    grid.innerHTML = '';
+    levelData.categories.forEach(cat=>{
+      const pct = progress[cat.id] || 0;
+      const btn = document.createElement('button');
+      btn.className = 'cat-card';
+      btn.innerHTML = `
+        <span class="cat-emoji">${cat.emoji}</span>
+        <span class="cat-info">
+          <h3>${cat.name}</h3>
+          <span>${cat.words.length} words</span>
+          <span class="cat-progress"><i style="width:${pct}%"></i></span>
+        </span>`;
+      btn.addEventListener('click', ()=>{
+        state.category = cat;
+        $('#crumbCat').textContent = `${state.level} · ${cat.name}`;
+        $('#modeTitle').textContent = `${cat.name}: how would you like to practice?`;
+        showScreen('screen-mode');
+      });
+      grid.appendChild(btn);
+    });
+  }
+
+  $('#backToHome').addEventListener('click', ()=> showScreen('screen-home'));
+  $('#backToCats').addEventListener('click', ()=> showScreen('screen-categories'));
+  $('#backToModeFromStudy').addEventListener('click', ()=> showScreen('screen-mode'));
+  $('#backToModeFromQuiz').addEventListener('click', ()=> showScreen('screen-mode'));
+
+  $('#startStudy').addEventListener('click', ()=>{
+    state.words = state.category.words;
+    state.studyIndex = 0;
+    state.seen = new Set([0]);
+    $('#crumbStudy').textContent = `${state.level} · ${state.category.name}`;
+    renderStudyDots(); renderStudyWord();
+    showScreen('screen-study');
+  });
+
+  function renderStudyDots(){
+    const wrap = $('#studyDots'); wrap.innerHTML = '';
+    state.words.forEach((_, i)=>{
+      const d = document.createElement('span');
+      d.className = 'dot' + (state.seen.has(i) ? ' seen' : '') + (i === state.studyIndex ? ' current' : '');
+      wrap.appendChild(d);
+    });
+  }
+
+  function renderStudyWord(){
+    const w = state.words[state.studyIndex];
+    $('#fcEmoji').textContent = w.emoji;
+    $('#fcWord').textContent = w.en;
+    $('#fcTranslation').textContent = w.es;
+    $('#fcExample').innerHTML = w.ex + '<em>' + w.exEs + '</em>';
+    $('#fcBack').classList.remove('show');
+    $('#flipBtn').textContent = 'Show translation';
+    $('#studyCount').textContent = `Word ${state.studyIndex+1} of ${state.words.length}`;
+    $('#prevWord').disabled = state.studyIndex === 0;
+    $('#nextWord').textContent = state.studyIndex === state.words.length - 1 ? 'Finish ✓' : 'Next →';
+    renderStudyDots();
+    const pct = Math.round((state.seen.size / state.words.length) * 100);
+    progress[state.category.id] = Math.max(progress[state.category.id]||0, pct);
+  }
+
+  $('#flipBtn').addEventListener('click', ()=>{
+    const back = $('#fcBack');
+    const willShow = !back.classList.contains('show');
+    back.classList.toggle('show');
+    $('#flipBtn').textContent = willShow ? 'Hide translation' : 'Show translation';
+  });
+
+  $('#speakBtn').addEventListener('click', ()=> speak(state.words[state.studyIndex].en));
+
+  $('#prevWord').addEventListener('click', ()=>{
+    if(state.studyIndex > 0){ state.studyIndex--; renderStudyWord(); }
+  });
+
+  $('#nextWord').addEventListener('click', ()=>{
+    if(state.studyIndex < state.words.length - 1){
+      state.studyIndex++; state.seen.add(state.studyIndex); renderStudyWord();
+    } else {
+      state.seen.add(state.studyIndex);
+      progress[state.category.id] = 100;
+      $('#doneText').textContent = `You reviewed ${state.words.length} words from "${state.category.name}" (${state.level}).`;
+      showScreen('screen-done');
+    }
+  });
+
+  $('#startQuiz').addEventListener('click', ()=>{
+    state.words = state.category.words;
+    state.quizIndex = 0; state.quizScore = 0;
+    state.quizPool = shuffle(state.words);
+    $('#crumbQuiz').textContent = `${state.level} · ${state.category.name}`;
+    renderQuizQuestion();
+    showScreen('screen-quiz');
+  });
+
+  function renderQuizQuestion(){
+    const w = state.quizPool[state.quizIndex];
+    $('#quizWord').textContent = w.en;
+    $('#quizCount').textContent = `Question ${state.quizIndex+1} of ${state.quizPool.length}`;
+    $('#quizFeedback').textContent = '';
+    $('#quizFeedback').className = 'feedback';
+    $('#quizNext').style.display = 'none';
+
+    const others = state.words.filter(x => x.en !== w.en);
+    const distractors = shuffle(others).slice(0, 3).map(x => x.es);
+    const options = shuffle([w.es, ...distractors]);
+
+    const optWrap = $('#quizOptions'); optWrap.innerHTML = '';
+    options.forEach(optionText=>{
+      const btn = document.createElement('button');
+      btn.className = 'opt'; btn.textContent = optionText;
+      btn.addEventListener('click', ()=> handleAnswer(btn, optionText, w.es));
+      optWrap.appendChild(btn);
+    });
+  }
+
+  function handleAnswer(btn, chosen, correct){
+    const allOpts = $all('#quizOptions .opt');
+    allOpts.forEach(o => o.disabled = true);
+    if(chosen === correct){
+      btn.classList.add('correct');
+      $('#quizFeedback').textContent = 'Correct! Well done.';
+      $('#quizFeedback').className = 'feedback good';
+      state.quizScore++;
+    } else {
+      btn.classList.add('incorrect');
+      allOpts.forEach(o => { if(o.textContent === correct) o.classList.add('correct'); });
+      $('#quizFeedback').textContent = "That's okay. The correct answer is marked in green.";
+      $('#quizFeedback').className = 'feedback retry';
+    }
+    $('#quizNext').style.display = 'inline-flex';
+  }
+
+  $('#quizNext').addEventListener('click', ()=>{
+    if(state.quizIndex < state.quizPool.length - 1){
+      state.quizIndex++; renderQuizQuestion();
+    } else {
+      progress[state.category.id] = 100;
+      const pct = Math.round((state.quizScore / state.quizPool.length) * 100);
+      $('#doneText').textContent = `You got ${state.quizScore} out of ${state.quizPool.length} right (${pct}%) in ${state.level}. You can repeat it anytime.`;
+      showScreen('screen-done');
+    }
+  });
+
+  $('#doneRepeat').addEventListener('click', ()=>{
+    $('#modeTitle').textContent = `${state.category.name}: how would you like to practice?`;
+    showScreen('screen-mode');
+  });
+  $('#doneCats').addEventListener('click', ()=>{ renderCategories(); showScreen('screen-categories'); });
+
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,443 @@
+@import url('teacher-chat.css');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --oak-navy: #193a63;
+  --oak-blue: #3f9ee8;
+  --oak-blue-dark: #2677c5;
+  --oak-bg: #fff9ed;
+  --oak-surface: #ffffff;
+  --oak-ink: #29425d;
+  --oak-muted: #64778b;
+  --oak-border: #f2dfc4;
+  --oak-shadow: 0 12px 28px rgba(50, 77, 104, 0.12);
+}
+
+html {
+  background: var(--oak-bg);
+}
+
+.accessibility-container {
+  display: block !important;
+}
+
+body {
+  background-color: var(--oak-bg);
+  background-image: radial-gradient(#8fc0f7 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  color: var(--oak-ink);
+  font-family: 'Poppins', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-nav .nav-link,
+button,
+.btn {
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 3px solid #a4cfec;
+  box-shadow: 0 3px 14px rgba(50, 77, 104, 0.09);
+}
+
+.navbar .Logo {
+  height: 38px;
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  color: var(--oak-muted);
+  font-weight: 600;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus-visible {
+  background: #fff0c8;
+  color: #45a5e5;
+}
+
+.icon-circle,
+.skill-icon,
+.level-badge,
+.activity-level {
+  border-radius: 50%;
+}
+
+.skill-icon {
+  width: 52px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #e4f6ff;
+  color: var(--oak-blue-dark);
+  border: 2px solid #a9dcf5;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.skill-icon:hover {
+  transform: translateY(-2px);
+  background: #c8e2ff;
+}
+
+.skill-icon svg {
+  width: 23px;
+  height: 23px;
+}
+
+.icon-circle {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffe6df;
+  color: #4590e5;
+}
+
+.activity-level {
+  min-width: 46px;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  background: #52b2f2;
+}
+
+/* Grammar pages use the same rounded visual rhythm as Home. */
+.level-card,
+.content-card,
+.topic-card,
+.game-container {
+  border-radius: 20px;
+  border-color: var(--oak-border);
+  box-shadow: var(--oak-shadow);
+}
+
+.main-container {
+  max-width: 1200px;
+  padding-left: 6vw;
+  padding-right: 6vw;
+}
+
+.level-actions-row .btn-exercises {
+  background: var(--oak-navy);
+  border-color: var(--oak-navy);
+}
+
+.level-actions-row .btn-exercises:hover {
+  background: #233b75;
+  border-color: #233b75;
+}
+
+.level-card:hover,
+.content-card:hover,
+.topic-card:hover {
+  box-shadow: 0 16px 36px rgba(22, 35, 63, 0.14);
+}
+
+.level-main h2,
+.section-lede h2,
+.section-header h2,
+.content-card h3,
+.topic-content h3 {
+  color: var(--oak-navy);
+  font-weight: 800;
+}
+
+.level-badge,
+.hero-badge,
+.hero-eyebrow,
+.card-icon,
+.topic-duration,
+.topic-category {
+  border-radius: 999px;
+}
+
+.card-icon {
+  width: 56px;
+  height: 56px;
+  background: #c8e9ff;
+  color: #459de5;
+}
+
+.btn,
+.btn-primary,
+.btn-exercises,
+.btn-toggle,
+.btn-white,
+.btn-signup,
+.btn-login,
+.back-btn {
+  border-radius: 999px;
+}
+
+.level-actions-row .btn,
+.level-actions-row .btn-exercises,
+.level-actions-row .btn-toggle {
+  min-height: 42px;
+  padding: 10px 18px;
+  font-size: 0.86rem;
+  line-height: 1.2;
+}
+
+.level-actions-row {
+  gap: 10px;
+}
+
+.hero-badge {
+  background: #c8efff;
+  color: #3ca7d8;
+  border: 1px solid #8fd6f7;
+}
+
+.level-details,
+.practice-instructions,
+.usage-item,
+.structure-block {
+  background: #f7fbfe;
+}
+
+.page-title h1,
+.main-title,
+.dashboard h1 {
+  color: var(--oak-navy);
+  font-weight: 800;
+}
+
+.activity-card,
+.practice-area,
+.content-card,
+.course-card,
+.info-card,
+.dashboard,
+.game-panel {
+  border: 1px solid var(--oak-border);
+  box-shadow: var(--oak-shadow);
+}
+
+.btn-primary,
+.btn-login,
+.main-btn,
+.btn-submit,
+.next-btn {
+  background: #5292f2;
+  border-color: #52aaf2;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-login:hover,
+.main-btn:hover,
+.btn-submit:hover,
+.next-btn:hover {
+  background: #3c75df;
+  border-color: #3c9edf;
+  color: #fff;
+}
+
+footer {
+  background: var(--oak-navy);
+  color: #fff;
+}
+
+@media (max-width: 767.98px) {
+  .page-title h1,
+  .main-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+}
+
+body {
+  line-height: 1.6;
+}
+
+p,
+li {
+  max-width: 70ch;
+}
+
+a {
+  color: var(--oak-blue-dark);
+  text-underline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 4px solid #4b8ef2 !important;
+  outline-offset: 3px;
+}
+
+button,
+.btn,
+input,
+select,
+textarea {
+  min-height: 44px;
+}
+
+button,
+.btn {
+  font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-toggler {
+  min-width: 44px;
+  min-height: 44px;
+  border: 2px solid #c4e1f2 !important;
+  border-radius: 12px !important;
+}
+
+.card,
+.activity-card,
+.practice-area,
+.course-card,
+.info-card,
+.suggestion-box,
+.game-panel,
+.content-card,
+.topic-card,
+.level-card {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.main-btn,
+.btn-primary,
+.btn-submit,
+.next-btn,
+.btn-login,
+.btn-signup {
+  background: #529df2 !important;
+  border-color: #529df2 !important;
+  color: #193a63 !important;
+  box-shadow: 0 4px 0 #3888c9;
+}
+
+.main-btn:hover,
+.btn-primary:hover,
+.btn-submit:hover,
+.next-btn:hover,
+.btn-login:hover,
+.btn-signup:hover {
+  background: #6fb5f6 !important;
+  border-color: #6fb9f6 !important;
+}
+
+.learn-btn,
+.btn-secondary,
+.btn-outline-primary,
+.btn-toggle,
+.back-btn {
+  background: #e4f6ff !important;
+  border: 2px solid #8ccbea !important;
+  color: #193a63 !important;
+}
+
+.learn-btn:hover,
+.btn-secondary:hover,
+.btn-outline-primary:hover,
+.btn-toggle:hover,
+.back-btn:hover {
+  background: #c7edff !important;
+  color: #193a63 !important;
+}
+
+.btn:disabled,
+button:disabled {
+  background: #e7e2d9 !important;
+  border-color: #d2c9bc !important;
+  color: #7d766d !important;
+  box-shadow: none;
+}
+
+.navbar-nav .nav-link {
+  color: #193a63;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus-visible {
+  background: #fff0c8 !important;
+  color: #3cc7df !important;
+}
+
+.hero,
+.page-title,
+.section-lede,
+.section-heading {
+  color: var(--oak-ink);
+}
+
+.hero h1,
+.hero h2,
+.page-title h1,
+.section-lede h2,
+.section-heading h2 {
+  color: var(--oak-navy) !important;
+  line-height: 1.2;
+}
+
+.hero p,
+.hero-note,
+.section-lede p,
+.section-heading p,
+.level-summary,
+.level-full-desc {
+  color: var(--oak-muted) !important;
+  line-height: 1.7;
+}
+
+.hero-note {
+  background: #fff0c8 !important;
+  border: 2px solid #f2d38a !important;
+  border-radius: 16px !important;
+  padding: 14px 16px !important;
+}
+
+.level-card,
+.content-card,
+.topic-card,
+.activity-card,
+.practice-area,
+.game-panel {
+  background: rgba(255, 255, 255, 0.96) !important;
+}
+
+.level-card h2,
+.content-card h2,
+.content-card h3,
+.topic-card h2,
+.topic-card h3,
+.activity-card h2,
+.game-panel h2 {
+  color: var(--oak-navy) !important;
+}
+
+.level-details[hidden] {
+  display: none !important;
+}

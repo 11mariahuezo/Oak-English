@@ -22,28 +22,32 @@
 </head>
 <body>
 
-    <!-- header -->
-    <header>
-        <nav>
-            <a href="#" class="logo" onclick="showSection('home')">
-                <img src="logo.png" class="logo-img">
-            </a>
+<nav class="navbar navbar-expand-lg sticky-top">  
+    <div class="container-fluid">
 
-            <ul class="nav-links">
-                <li><a href="#" onclick="showSection('home')">Home</a></li>
-                <li><a href="#" onclick="showSection('skills')">Skills</a></li>
-                <li><a href="#" onclick="showSection('grammar')">Grammar</a></li>
-                <li><a href="#" onclick="showSection('vocabulary')">Vocabulary</a></li>
-            </ul>
+      <a class="navbar-brand" href="#">
+        <img src="img/Logo.png" alt="Logo" class="Logo">
+      </a>
 
-            <div class="auth-buttons">
-                <a href="#" class="btn-signup" onclick="alert('Aquí irá el formulario de registro')">Sign Up</a>
-                <a href="#" class="btn-login" onclick="alert('Aquí irá el formulario de login')">Login</a>
-            </div>
-        </nav>
-    </header>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <!-- home -->
+      <div class="collapse navbar-collapse justify-content-end" id="menu">
+
+        <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
+          <li class="nav-item"><a class="nav-link" href="vocabulary-menu.html">Vocabulary</a></li>
+          <li class="nav-item"><a class="nav-link" href="Mascota.html">My Pet</a></li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  
     <section id="home" class="section active">
         <div class="page-title"><h1>Listening A2</h1></div>
 

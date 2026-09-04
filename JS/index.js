@@ -1,110 +1,109 @@
-//  CONFIGURACIÓN DE PASOS
+// STEP CONFIGURATION
 const steps = [
   {
     id: "age",
-    step: "Paso 1 de 8",
-    question: "¿Qué edad tiene el estudiante?",
-    sub: "Personalizamos el contenido según la edad.",
+    step: "Step 1 of 8",
+    question: "How old is the student?",
+    sub: "We personalize the content based on age.",
     type: "avatar",
     options: [
-      { value: "4-7",   emoji: "🧒", label: "4–7 años"  },
-      { value: "8-12",  emoji: "👦", label: "8–12 años" },
-      { value: "13-17", emoji: "🧑", label: "13–17 años"}
+      { value: "4-7",   emoji: "🧒", label: "4–7 years old"  },
+      { value: "8-12",  emoji: "👦", label: "8–12 years old" },
+      { value: "13-17", emoji: "🧑", label: "13–17 years old"}
     ]
   },
   {
     id: "level",
-    step: "Paso 2 de 8",
-    question: "¿Cuál es su nivel de inglés actual?",
-    sub: "Comenzaremos desde donde estés.",
+    step: "Step 2 of 8",
+    question: "What is the student's current English level?",
+    sub: "We'll start from where you are.",
     type: "cards", cols: 1,
     options: [
-      { value: "beginner",     icon: "ti-seedling", label: "Principiante", desc: "Vocabulario básico y saludos" },
-      { value: "intermediate", icon: "ti-plant-2",  label: "Intermedio",   desc: "Puede mantener conversaciones simples" },
-      { value: "advanced",     icon: "ti-trees",    label: "Avanzado",     desc: "Habla con fluidez, quiere perfeccionar" }
+      { value: "beginner",     icon: "ti-seedling", label: "Beginner", desc: "Basic vocabulary and greetings" },
+      { value: "intermediate", icon: "ti-plant-2",  label: "Intermediate", desc: "Can hold simple conversations" },
+      { value: "advanced",     icon: "ti-trees",    label: "Advanced", desc: "Speaks fluently and wants to improve" }
     ]
   },
   {
     id: "goal",
-    step: "Paso 3 de 8",
-    question: "¿Cuál es su objetivo principal?",
-    sub: "Esto guía el tipo de lecciones que crearemos.",
+    step: "Step 3 of 8",
+    question: "What is the main goal?",
+    sub: "This guides the type of lessons we create.",
     type: "cards", cols: 2,
     options: [
-      { value: "conversation",  icon: "ti-messages",   label: "Conversar",     desc: "Hablar con confianza" },
-      { value: "school",        icon: "ti-school",     label: "Escuela",       desc: "Mejorar calificaciones" },
-      { value: "vocabulary",    icon: "ti-vocabulary", label: "Vocabulario",   desc: "Más palabras, más expresión" },
-      { value: "pronunciation", icon: "ti-microphone", label: "Pronunciación", desc: "Sonar natural" }
+      { value: "conversation",  icon: "ti-messages",   label: "Conversation", desc: "Speak with confidence" },
+      { value: "school",        icon: "ti-school",     label: "School", desc: "Improve grades" },
+      { value: "vocabulary",    icon: "ti-vocabulary", label: "Vocabulary", desc: "More words, more expression" },
+      { value: "pronunciation", icon: "ti-microphone", label: "Pronunciation", desc: "Sound natural" }
     ]
   },
   {
     id: "time",
-    step: "Paso 4 de 8",
-    question: "¿Cuánto tiempo puede estudiar al día?",
-    sub: "Crearemos un plan realista para ti.",
+    step: "Step 4 of 8",
+    question: "How much time can you study each day?",
+    sub: "We'll create a realistic plan for you.",
     type: "cards", cols: 2,
     options: [
-      { value: "10",  icon: "ti-clock",        label: "10 minutos",  desc: "Sesiones rápidas"   },
-      { value: "20",  icon: "ti-clock-2",      label: "20 minutos",  desc: "Ritmo moderado"     },
-      { value: "30",  icon: "ti-clock-hour-4", label: "30 minutos",  desc: "Aprendizaje sólido" },
-      { value: "30+", icon: "ti-clock-hour-8", label: "+30 minutos", desc: "Inmersión completa" }
+      { value: "10",  icon: "ti-clock",        label: "10 minutes", desc: "Quick sessions" },
+      { value: "20",  icon: "ti-clock-2",      label: "20 minutes", desc: "Moderate pace" },
+      { value: "30",  icon: "ti-clock-hour-4", label: "30 minutes", desc: "Solid learning" },
+      { value: "30+", icon: "ti-clock-hour-8", label: "30+ minutes", desc: "Full immersion" }
     ]
   },
   {
     id: "style",
-    step: "Paso 5 de 8",
-    question: "¿Cómo aprende mejor?",
-    sub: "Adaptamos el formato de las lecciones.",
+    step: "Step 5 of 8",
+    question: "How do you learn best?",
+    sub: "We adapt lesson formats to your preferences.",
     type: "cards", cols: 2,
     options: [
-      { value: "videos",    icon: "ti-player-play",    label: "Videos",     desc: "Aprendizaje visual y auditivo" },
-      { value: "games",     icon: "ti-device-gamepad", label: "Juegos",     desc: "Aprender jugando"              },
-      { value: "reading",   icon: "ti-book",           label: "Lectura",    desc: "Textos y ejercicios escritos"  },
-      { value: "listening", icon: "ti-headphones",     label: "Escuchando", desc: "Podcasts y audios"             }
+      { value: "videos",    icon: "ti-player-play",    label: "Videos", desc: "Visual and auditory learning" },
+      { value: "games",     icon: "ti-device-gamepad", label: "Games", desc: "Learn through play" },
+      { value: "reading",   icon: "ti-book",           label: "Reading", desc: "Texts and written exercises" },
+      { value: "listening", icon: "ti-headphones",     label: "Listening", desc: "Podcasts and audio lessons" }
     ]
   },
   {
     id: "needs",
-    step: "Paso 6 de 8",
-    question: "¿Necesita alguna adaptación especial?",
-    sub: "Esto nos ayuda a hacer el contenido más accesible.",
+    step: "Step 6 of 8",
+    question: "Do you need any special accommodations?",
+    sub: "This helps us make the content more accessible.",
     type: "cards", cols: 1,
     options: [
-      { value: "none",       icon: "ti-circle-check", label: "No, ninguna",          desc: "Aprendizaje estándar"              },
-      { value: "tea",        icon: "ti-puzzle",        label: "Autismo (TEA)",         desc: "Estructura clara, sin ambigüedades"},
-      { value: "down",       icon: "ti-heart",         label: "Síndrome de Down",      desc: "Ritmo pausado, refuerzo visual"    },
-      { value: "other",      icon: "ti-dots",          label: "Otra",                  desc: "Cuéntanos más al registrarte"      },
-      { value: "prefer-not", icon: "ti-lock",          label: "Prefiero no responder", desc: ""                                  }
+      { value: "none",       icon: "ti-circle-check", label: "No, none", desc: "Standard learning" },
+      { value: "tea",        icon: "ti-puzzle", label: "Autism (ASD)", desc: "Clear structure, no ambiguity" },
+      { value: "down",       icon: "ti-heart", label: "Down Syndrome", desc: "Slower pace, visual support" },
+      { value: "other",      icon: "ti-dots", label: "Other", desc: "Tell us more during registration" },
+      { value: "prefer-not", icon: "ti-lock", label: "Prefer not to answer", desc: "" }
     ]
   },
   {
     id: "days",
-    step: "Paso 7 de 8",
-    question: "¿Cuántos días a la semana estudiará?",
-    sub: "La constancia es la clave del éxito.",
+    step: "Step 7 of 8",
+    question: "How many days per week will you study?",
+    sub: "Consistency is the key to success.",
     type: "cards", cols: 2,
     options: [
-      { value: "1-2", icon: "ti-calendar-week",  label: "1–2 días",       desc: "Inicio suave"     },
-      { value: "3-4", icon: "ti-calendar-event", label: "3–4 días",       desc: "Progreso estable" },
-      { value: "5",   icon: "ti-calendar-stats", label: "5 días",         desc: "Avance rápido"    },
-      { value: "7",   icon: "ti-calendar-check", label: "Todos los días", desc: "Máxima inmersión" }
+      { value: "1-2", icon: "ti-calendar-week", label: "1–2 days", desc: "Easy start" },
+      { value: "3-4", icon: "ti-calendar-event", label: "3–4 days", desc: "Steady progress" },
+      { value: "5",   icon: "ti-calendar-stats", label: "5 days", desc: "Fast improvement" },
+      { value: "7",   icon: "ti-calendar-check", label: "Every day", desc: "Maximum immersion" }
     ]
   },
   {
     id: "topic",
-    step: "Paso 8 de 8",
-    question: "¿Qué tema le entusiasma más?",
-    sub: "Usaremos esto para hacer las lecciones más divertidas.",
+    step: "Step 8 of 8",
+    question: "What topic excites you the most?",
+    sub: "We'll use this to make lessons more engaging.",
     type: "cards", cols: 2,
     options: [
-      { value: "animals",    icon: "ti-paw",              label: "Animales",    desc: "La naturaleza y sus criaturas" },
-      { value: "videogames", icon: "ti-device-gamepad-2", label: "Videojuegos", desc: "Aventuras digitales"           },
-      { value: "sports",     icon: "ti-ball-football",    label: "Deportes",    desc: "Energía y competencia"         },
-      { value: "music",      icon: "ti-music",            label: "Música",      desc: "Canciones y ritmos"            }
+      { value: "animals",    icon: "ti-paw", label: "Animals", desc: "Nature and its creatures" },
+      { value: "videogames", icon: "ti-device-gamepad-2", label: "Video Games", desc: "Digital adventures" },
+      { value: "sports",     icon: "ti-ball-football", label: "Sports", desc: "Energy and competition" },
+      { value: "music",      icon: "ti-music", label: "Music", desc: "Songs and rhythms" }
     ]
   }
 ];
-
 
 //  ESTADO
 
@@ -161,7 +160,7 @@ function renderStep() {
       <div class="question-sub">${s.sub}</div>
       ${optionsHtml}
       <button class="btn-next" id="btnNext" disabled onclick="nextStep()">
-        ${isLast ? "Ver mi perfil" : "Continuar"}
+        ${isLast ? "Ver mi perfil" : "Continue"}
         <i class="ti ti-arrow-right" aria-hidden="true"></i>
       </button>
     </div>
@@ -197,30 +196,30 @@ function renderRegister() {
 
   wrapper.innerHTML = `
     <div class="slide-in">
-      <div class="step-label" style="color:#0F6E56">Perfil completado</div>
-      <div class="question" style="margin-bottom:4px">Casi listo</div>
-      <div class="question-sub">Tu perfil de aprendizaje personalizado está listo.</div>
+      <div class="step-label" style="color:#0F6E56">Profile completed</div>
+      <div class="question" style="margin-bottom:4px">Almost ready</div>
+      <div class="question-sub">Your personalized learning profile is ready.</div>
       <div class="chips">${chips}</div>
       <div class="register-card">
-        <div class="register-title">Crear tu cuenta</div>
-        <div class="register-sub">Guarda tu progreso y empieza a aprender hoy.</div>
+        <div class="register-title">Create your account</div>
+        <div class="register-sub">Save your progress and start learning today..</div>
         <div class="field">
-          <label>Nombre completo</label>
-          <input type="text" id="inp-name" placeholder="Ej. María González" autocomplete="name">
+          <label>Full name</label>
+          <input type="text" id="inp-name" placeholder="E.g.. María González" autocomplete="name">
         </div>
         <div class="field">
-          <label>Correo electrónico</label>
-          <input type="email" id="inp-email" placeholder="correo@ejemplo.com" autocomplete="email">
+          <label>Email address</label>
+          <input type="email" id="inp-email" placeholder="email@example.com" autocomplete="email">
         </div>
         <div class="field">
-          <label>Contraseña</label>
-          <input type="password" id="inp-pwd" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
+          <label>Password</label>
+          <input type="password" id="inp-pwd" placeholder="Minimum 8 characters" autocomplete="new-password">
         </div>
         <button class="btn-next" onclick="register()" style="margin-top:1.25rem">
-          Crear cuenta
+          Create account
           <i class="ti ti-user-plus" aria-hidden="true"></i>
         </button>
-        <p class="login-link">¿Ya tienes cuenta? <a href="login.html">Iniciar sesión</a></p>
+        <p class="login-link">Already have an account?<a href="login.html">Sign in</a></p>
       </div>
     </div>
   `;
@@ -234,12 +233,12 @@ async function register() {
     const pwd = document.getElementById("inp-pwd").value;
 
     if (!name || !email || !pwd) {
-        alert("Por favor completa todos los campos.");
+        alert("Please fill out all fields.");
         return;
     }
 
     if (pwd.length < 8) {
-        alert("La contraseña debe tener al menos 8 caracteres.");
+        alert("Password must be at least 8 characters long.");
         return;
     }
 
@@ -311,8 +310,8 @@ function renderSuccess(name) {
   wrapper.innerHTML = `
     <div class="success slide-in">
       <div class="success-icon">🎉</div>
-      <div class="success-title">¡Bienvenido, ${name.split(" ")[0]}!</div>
-      <div class="success-sub">Tu cuenta ha sido creada. Tu plan de aprendizaje personalizado está listo.</div>
+      <div class="success-title">¡Welcome, ${name.split(" ")[0]}!</div>
+      <div class="success-sub">Your account has been created. Your personalized learning plan is ready.</div>
       <div class="chips" style="justify-content:center; margin-top:1.5rem">${chips}</div>
     </div>
   `;
