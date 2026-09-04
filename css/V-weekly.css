@@ -113,19 +113,20 @@
         }
 
         .image-placeholder {
-            background-color:white;
-            height: 150px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color:  var(--light-blue);
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-align: center;
-            border-bottom: 1px solid var(--border-gray);
-            padding: 15px;
-        }
+          width: 100%;
+          height: 180px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          overflow: hidden;
+      }
+
+        .image-placeholder img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain;
+              display: block;
+         }
 
         .card-content-area {
             padding: 16px;
