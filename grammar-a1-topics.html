@@ -20,15 +20,16 @@
 
 </head>
 <body>
+    <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
 
 <nav class="navbar navbar-expand-lg sticky-top">  
     <div class="container-fluid">
 
-      <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="#" aria-label="Go to home">
         <img src="img/Logo.png" alt="Logo" class="Logo">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -61,7 +62,7 @@
         </div>
     </section>
 
-    <div class="main-container">
+    <div class="main-container" id="main-content">
         <div class="section-header">
             <h2>Core A1 Topics</h2>
             <p>Each topic includes comprehensive lessons, practice exercises, interactive games, and video tutorials to ensure effective learning.</p>

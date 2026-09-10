@@ -19,35 +19,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="css/vocabulary-menu.css">
-
-   <!-- Accesibility -->
+   <link rel="stylesheet" href="css/shared.css">
 <link rel="stylesheet" href="css/accesibility.css">
 </head>
-<body>
-
- <!-- Navbar -->
- <nav class="navbar navbar-expand-lg sticky-top">  
-    <div class="container-fluid">
-
-      <a class="navbar-brand" href="#">
-        <img src="img/Logo.png" alt="Logo" class="Logo">
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse justify-content-end" id="menu">
-
-        <ul class="navbar-nav align-items-center">
-          <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
-          <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
-          <li class="nav-item"><a class="nav-link" href="vocabulary-menu.html">Vocabulary</a></li>
-          <li class="nav-item"><a class="nav-link" href="Mascota.html">My Pet</a></li>
-        </ul>
+<script>
+  document.querySelectorAll('.chip-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const chip = head.closest('.chip');
+      const isOpen = chip.classList.contains('open');
+      document.querySelectorAll('.chip').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.chip-head').setAttribute('aria-expanded', 'false');
+      });
+      if(!isOpen){
+        chip.classList.add('open');
+        head.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
 
       </div>
+</html>
     </div>
   </nav>
 
@@ -131,13 +124,13 @@
         <h3>Interactive games: learn by playing</h3>
         <p>Choose a game to practice the vocabulary you've already learned. Play as many times as you like — there's no score to lose.</p>
         <div class="games-grid">
-          <a href="memoriagame-V.html" class="game-tile">
+          <a href="V-memorygame.html" class="game-tile">
             <span class="name">Memory</span>
           </a>
-          <a href="pairsgame-V.html" class="game-tile">
+          <a href="V-pairsgame.html" class="game-tile">
             <span class="name">Matching pairs</span>
           </a>
-          <a href="puzzletgame-V.html" class="game-tile">
+          <a href="V-puzzletgame.html" class="game-tile">
             <span class="name">Puzzle</span>
           </a>
         </div>
@@ -250,9 +243,6 @@
         </button>
 
     </div>
-    
-<script src="JS/accesibility.js"></script>
-
 
     <footer>
         <div class="footer-inner">
@@ -315,30 +305,25 @@
         </div>
     </footer>
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="JS/accesibility.js" ></script>
- 
-  
-</body>
-</html>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="JS/accesibility.js"></script>
 
-<script>
-  document.querySelectorAll('.chip-head').forEach(head => {
-    head.addEventListener('click', () => {
-      const chip = head.closest('.chip');
-      const isOpen = chip.classList.contains('open');
-      document.querySelectorAll('.chip').forEach(c => {
-        c.classList.remove('open');
-        c.querySelector('.chip-head').setAttribute('aria-expanded', 'false');
+    <script>
+      document.querySelectorAll('.chip-head').forEach(head => {
+        head.addEventListener('click', () => {
+          const chip = head.closest('.chip');
+          const isOpen = chip.classList.contains('open');
+          document.querySelectorAll('.chip').forEach(c => {
+            c.classList.remove('open');
+            c.querySelector('.chip-head').setAttribute('aria-expanded', 'false');
+          });
+          if(!isOpen){
+            chip.classList.add('open');
+            head.setAttribute('aria-expanded', 'true');
+          }
+        });
       });
-      if(!isOpen){
-        chip.classList.add('open');
-        head.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </script>
 
 </body>
 </html>

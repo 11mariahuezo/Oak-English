@@ -15,19 +15,21 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
     <link rel="stylesheet" href="css/grammar-quiz-sp.css">
+     <link rel="stylesheet" href="css/shared.css">
     <link rel="stylesheet" href="css/accesibility.css">
 </head>
 <body>
+    <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
     
     <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">  
     <div class="container-fluid">
 
-      <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="#" aria-label="Go to home">
         <img src="img/Logo.png" alt="Logo" class="Logo">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -52,7 +54,7 @@
     </a>
   </div>
 
-    <div class="main-container">
+    <div class="main-container" id="main-content">
         <div class="game-container">
             <!-- Quiz Content -->
             <div id="quiz-content">
@@ -170,7 +172,8 @@
         </div>
     </footer>
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="JS/accesibility.js" ></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="JS/accesibility.js"></script>
  
   
 </body>

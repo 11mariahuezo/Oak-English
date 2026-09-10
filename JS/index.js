@@ -219,13 +219,12 @@ function renderRegister() {
           Create account
           <i class="ti ti-user-plus" aria-hidden="true"></i>
         </button>
-        <p class="login-link">Already have an account?<a href="login.html">Sign in</a></p>
+        <p class="login-link">Already have an account?<a href="login.php">Sign in</a></p>
       </div>
     </div>
   `;
 }
 
-//  REGISTRO
 async function register() {
 
     const name = document.getElementById("inp-name").value.trim();
@@ -244,60 +243,51 @@ async function register() {
 
     try {
 
+        const response = await fetch("register.php", {
+            method: "POST",
 
-        const { data, error } = await supabaseClient.auth.signUp({
-    email: email,
-    password: pwd,
-    options: {
-        data: {
-            name: name,
-            age: answers.age,
-            level: answers.level,
-            goal: answers.goal,
-            study_time: answers.time,
-            learning_style: answers.style,
-            needs: answers.needs,
-            study_days: answers.days,
-            topic: answers.topic
-        }
-    }
-});
+            headers: {
+                "Content-Type": "application/json"
+            },
 
-        if (error) {
-            throw error;
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                password: pwd,
+                profile: answers
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+            throw new Error(data.message || "Unable to create account.");
         }
-        
-        const payload = {
-            name: name,
-            email: email,
-            profile: answers
-        };
 
         localStorage.setItem(
             "userProfile",
-            JSON.stringify(payload)
+            JSON.stringify({
+                name: name,
+                email: email,
+                profile: answers
+            })
         );
 
         renderSuccess(name);
 
         setTimeout(() => {
             window.location.href = "home.html";
-        }, 2500);
-
+        }, 2000);
 
     } catch (error) {
 
-    console.error("ERROR COMPLETO:", error);
-    console.error("MENSAJE:", error?.message);
-    console.error("DETALLES:", error?.details);
-    console.error("HINT:", error?.hint);
-    console.error("CÓDIGO:", error?.code);
+        console.error("Registration error:", error);
 
-    alert(
-        "Error: " +
-        (error?.message || "Error desconocido")
-    );
-  }
+        alert(
+            "Error: " +
+            (error.message || "Unable to create account.")
+        );
+    }
 }
 
 

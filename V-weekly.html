@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weekly Vocabulary</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,19 +19,22 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <link rel="stylesheet" href="css/V-weekly.css">
+   <link rel="stylesheet" href="css/shared.css">
   <link rel="stylesheet" href="css/accesibility.css">
 </head>
 <body>
+
+    <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
 
  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg sticky-top">  
     <div class="container-fluid">
 
-      <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="#" aria-label="Go to home">
         <img src="img/Logo.png" alt="Logo" class="Logo">
       </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -49,6 +51,13 @@
       </div>
     </div>
   </nav>
+
+    <div class="back-container">
+        <a href="vocabulary-menu.html" class="back-btn" aria-label="Back to vocabulary">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            Back to Vocabulary
+        </a>
+    </div>
 
 
     <header class="text-center my-4 px-3">
@@ -174,8 +183,6 @@
 
     </div>
 
-<script src="JS/accesibility.js"></script>
-
 <!-- Footer -->
     <footer>
         <div class="footer-inner">
@@ -238,8 +245,8 @@
         </div>
     </footer>
 
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" src="JS/accesibility.js" ></script>
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="JS/accesibility.js"></script>
   <script src="JS/V-weekly.js" defer></script>
 
 </body>

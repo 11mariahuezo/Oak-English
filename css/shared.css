@@ -11,6 +11,14 @@
   --oak-muted: #64778b;
   --oak-border: #f2dfc4;
   --oak-shadow: 0 12px 28px rgba(50, 77, 104, 0.12);
+  /* Accent / pink palette (preserve site pink tones) */
+  --oak-accent-100: #ffc8ea;
+  --oak-accent-200: #f3b9db;
+  --oak-accent-300: #f7b0e1;
+  --oak-accent-border: #f252e5;
+  --oak-accent-shadow: #fc70d2;
+  --oak-accent-focus: #f7acd8;
+  --pink: #f78fdd;
 }
 
 html {
@@ -192,9 +200,9 @@ button,
 }
 
 .hero-badge {
-  background: #c8efff;
-  color: #3ca7d8;
-  border: 1px solid #8fd6f7;
+  background: #ffc8f8;
+  color: #f09bc5;
+  border: 1px solid #f78fdd;
 }
 
 .level-details,
@@ -227,8 +235,8 @@ button,
 .main-btn,
 .btn-submit,
 .next-btn {
-  background: #5292f2;
-  border-color: #52aaf2;
+  background: #f3b9db;
+  border-color: #f88cd4;
   color: #fff;
 }
 
@@ -237,8 +245,8 @@ button,
 .main-btn:hover,
 .btn-submit:hover,
 .next-btn:hover {
-  background: #3c75df;
-  border-color: #3c9edf;
+  background: #e4a2ca;
+  border-color: #fab0e8;
   color: #fff;
 }
 
@@ -273,7 +281,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 4px solid #4b8ef2 !important;
+  outline: 4px solid #f7acd8 !important;
   outline-offset: 3px;
 }
 
@@ -299,7 +307,7 @@ button,
 .navbar-toggler {
   min-width: 44px;
   min-height: 44px;
-  border: 2px solid #c4e1f2 !important;
+  border: 2px solid #f2c4d7 !important;
   border-radius: 12px !important;
 }
 
@@ -333,10 +341,10 @@ button,
 .next-btn,
 .btn-login,
 .btn-signup {
-  background: #529df2 !important;
-  border-color: #529df2 !important;
-  color: #193a63 !important;
-  box-shadow: 0 4px 0 #3888c9;
+  background: #ffc8ea !important;
+  border-color: #f252e5 !important;
+  color: #ffffff !important;
+  box-shadow: 0 4px 0 #fc70d2;
 }
 
 .main-btn:hover,
@@ -345,8 +353,8 @@ button,
 .next-btn:hover,
 .btn-login:hover,
 .btn-signup:hover {
-  background: #6fb5f6 !important;
-  border-color: #6fb9f6 !important;
+  background: #f7b0e1 !important;
+  border-color: #f66fc2 !important;
 }
 
 .learn-btn,
@@ -355,8 +363,8 @@ button,
 .btn-toggle,
 .back-btn {
   background: #e4f6ff !important;
-  border: 2px solid #8ccbea !important;
-  color: #193a63 !important;
+  border: 2px solid #ea8cd3 !important;
+  color: #f0a2dc !important;
 }
 
 .learn-btn:hover,
@@ -364,8 +372,8 @@ button,
 .btn-outline-primary:hover,
 .btn-toggle:hover,
 .back-btn:hover {
-  background: #c7edff !important;
-  color: #193a63 !important;
+  background: #ffc7f1 !important;
+  color: #f8aedf !important;
 }
 
 .btn:disabled,
@@ -383,7 +391,7 @@ button:disabled {
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus-visible {
   background: #fff0c8 !important;
-  color: #3cc7df !important;
+  color: #f0a1d5 !important;
 }
 
 .hero,
@@ -413,8 +421,8 @@ button:disabled {
 }
 
 .hero-note {
-  background: #fff0c8 !important;
-  border: 2px solid #f2d38a !important;
+  background: #ffc8f6 !important;
+  border: 2px solid #f28acf !important;
   border-radius: 16px !important;
   padding: 14px 16px !important;
 }

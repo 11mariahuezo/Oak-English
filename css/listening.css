@@ -311,7 +311,7 @@
         .quiz-feedback ul{ margin-top:12px; margin-left:20px; }
         .quiz-feedback li{ margin-bottom:6px; }
 
- footer{
+footer{
       margin-top:110px;
       background:var(--navy);
       color:#C7D4EA;
@@ -443,13 +443,7 @@
     }
     .footer-bottom-links a:hover{ color:white; }
 
-        @media (max-width: 768px) {
-            .nav-links { gap: 15px; font-size: 14px; }
-            .activities-grid { grid-template-columns: 1fr; }
-            .practice-area { padding: 20px; }
-        }
-
-        .hidden { display: none !important; }
-        .text-center { text-align: center; }
-        .mt-20 { margin-top: 20px; }
-        .mb-20 { margin-bottom: 20px; }
+    @media (max-width:991px){
+      .info-cards-wrap{ margin-top:36px; }
+      .hero{ padding-bottom:60px; }
+    }
