@@ -22,7 +22,7 @@
     color:var(--ink);
     font-family:'Inter', sans-serif;
     min-height:100vh;
-    padding:60px 0 0;
+    padding:0px 0 0;
   }
   h1,h2,h3,h4,h5,.main-btn,.learn-btn{ font-family:'Poppins', sans-serif; }
   a{ text-decoration:none; }
@@ -34,6 +34,47 @@
     outline-offset:3px;
     border-radius:6px;
   }
+
+  .skip-link{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      background:var(--navy);
+      color:white;
+      padding:12px 20px;
+      border-radius:0 0 12px 0;
+      font-weight:700;
+      z-index:1000;
+    }
+    .skip-link:focus{
+      left:0;
+      top:0;
+    }
+    a:focus-visible,
+    button:focus-visible,
+    .nav-link:focus-visible{
+      outline:3px solid var(--sky-dark);
+      outline-offset:3px;
+      border-radius:6px;
+    }
+  
+    .navbar{
+      background:var(--surface);
+      padding:14px 4vw;
+      box-shadow:0 1px 6px rgba(22,35,63,0.06);
+    }
+    .Logo{ height:38px; }
+    .navbar-nav .nav-link{
+      font-weight:600;
+      color:var(--ink-soft);
+      padding:8px 16px !important;
+      border-radius:999px;
+      transition:background 0.2s ease, color 0.2s ease;
+    }
+    .navbar-nav .nav-link:hover{
+      background:var(--sky-tint);
+      color:var(--sky-dark);
+    }
 
 .back-btn {
   display: inline-flex;
