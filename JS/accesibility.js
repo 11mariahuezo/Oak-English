@@ -3,7 +3,132 @@
 // ACCESSIBILITY + READING + CALM MODE
 // ========================================
 
+const HOME_NAVBAR_HTML = `
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="home.html" aria-label="Go to home">
+                <img src="img/Logo.png" alt="Logo" class="Logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="menu">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="home.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="skills-menu.html">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="grammar-menu.html">Grammar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="vocabulary-menu.html">Vocabulary</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Mascota.html">My Pet</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+`;
+
+const HOME_FOOTER_HTML = `
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="img/Logo2.png" alt="Oak English logo" class="Logo">
+                    <p>A calm, inclusive space to learn English at your own pace — no pressure, no rush.</p>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Skills</h4>
+                        <ul>
+                            <li><a href="reading-menu.html">Reading</a></li>
+                            <li><a href="listening-menu.html">Listening</a></li>
+                            <li><a href="writing-menu.html">Writing</a></li>
+                            <li><a href="speaking-menu.html">Speaking</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Vocabulary</h4>
+                        <ul>
+                            <li><a href="vocabulary-menu.html">A1 - A2 Vocabulary</a></li>
+                            <li><a href="vocabulary-menu.html">B1 - B2 Vocabulary</a></li>
+                            <li><a href="V-memorygame.html">Interactive Games</a></li>
+                            <li><a href="V-weekly.html">Play with Words</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <h4>Grammar</h4>
+                        <ul>
+                            <li><a href="grammar-menu.html">A1 - A2 Grammar</a></li>
+                            <li><a href="grammar-menu.html">B1 - B2 Grammar</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-section">
+                        <span class="footer-social-label">Connect with us</span>
+                        <div class="social-links">
+                            <a href="#" aria-label="Oak English on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Twitter"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                            <a href="#" aria-label="Oak English on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Oak English. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
+`;
+
+function ensureHomeLayout() {
+    const existingNavbar = document.querySelector('.navbar');
+    const navContainer = document.createElement('div');
+    navContainer.innerHTML = HOME_NAVBAR_HTML.trim();
+    const newNavbar = navContainer.firstElementChild;
+
+    if (existingNavbar) {
+        existingNavbar.replaceWith(newNavbar);
+    } else if (document.body) {
+        document.body.insertAdjacentHTML('afterend', HOME_NAVBAR_HTML.trim());
+    }
+
+    const existingFooter = document.querySelector('footer');
+    if (existingFooter) {
+        existingFooter.outerHTML = HOME_FOOTER_HTML.trim();
+    } else if (document.body) {
+        document.body.insertAdjacentHTML('beforeend', HOME_FOOTER_HTML.trim());
+    }
+}
+
+document.addEventListener('click', (event) => {
+    const backButton = event.target.closest('.back-btn, .back-link');
+
+    if (!backButton || backButton.dataset.historyBack === 'false') {
+        return;
+    }
+
+    if (backButton.tagName === 'A' || backButton.tagName === 'BUTTON') {
+        event.preventDefault();
+    }
+
+    if (window.history.length > 1 || document.referrer) {
+        window.history.back();
+        return;
+    }
+
+    window.location.href = 'home.html';
+});
+
 document.addEventListener("DOMContentLoaded", () => {
+    ensureHomeLayout();
 
     if (!document.getElementById("accessibilityToggle")) {
         document.body.insertAdjacentHTML("beforeend", `

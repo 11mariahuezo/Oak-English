@@ -41,23 +41,29 @@
         }
 
         /* Navbar */
-        .navbar{
-      background:var(--surface);
-      padding:14px 4vw;
-      box-shadow:0 1px 6px rgba(22,35,63,0.06);
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 5%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 6px rgba(22,35,63,0.06);
     }
-    .Logo{ height:38px; }
-    .navbar-nav .nav-link{
-      font-weight:600;
-      color:var(--ink-soft);
-      padding:8px 16px !important;
-      border-radius:999px;
-      transition:background 0.2s ease, color 0.2s ease;
+        .nav-links { display: flex; list-style: none; gap: 2.5rem; margin-left: auto; }
+        .nav-links a {
+            text-decoration: none; color: var(--ink-soft); font-weight: 600; font-size: 0.92rem;
+            padding: 8px 16px;
+            border-radius: 999px;
+        }
+        @media (prefers-reduced-motion: no-preference){
+            .nav-links a{ transition: background 0.2s ease, color 0.2s ease; }
     }
-    .navbar-nav .nav-link:hover{
-      background:var(--sky-tint);
-      color:var(--sky-dark);
-    }
+        .nav-links a:hover, .nav-links a.active { background: var(--sky-tint); color: var(--sky-dark); }
 
         /* Hero Section */
         .hero {
@@ -72,10 +78,10 @@
         }
         .hero-badge {
             display: inline-block;
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(167, 150, 150, 0.15);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
+            color: rgb(160, 155, 155);
             padding: 0.5rem 1.2rem;
             border-radius: 999px;
             font-weight: 700;
@@ -91,6 +97,7 @@
             font-weight: 800;
             margin-bottom: 1.5rem;
             line-height: 1.15;
+            color: #E7F0FD;
         }
         .hero p {
             font-size: 1.15rem;
@@ -101,7 +108,6 @@
             font-weight: 300;
         }
 
-        /* Breadcrumb */
         .breadcrumb {
             background: var(--surface);
             padding: 1.2rem 5%;

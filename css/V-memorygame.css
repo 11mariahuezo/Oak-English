@@ -77,7 +77,7 @@ a:focus-visible {
   transform: translateX(-2px);
 }
 
-navbar{
+.navbar{
       background:var(--surface);
       padding:14px 4vw;
       box-shadow:0 1px 6px rgba(22,35,63,0.06);
@@ -94,7 +94,7 @@ navbar{
       background:var(--sky-tint);
       color:var(--sky-dark);
     }
-
+    
 /* Hero */
 .hero {
   text-align: center;

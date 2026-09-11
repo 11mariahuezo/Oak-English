@@ -219,7 +219,7 @@ function renderRegister() {
           Create account
           <i class="ti ti-user-plus" aria-hidden="true"></i>
         </button>
-        <p class="login-link">Already have an account?<a href="login.php">Sign in</a></p>
+        <p class="login-link">Already have an account?<a href="login.html">Sign in</a></p>
       </div>
     </div>
   `;
@@ -245,11 +245,9 @@ async function register() {
 
         const response = await fetch("register.php", {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json"
             },
-
             body: JSON.stringify({
                 name: name,
                 email: email,
@@ -261,17 +259,10 @@ async function register() {
         const data = await response.json();
 
         if (!response.ok || !data.success) {
-            throw new Error(data.message || "Unable to create account.");
+            throw new Error(
+                data.message || "Unable to create account."
+            );
         }
-
-        localStorage.setItem(
-            "userProfile",
-            JSON.stringify({
-                name: name,
-                email: email,
-                profile: answers
-            })
-        );
 
         renderSuccess(name);
 
@@ -291,23 +282,42 @@ async function register() {
 }
 
 
-//  PANTALLA DE ÉXITO
+// PANTALLA DE ÉXITO
 
 function renderSuccess(name) {
-  const chips = Object.values(answers)
-    .map(v => `<span class="chip">${v}</span>`).join("");
 
-  wrapper.innerHTML = `
-    <div class="success slide-in">
-      <div class="success-icon">🎉</div>
-      <div class="success-title">¡Welcome, ${name.split(" ")[0]}!</div>
-      <div class="success-sub">Your account has been created. Your personalized learning plan is ready.</div>
-      <div class="chips" style="justify-content:center; margin-top:1.5rem">${chips}</div>
-    </div>
-  `;
+    const chips = Object.values(answers)
+        .map(v => `<span class="chip">${v}</span>`)
+        .join("");
+
+    wrapper.innerHTML = `
+        <div class="success slide-in">
+
+            <div class="success-icon">
+                🎉
+            </div>
+
+            <div class="success-title">
+                Welcome, ${name.split(" ")[0]}!
+            </div>
+
+            <div class="success-sub">
+                Your account has been created.
+                Your personalized learning plan is ready.
+            </div>
+
+            <div
+                class="chips"
+                style="justify-content:center; margin-top:1.5rem"
+            >
+                ${chips}
+            </div>
+
+        </div>
+    `;
 }
 
 
-//  ARRANQUE
+// ARRANQUE
 
 renderStep();

@@ -65,7 +65,7 @@ a:focus-visible{
 }
 
 
-navbar{
+.navbar{
       background:var(--surface);
       padding:14px 4vw;
       box-shadow:0 1px 6px rgba(22,35,63,0.06);
@@ -223,10 +223,6 @@ navbar{
 }
 
 
-/* =========================
-   SEGMENTED BUTTONS
-========================= */
-
 .segmented{
   display:flex;
 
@@ -269,27 +265,17 @@ navbar{
 
 .segmented button.active{
   background:var(--primary);
-
   color:#fff;
-
   box-shadow:
     0 2px 6px rgba(76,126,166,.2);
 }
 
 
-/* =========================
-   GAME PANEL
-========================= */
-
 .game-panel{
   padding:15px;
-
   border:1px solid var(--border);
-
   border-radius:17px;
-
   background:rgba(255,255,255,.97);
-
   box-shadow:var(--shadow);
 }
 
