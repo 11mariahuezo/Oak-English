@@ -170,7 +170,6 @@ select {
   .answers-grid,
   .options,
   .activities-grid,
-  .row,
   .courses-grid {
     grid-template-columns: 1fr;
     display: grid;
@@ -220,4 +219,59 @@ select {
   .acciones-section {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* Touch layouts: preserve Bootstrap rows and keep content inside its columns. */
+body :is(.hero, .hero-inner, .level-top, .skills-grid, .topics-grid,
+.activities-grid, .settings, .instructions) > * { min-width: 0; }
+body :is(.level-main, .level-full-desc, .practice-instructions, .content-card) {
+    overflow-wrap: anywhere;
+}
+body iframe { max-width: 100%; }
+body video { width: 100%; }
+body :is(input, textarea, select) { font-size: max(16px, 1em); }
+body :is(.navbar-toggler, .level-actions-row button, .level-actions-row a,
+.pill-btn, .grid-btn, .pairs-item, .login-button) { min-height: 44px; }
+body :is(.level-actions-row, .settings .pills, .game-actions) { flex-wrap: wrap; }
+
+@media (max-width: 991.98px) {
+    body .hero { gap: 24px; }
+    body .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
+    body .level-main { padding: 24px; }
+    body .level-actions-row { gap: 10px; }
+    body .footer-top { gap: 32px; }
+    /* Footer groups can share two columns on tablets instead of one long list. */
+    body .footer-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; width: 100%; }
+    body .navbar-collapse { max-height: calc(100dvh - 100px); overflow-y: auto; }
+}
+@media (max-width: 767.98px) {
+    body .hero { grid-template-columns: minmax(0, 1fr); }
+    body .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+    body .level-top { grid-template-columns: minmax(0, 1fr); }
+    body .level-card.reverse .level-top { direction: ltr; }
+    body .level-image-wrap { min-height: 200px; max-height: 280px; }
+    body .level-main { padding: 22px 18px; }
+    body :is(.topics-grid, .skills-grid) { grid-template-columns: minmax(0, 1fr); }
+    body .settings { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+    body .instructions { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+    body .card-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    body .memory-card { min-height: 72px; }
+    body .footer-top { gap: 24px; }
+    body .footer-bottom { align-items: flex-start; }
+    body .footer-bottom-links { gap: 16px; }
+    body .text-size-controls { flex-direction: row; align-items: center; }
+}
+@media (max-width: 420px) {
+    body .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    body .footer-links { grid-template-columns: minmax(0, 1fr); }
+    body .pairs-wrap { gap: 8px; }
+    body .pairs-wrap button { padding: 10px 6px; overflow-wrap: anywhere; }
+}
+@media (hover: none) and (pointer: coarse) {
+    body :is(.skill-card, .topic-card, .level-card, .opt-card, .memory-card):hover { transform: none; }
+}
+@media (max-width: 767.98px) {
+    body .exercise-head { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; padding: 20px 16px; }
+    body .exercise-head .btn-start { grid-column: 1 / -1; width: 100%; justify-content: center; white-space: normal; }
+    body .exercise-body { padding: 20px 16px; }
 }

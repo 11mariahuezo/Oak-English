@@ -1119,3 +1119,52 @@ body:is(.accessibility-dark, .high-contrast) footer a:focus-visible {
     outline: 3px solid #ffff00;
     outline-offset: 4px;
 }
+
+/* iPad and phones: do not overlap the navigation toggle. */
+@media (max-width: 991.98px) {
+    body { padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px)); }
+    body #accessibilityToggle,
+    body .accessibility-trigger-btn {
+        top: auto !important;
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+        width: 76px !important;
+        height: 48px !important;
+    }
+    body #accessibilityMenu {
+        top: auto !important;
+        bottom: calc(76px + env(safe-area-inset-bottom, 0px)) !important;
+        right: calc(16px + env(safe-area-inset-right, 0px)) !important;
+        width: min(360px, calc(100vw - 32px)) !important;
+        max-width: calc(100vw - 32px) !important;
+        max-height: calc(100vh - 100px - env(safe-area-inset-bottom, 0px)) !important;
+        max-height: calc(100dvh - 100px - env(safe-area-inset-bottom, 0px)) !important;
+        overflow-y: auto !important;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        padding: 18px !important;
+    }
+    body #accessibilityMenu .text-size-controls { flex-direction: row; }
+}
+@media (min-width: 992px) {
+    body #accessibilityMenu {
+        max-height: calc(100dvh - 86px) !important;
+        overflow-y: auto !important;
+    }
+}
+
+/* Keep the expanded touch navigation legible in both visual modes. */
+body.accessibility-dark .navbar-collapse {
+    background: #1b273b !important;
+    border: 1px solid #40516b;
+}
+body.accessibility-dark .navbar-collapse .nav-link {
+    color: #eef3fb !important;
+}
+body.high-contrast .navbar-collapse {
+    background: #000000 !important;
+    border: 2px solid #ffffff !important;
+}
+body.high-contrast .navbar-collapse .nav-link {
+    color: #ffff00 !important;
+}
