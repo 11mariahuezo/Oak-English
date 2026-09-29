@@ -1079,3 +1079,43 @@ body.accessibility-dark :is(.hero, .page-title, .section-lede, .section-heading)
     color: #eef3fb !important;
 }
 body.accessibility-dark .hero-blob { opacity: .08; }
+
+/* Footer surfaces must not inherit the light heading color token. */
+body.accessibility-dark footer {
+    background: #101827 !important;
+    color: #eef3fb !important;
+    border-top: 1px solid #40516b !important;
+}
+body.accessibility-dark footer :is(.container, .container-fluid, section, .footer-inner, .footer-top, .footer-bottom) {
+    background: transparent !important;
+}
+body.accessibility-dark footer :is(h1, h2, h3, h4, p, span, li, label, strong) {
+    color: #eef3fb !important;
+}
+body.accessibility-dark footer a {
+    color: #c5dfff !important;
+}
+body.accessibility-dark footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+/* High contrast takes priority when both modes are enabled. */
+body.high-contrast footer {
+    background: #000000 !important;
+    color: #ffffff !important;
+    border-top: 2px solid #ffffff !important;
+}
+body.high-contrast footer :is(.container, .container-fluid, section, .footer-inner, .footer-top, .footer-bottom) {
+    background: transparent !important;
+}
+body.high-contrast footer :is(p, span, li, label, strong) {
+    color: #ffffff !important;
+}
+body.high-contrast footer :is(h1, h2, h3, h4, a) {
+    color: #ffff00 !important;
+}
+body.high-contrast footer a { text-decoration: underline; }
+body:is(.accessibility-dark, .high-contrast) footer a:focus-visible {
+    outline: 3px solid #ffff00;
+    outline-offset: 4px;
+}
