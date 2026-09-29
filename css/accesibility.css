@@ -1011,3 +1011,71 @@ body.high-contrast select {
     color: #fff !important;
     border: 2px solid #fff !important;
 }
+/* Consistent dark surfaces; clear gradients as well as background colors. */
+body.accessibility-dark {
+    --bg: #101827;
+    --surface: #1b273b;
+    --ink: #eef3fb;
+    --ink-soft: #c3cede;
+    --oak-bg: #101827;
+    --oak-ink: #eef3fb;
+    --oak-navy: #eef3fb;
+    --oak-border: #40516b;
+    background: #101827 !important;
+    color-scheme: dark;
+}
+body.accessibility-dark main,
+body.accessibility-dark section,
+body.accessibility-dark header,
+body.accessibility-dark nav,
+body.accessibility-dark .hero {
+    background: #101827 !important;
+}
+/* Layout containers must not create rectangles of a different color. */
+body.accessibility-dark .container,
+body.accessibility-dark .container-fluid {
+    background: transparent !important;
+}
+body.accessibility-dark :is(.card, .info-card, .feature-card, .skill-card,
+.level-card, .content-card, .topic-card, .activity-card, .practice-area,
+.game-panel, .dashboard, .level-details, .practice-instructions,
+.usage-item, .structure-block) {
+    background: #1b273b !important;
+    border-color: #40516b !important;
+}
+body.accessibility-dark #accessibilityMenu {
+    background: #1b273b !important;
+    color: #eef3fb !important;
+    border-color: #40516b !important;
+}
+body.accessibility-dark #accessibilityMenu :is(h2, h3, h4, p, span, label, strong) {
+    color: #eef3fb !important;
+}
+body.accessibility-dark #accessibilityMenu button {
+    background: #263750 !important;
+    color: #eef3fb !important;
+    border: 1px solid #62758f !important;
+}
+body.accessibility-dark #accessibilityMenu button.active,
+body.accessibility-dark #accessibilityMenu button[aria-pressed="true"] {
+    background: #b8d8ff !important;
+    color: #14233c !important;
+    border-color: #b8d8ff !important;
+}
+body.accessibility-dark :is(.main-btn, .learn-btn, .btn-primary) {
+    background: #ffc8ea !important;
+    color: #302039 !important;
+    border-color: #da8cbf !important;
+}
+body.accessibility-dark :is(.main-btn, .learn-btn, .btn-primary) :is(span, strong, i) {
+    color: #302039 !important;
+}
+body.accessibility-dark :is(.eyebrow, .badge, .hero-badge, .hero-note) {
+    background: #263750 !important;
+    color: #eef3fb !important;
+    border-color: #62758f !important;
+}
+body.accessibility-dark :is(.hero, .page-title, .section-lede, .section-heading) :is(h1, h2, p) {
+    color: #eef3fb !important;
+}
+body.accessibility-dark .hero-blob { opacity: .08; }

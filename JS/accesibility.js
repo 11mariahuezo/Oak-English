@@ -744,7 +744,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (element.matches("input, textarea, select")) {
             const label = element.labels?.[0]?.innerText || "";
-            const value = element.value ? ` ${element.value}` : "";
+            const value = element.type !== "password" && element.value ? ` ${element.value}` : "";
             return `${label} ${element.getAttribute("placeholder") || ""}${value}`.trim();
         }
 
@@ -757,15 +757,19 @@ document.addEventListener("DOMContentLoaded", () => {
         ).replace(/\s+/g, " ").trim();
     }
 
-    function speakElement(element) {
+    function speakElement(element, force = false) {
         if (!element || element.closest("#accessibilityMenu") || element === toggle) return;
 
         const text = getReadableText(element);
-        if (!text || text === lastReadElement?.text) return;
+        if (!text || (!force && text === lastReadElement?.text)) return;
+        if (!('speechSynthesis' in window) || !('SpeechSynthesisUtterance' in window)) {
+            alert(spanishEnabled ? 'Tu navegador no admite lectura en voz alta.' : 'Your browser does not support text-to-speech.');
+            return;
+        }
 
         speechSynthesis.cancel();
         const speech = new SpeechSynthesisUtterance(text);
-        speech.lang = "en-US";
+        speech.lang = spanishEnabled ? "es-SV" : "en-US";
         speech.rate = 0.9;
         speech.pitch = 1;
         speech.volume = 1;
@@ -827,10 +831,18 @@ document.addEventListener("DOMContentLoaded", () => {
         window.clearTimeout(hoverTimer);
     });
 
+    // Remember page content when clicked, including headings and paragraphs.
+    document.addEventListener("pointerdown", event => {
+        const element = getReadableElement(event.target);
+        if (element && !element.closest("#accessibilityMenu") && element !== toggle) {
+            lastFocusedReadableElement = element;
+        }
+    });
+
     document.addEventListener("focusin", event => {
         const element = getReadableElement(event.target);
 
-        if (element && !element.closest("#accessibilityMenu")) {
+        if (element && !element.closest("#accessibilityMenu") && element !== toggle) {
             lastFocusedReadableElement = element;
         }
     });
@@ -844,7 +856,16 @@ document.addEventListener("DOMContentLoaded", () => {
             spanishEnabled ? "Leer el elemento seleccionado" : "Read the focused item"
         );
         btnRead.addEventListener("click", () => {
-            speakElement(lastFocusedReadableElement);
+            const remembered = lastFocusedReadableElement;
+            const selectedText = window.getSelection()?.toString().trim();
+            if (selectedText) {
+                const selected = document.createElement('span');
+                selected.textContent = selectedText;
+                speakElement(selected, true);
+                return;
+            }
+            const fallback = document.querySelector('main h1, .hero h1, h1, main h2, main p');
+            speakElement(remembered?.isConnected ? remembered : fallback, true);
         });
     }
 
@@ -1034,6 +1055,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "active",
                 enabled
             );
+            darkMode.setAttribute('aria-pressed', String(enabled));
 
         }
 
