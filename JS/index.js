@@ -219,7 +219,7 @@ function renderRegister() {
           Create account
           <i class="ti ti-user-plus" aria-hidden="true"></i>
         </button>
-        <p class="login-link">Already have an account?<a href="login.html">Sign in</a></p>
+        <p class="login-link">Already have an account?<a href="login.php">Sign in</a></p>
       </div>
     </div>
   `;
@@ -264,10 +264,11 @@ async function register() {
             );
         }
 
+        localStorage.setItem("userProfile", JSON.stringify(answers));
         renderSuccess(name);
 
         setTimeout(() => {
-            window.location.href = "home.html";
+            window.location.href = "home.php";
         }, 2000);
 
     } catch (error) {
@@ -298,7 +299,7 @@ function renderSuccess(name) {
             </div>
 
             <div class="success-title">
-                Welcome, ${name.split(" ")[0]}!
+                Welcome, ${name.split(" ")[0].replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;", "'":"&#39;"}[c]))}!
             </div>
 
             <div class="success-sub">

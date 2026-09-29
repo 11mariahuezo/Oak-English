@@ -1,14 +1,14 @@
 <?php
 
-session_start();
+require_once __DIR__ . '/session.php';
 include("conexion.php");
 
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $email = trim($_POST["email"]);
-    $password = $_POST["password"];
+    $email = trim(is_string($_POST["email"] ?? null) ? $_POST["email"] : "");
+    $password = is_string($_POST["password"] ?? null) ? $_POST["password"] : "";
 
     $sql = "SELECT id_usuario, nombre, apellido, correo, contrasena, rol
             FROM usuarios
@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if (password_verify($password, $user["contrasena"])) {
 
+            session_regenerate_id(true);
             $_SESSION["id_usuario"] = $user["id_usuario"];
             $_SESSION["nombre"] = $user["nombre"];
             $_SESSION["apellido"] = $user["apellido"];
@@ -130,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     <p>
         Don't have an account?
-        <a href="registro.php">
+        <a href="index.html">
             Sign Up
         </a>
     </p>

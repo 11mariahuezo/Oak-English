@@ -1,14 +1,21 @@
 <?php
 
-session_start();
+require_once __DIR__ . '/session.php';
 
 header("Content-Type: application/json");
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    header('Allow: POST');
+    echo json_encode(['success' => false, 'message' => 'Method not allowed.']);
+    exit;
+}
 require_once "conexion.php";
+try {
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!$data) {
+if (!is_array($data)) {
     http_response_code(400);
 
     echo json_encode([
@@ -19,6 +26,18 @@ if (!$data) {
     exit();
 }
 
+if (!is_string($data['name'] ?? null) || !is_string($data['email'] ?? null) || !is_string($data['password'] ?? null) || !is_array($data['profile'] ?? [])) {
+    http_response_code(400);
+    echo json_encode(['success' => false, 'message' => 'Invalid request.']);
+    exit;
+}
+foreach (($data['profile'] ?? []) as $value) {
+    if (!is_string($value) || strlen($value) > 100) {
+        http_response_code(400);
+        echo json_encode(['success' => false, 'message' => 'Invalid profile.']);
+        exit;
+    }
+}
 $name = trim($data["name"] ?? "");
 $email = trim($data["email"] ?? "");
 $password = $data["password"] ?? "";
@@ -111,6 +130,7 @@ $passwordHash = password_hash(
 
 
 // Crear usuario
+$conexion->begin_transaction();
 
 $sql = "INSERT INTO usuarios
         (nombre, apellido, correo, contrasena)
@@ -190,6 +210,8 @@ if (!empty($profile)) {
 }
 
 
+$conexion->commit();
+
 // LOGIN AUTOMÁTICO
 
 session_regenerate_id(true);
@@ -214,3 +236,11 @@ echo json_encode([
 ]);
 
 exit();
+} catch (Throwable $e) {
+    $conexion->rollback();
+    $duplicate = $e instanceof mysqli_sql_exception && $e->getCode() === 1062;
+    http_response_code($duplicate ? 409 : 500);
+    error_log('Oak English registration failed; check database schema.');
+    echo json_encode(['success' => false, 'message' => $duplicate ? 'An account with this email already exists.' : 'Unable to create account.']);
+    exit;
+}
