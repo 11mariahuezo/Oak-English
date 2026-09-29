@@ -1,0 +1,223 @@
+:root {
+  --page-padding-mobile: 16px;
+  --page-padding-tablet: 20px;
+}
+
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a,
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+.container,
+.container-fluid,
+.main-container,
+.hero,
+.dashboard,
+.practice-area,
+.page-title,
+.section,
+.section.active,
+.suggestion-box,
+.footer-inner,
+.footer-content {
+  width: min(100%, 1200px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navbar-brand,
+.navbar-brand img,
+.Logo {
+  max-height: 48px;
+}
+
+.navbar-nav {
+  gap: 0.25rem;
+}
+
+.navbar-nav .nav-link {
+  white-space: nowrap;
+}
+
+.nav-links,
+.footer-links,
+.footer-bottom-links,
+.social-links {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.96);
+    border-radius: 18px;
+    margin-top: 12px;
+    padding: 12px;
+    box-shadow: 0 10px 24px rgba(22, 35, 63, 0.08);
+  }
+
+  .navbar-nav {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .navbar-nav .nav-link,
+  .nav-links li a {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-top,
+  .footer-links,
+  .footer-inner,
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container,
+  .container-fluid,
+  .main-container,
+  .hero,
+  .section,
+  .dashboard,
+  .practice-area,
+  .suggestion-box,
+  .footer-inner,
+  .footer-content {
+    padding-left: var(--page-padding-mobile);
+    padding-right: var(--page-padding-mobile);
+  }
+
+  .navbar {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .navbar-brand {
+    margin-right: 0;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .auth-buttons,
+  .btn-group,
+  .text-size-controls,
+  .action-row,
+  .practice-header,
+  .progreso-labels,
+  .hitos-lecciones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn,
+  .learn-btn,
+  .main-btn,
+  .btn-submit,
+  .btn-secondary,
+  .next-btn,
+  .answer-btn,
+  .option-btn {
+    width: 100%;
+  }
+
+  .section,
+  .hero,
+  .dashboard,
+  .practice-area,
+  .suggestion-box,
+  .course-card,
+  .info-card,
+  .question-section,
+  .game-over,
+  .mascota-section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .answers-grid,
+  .options,
+  .activities-grid,
+  .row,
+  .courses-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .footer-links,
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    font-size: 15px;
+  }
+
+  h1 {
+    font-size: clamp(1.7rem, 8vw, 2.4rem);
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 7vw, 2rem);
+  }
+
+  .Logo,
+  .navbar-brand img,
+  .logo-img {
+    max-height: 34px;
+  }
+
+  .dashboard,
+  .mascota-section,
+  .practice-area,
+  .hero,
+  .section {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .mascota-display {
+    height: 260px !important;
+  }
+
+  .acciones-section {
+    grid-template-columns: 1fr !important;
+  }
+}

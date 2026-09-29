@@ -1,0 +1,1013 @@
+
+#accessibilityToggle,
+.accessibility-trigger-btn {
+
+    position: fixed !important;
+
+    top: 12px !important;
+
+    right: 24px !important;
+
+    bottom: auto !important;
+
+    z-index: 999999 !important;
+
+    background-color: #233b75 !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    border-radius: 999px !important;
+
+    width: 118px !important;
+
+    height: 40px !important;
+
+    font-size: 22px !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 4px 15px
+        rgba(0, 0, 0, 0.25) !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease !important;
+}
+
+
+#accessibilityToggle:hover,
+.accessibility-trigger-btn:hover {
+
+    transform: scale(1.08) !important;
+
+    background-color: #1a2d5a !important;
+}
+
+
+
+#accessibilityMenu {
+
+    display: none;
+
+    position: fixed !important;
+
+    bottom: 90px !important;
+
+    right: 25px !important;
+
+    z-index: 999998 !important;
+
+    width: 340px !important;
+
+    max-width: 90vw !important;
+
+    background: #ffffff !important;
+
+    border:
+        1px solid #e2e8f0 !important;
+
+    border-radius: 16px !important;
+
+    padding: 20px !important;
+
+    box-shadow:
+        0 12px 35px
+        rgba(0, 0, 0, 0.18) !important;
+
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif !important;
+}
+
+
+#accessibilityMenu.show {
+
+    display: block !important;
+}
+
+
+#accessibilityMenu h3,
+#accessibilityMenu h4 {
+
+    color: #1e293b !important;
+
+    font-size: 14px !important;
+
+    font-weight: 700 !important;
+
+    text-transform: uppercase !important;
+
+    letter-spacing: 0.5px !important;
+
+    margin:
+        14px 0 8px 0 !important;
+}
+
+
+#accessibilityMenu h3:first-of-type {
+
+    margin-top: 0 !important;
+}
+
+
+
+#accessibilityMenu button {
+
+    background-color: #f8fafc !important;
+
+    color: #334155 !important;
+
+    border:
+        1px solid #cbd5e1 !important;
+
+    border-radius: 8px !important;
+
+    padding:
+        8px 12px !important;
+
+    font-size: 13px !important;
+
+    font-weight: 500 !important;
+
+    cursor: pointer !important;
+
+    transition:
+        all 0.15s ease !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    margin: 3px !important;
+}
+
+
+#accessibilityMenu button:hover {
+
+    background-color: #e2e8f0 !important;
+
+    color: #0f172a !important;
+
+    border-color: #94a3b8 !important;
+}
+
+
+
+#accessibilityMenu button.active {
+
+    background-color: #e0e7ff !important;
+
+    color: #3730a3 !important;
+
+    border-color: #6366f1 !important;
+
+    font-weight: 600 !important;
+}
+
+
+
+#accessibilityMenu .close-btn {
+
+    float: right !important;
+
+    background: transparent !important;
+
+    border: none !important;
+
+    font-size: 16px !important;
+
+    color: #64748b !important;
+
+    padding:
+        4px 8px !important;
+}
+
+
+#accessibilityMenu .close-btn:hover {
+
+    color: #0f172a !important;
+}
+
+
+html {
+
+    transition:
+        font-size 0.2s ease;
+}
+
+
+
+body.highlight-links a {
+
+    text-decoration:
+        underline 3px #FFE600 !important;
+
+    font-weight: bold !important;
+
+    background-color:
+        rgba(255, 230, 0, 0.2) !important;
+
+    color: #000000 !important;
+
+    padding:
+        2px 4px !important;
+
+    border-radius: 4px !important;
+}
+
+
+
+body.calm-mode {
+
+    filter:
+        sepia(15%)
+        saturate(80%) !important;
+}
+
+
+body.calm-mode *,
+body.calm-mode *::before,
+body.calm-mode *::after {
+
+    animation: none !important;
+
+    transition: none !important;
+
+    scroll-behavior: auto !important;
+}
+
+body.accessibility-dark {
+    color: #ffffff !important;
+}
+
+
+
+body.accessibility-dark main,
+body.accessibility-dark section,
+body.accessibility-dark header,
+body.accessibility-dark nav,
+body.accessibility-dark .hero,
+body.accessibility-dark .container,
+body.accessibility-dark .container-fluid,
+body.accessibility-dark [class*="bg-light"],
+body.accessibility-dark [class*="bg-white"] {
+
+    background-color: #0d1527 !important;
+}
+
+
+/* Cards */
+
+body.accessibility-dark .card,
+body.accessibility-dark .info-card,
+body.accessibility-dark .course-card,
+body.accessibility-dark .feature-card,
+body.accessibility-dark .suggestion-box,
+body.accessibility-dark div[class*="card"] {
+
+    background-color: #162238 !important;
+
+    border:
+        1px solid #2a3b5c !important;
+}
+
+
+/* Text */
+
+body.accessibility-dark h1,
+body.accessibility-dark h2,
+body.accessibility-dark h3,
+body.accessibility-dark h4,
+body.accessibility-dark h5,
+body.accessibility-dark h6,
+body.accessibility-dark p,
+body.accessibility-dark span,
+body.accessibility-dark li,
+body.accessibility-dark label,
+body.accessibility-dark strong,
+body.accessibility-dark a:not(.btn) {
+
+    color: #ffffff !important;
+}
+
+
+/* Secondary buttons */
+
+body.accessibility-dark .btn-light,
+body.accessibility-dark .btn-outline-primary,
+body.accessibility-dark button:not(#accessibilityToggle):not(.main-btn) {
+
+    background-color: #233352 !important;
+
+    color: #ffffff !important;
+
+    border-color: #3b517a !important;
+}
+
+
+/* Badges */
+
+body.accessibility-dark .badge,
+body.accessibility-dark .eyebrow {
+
+    background-color: #ffffff !important;
+
+    color: #0d1527 !important;
+}
+
+
+/* =========================================================
+   6. HIGH CONTRAST
+   ========================================================= */
+
+body.high-contrast {
+
+    background-color: #000000 !important;
+
+    color: #ffffff !important;
+}
+
+
+body.high-contrast * {
+
+    border-color: #ffffff !important;
+}
+
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6,
+body.high-contrast p,
+body.high-contrast a,
+body.high-contrast button {
+
+    color: #ffffff !important;
+}
+
+
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast .accent {
+
+    color: #ffff00 !important;
+}
+
+
+#accessibilityToggle,
+.accessibility-trigger-btn {
+    top: auto !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: 16px !important;
+    background-color: #52a5f2 !important;
+    font-size: 0 !important;
+    box-shadow: 0 5px 16px rgba(41, 66, 93, 0.22) !important;
+}
+
+#accessibilityToggle::after,
+.accessibility-trigger-btn::after {
+    content: "Aa";
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+#accessibilityToggle:hover,
+.accessibility-trigger-btn:hover,
+#accessibilityToggle:focus-visible,
+.accessibility-trigger-btn:focus-visible {
+    transform: none !important;
+    background-color: #3c88df !important;
+}
+
+#accessibilityMenu {
+    bottom: 92px !important;
+    right: 20px !important;
+    width: 360px !important;
+    max-height: calc(100vh - 112px);
+    overflow-y: auto;
+    border: 2px solid #f2dfc4 !important;
+    border-radius: 20px !important;
+    padding: 22px !important;
+    color: #29425d !important;
+}
+
+#accessibilityMenu h3,
+#accessibilityMenu h4 {
+    font-size: 16px !important;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
+    margin: 18px 0 10px !important;
+}
+
+#accessibilityMenu button {
+    min-height: 46px !important;
+    padding: 10px 14px !important;
+    border-radius: 12px !important;
+    font-size: 15px !important;
+    line-height: 1.25 !important;
+}
+
+#accessibilityMenu button:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 4px solid #4b99f2 !important;
+    outline-offset: 3px !important;
+}
+
+#accessibilityMenu .close-btn {
+    min-width: 46px !important;
+    min-height: 46px !important;
+    font-size: 25px !important;
+}
+
+#accessibilityMenu .accessibility-reset {
+    width: 100% !important;
+    margin: 18px 0 0 !important;
+    justify-content: center !important;
+}
+
+body.calm-mode {
+    background-image: none !important;
+}
+
+body.calm-mode .hero-blob,
+body.calm-mode .teacher-chat-launcher {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #accessibilityMenu {
+        right: 12px !important;
+        bottom: 84px !important;
+        width: calc(100vw - 24px) !important;
+        max-height: calc(100vh - 100px);
+    }
+
+    #accessibilityToggle,
+    .accessibility-trigger-btn {
+        right: 14px !important;
+        bottom: 14px !important;
+    }
+}
+
+/*
+   Estas reglas son IMPORTANTES.
+   Evitan que las reglas generales de accesibilidad
+   destruyan el diseño de la práctica.
+*/
+
+
+body.accessibility-dark .speaking-modal {
+
+    background: #162238 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #2a3b5c !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+h3 {
+
+    color: #ffffff !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.level-tag {
+
+    color: #9FC2FF !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.mic-status {
+
+    color: #C7D4EA !important;
+}
+
+
+/* Task */
+
+body.accessibility-dark
+.speaking-modal
+.task {
+
+    background: #233352 !important;
+
+    color: #ffffff !important;
+}
+
+
+/* Transcript */
+
+body.accessibility-dark
+.speaking-modal
+.transcript-box {
+
+    background: #233352 !important;
+
+    color: #ffffff !important;
+
+    border:
+        1px solid #3b517a !important;
+}
+
+
+/* Placeholder */
+
+body.accessibility-dark
+.speaking-modal
+.transcript-box
+.placeholder {
+
+    background: transparent !important;
+
+    background-color: transparent !important;
+
+    background-image: none !important;
+
+    color: #C7D4EA !important;
+}
+
+
+/* Wave */
+
+body.accessibility-dark
+.speaking-modal
+#waveCanvas {
+
+    background: #233352 !important;
+}
+
+
+/* Results */
+
+body.accessibility-dark
+.speaking-modal
+.results {
+
+    color: #ffffff !important;
+}
+
+/* Accessibility panel layout and stacking */
+#accessibilityToggle,
+.accessibility-trigger-btn {
+    z-index: 1000001 !important;
+}
+
+#accessibilityMenu {
+    z-index: 1000000 !important;
+    display: none;
+    flex-direction: column;
+    gap: 14px;
+    background: #fffdf8 !important;
+    border: 3px solid #f2dfc4 !important;
+    box-shadow: 0 16px 40px rgba(41, 66, 93, 0.24) !important;
+}
+
+#accessibilityMenu.show {
+    display: flex !important;
+}
+
+#accessibilityMenu .accessibility-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f2dfc4;
+}
+
+#accessibilityMenu .accessibility-header strong {
+    color: #193a63 !important;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 22px;
+}
+
+#accessibilityMenu .accessibility-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 14px 0 0;
+    border-top: 2px solid #f7ead7;
+}
+
+#accessibilityMenu .accessibility-section h3 {
+    width: 100%;
+    color: #193a63 !important;
+    margin: 0 !important;
+}
+
+#accessibilityMenu .accessibility-section button {
+    flex: 1 1 140px;
+    margin: 0 !important;
+}
+
+#accessibilityMenu .accessibility-reset {
+    order: 5;
+}
+
+#accessibilityMenu .text-size-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+
+#accessibilityMenu .text-size-controls button {
+    flex: 1;
+}
+
+#accessibilityMenu .text-size-controls span {
+    min-width: 60px;
+    color: #193a63;
+    font-size: 17px;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    #accessibilityMenu {
+        bottom: 88px !important;
+        max-height: calc(100vh - 104px) !important;
+    }
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.metric {
+
+    color: #ffffff !important;
+
+    border-color: #3b517a !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.feedback-note {
+
+    background: #233352 !important;
+
+    color: #C7D4EA !important;
+}
+
+
+/* Close */
+
+body.accessibility-dark
+.speaking-modal
+.modal-close {
+
+    color: #C7D4EA !important;
+
+    background: transparent !important;
+}
+
+
+/* Evaluate */
+
+body.accessibility-dark
+.speaking-modal
+.finish-btn {
+
+    background: #31548F !important;
+
+    color: #ffffff !important;
+}
+
+
+body.accessibility-dark
+.speaking-modal
+.finish-btn:disabled {
+
+    background: #59677F !important;
+
+    color: #ffffff !important;
+}
+
+
+/* =========================================================
+   9. FLOATING BUTTON
+   ========================================================= */
+
+#accessibilityToggle,
+.accessibility-trigger-btn {
+
+    position: fixed !important;
+
+    top: 12px !important;
+
+    right: 24px !important;
+
+    bottom: auto !important;
+
+    z-index: 999999 !important;
+
+    width: 118px !important;
+
+    height: 40px !important;
+
+    padding: 0 !important;
+
+    font-size: 22px !important;
+
+    border-radius: 999px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+}
+
+#accessibilityToggle::before,
+.accessibility-trigger-btn::before {
+    content: none !important;
+}
+
+#accessibilityToggle img,
+.accessibility-trigger-btn img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    display: block;
+}
+
+
+/* =========================================================
+   10. ACCESSIBILITY MENU POSITION
+   ========================================================= */
+
+#accessibilityMenu {
+
+    position: fixed !important;
+
+    top: 62px !important;
+
+    bottom: auto !important;
+
+    right: 25px !important;
+
+    z-index: 999998 !important;
+}
+
+@media (min-width: 992px) {
+
+    .navbar {
+        padding-right: 170px !important;
+    }
+}
+
+
+/* =========================================================
+   11. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    #accessibilityMenu {
+
+        right: 15px !important;
+
+        top: 60px !important;
+
+        bottom: auto !important;
+
+        width: calc(100vw - 30px) !important;
+
+    }
+
+
+    #accessibilityToggle,
+    .accessibility-trigger-btn {
+
+        right: 15px !important;
+
+        top: 68px !important;
+
+        bottom: auto !important;
+
+    }
+
+    #accessibilityMenu {
+        top: 118px !important;
+    }
+
+}
+
+/* =========================================
+   ACCESSIBILITY - DARK MODE
+========================================= */
+
+body.accessibility-dark {
+    background-color: #121212 !important;
+    color: #f5f5f5 !important;
+}
+
+/* Fondos generales */
+body.accessibility-dark main,
+body.accessibility-dark section,
+body.accessibility-dark article {
+    color: #f5f5f5;
+}
+
+/* Tarjetas */
+body.accessibility-dark .card,
+body.accessibility-dark .skill-card,
+body.accessibility-dark .level-card,
+body.accessibility-dark .activity-card,
+body.accessibility-dark .topic-card,
+body.accessibility-dark .practice-card,
+body.accessibility-dark .grammar-card,
+body.accessibility-dark .vocabulary-card,
+body.accessibility-dark .reading-card,
+body.accessibility-dark .listening-card,
+body.accessibility-dark .writing-card,
+body.accessibility-dark .speaking-card {
+    background-color: #242424 !important;
+    color: #f5f5f5 !important;
+    border-color: #444 !important;
+}
+
+/* Textos dentro de las tarjetas */
+body.accessibility-dark .skill-card *,
+body.accessibility-dark .level-card *,
+body.accessibility-dark .activity-card *,
+body.accessibility-dark .topic-card *,
+body.accessibility-dark .practice-card * {
+    color: inherit;
+}
+
+/* Títulos */
+body.accessibility-dark h1,
+body.accessibility-dark h2,
+body.accessibility-dark h3,
+body.accessibility-dark h4,
+body.accessibility-dark h5,
+body.accessibility-dark h6 {
+    color: #ffffff !important;
+}
+
+/* Párrafos */
+body.accessibility-dark p,
+body.accessibility-dark span,
+body.accessibility-dark li {
+    color: #e5e5e5;
+}
+
+/* Inputs */
+body.accessibility-dark input,
+body.accessibility-dark textarea,
+body.accessibility-dark select {
+    background-color: #292929 !important;
+    color: #ffffff !important;
+    border-color: #555 !important;
+}
+
+/* Botones */
+body.accessibility-dark button {
+    color: inherit;
+}
+
+/* Links */
+body.accessibility-dark a {
+    color: #9ecbff;
+}
+
+
+/* =========================================
+   HIGHLIGHT LINKS
+========================================= */
+
+body.highlight-links a {
+    background-color: #ffff00 !important;
+    color: #000000 !important;
+    text-decoration: underline !important;
+    outline: 2px solid #000000 !important;
+    font-weight: bold !important;
+}
+
+body.accessibility-dark .card {
+    background-color: #242424 !important;
+    color: white !important;
+}
+
+/* =========================================
+   HIGH CONTRAST - FIX COMPLETO
+========================================= */
+
+body.high-contrast {
+    background: #000 !important;
+    color: #fff !important;
+}
+
+/* Fondo general de la página */
+body.high-contrast main,
+body.high-contrast section,
+body.high-contrast article,
+body.high-contrast .container {
+    color: #fff !important;
+}
+
+/* TODAS LAS TARJETAS */
+body.high-contrast .card,
+body.high-contrast [class*="card"] {
+    background: #000 !important;
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+    box-shadow: none !important;
+}
+
+/* Todo el texto dentro de las tarjetas */
+body.high-contrast .card h1,
+body.high-contrast .card h2,
+body.high-contrast .card h3,
+body.high-contrast .card h4,
+body.high-contrast .card p,
+body.high-contrast .card span,
+body.high-contrast .card li,
+body.high-contrast [class*="card"] h1,
+body.high-contrast [class*="card"] h2,
+body.high-contrast [class*="card"] h3,
+body.high-contrast [class*="card"] h4,
+body.high-contrast [class*="card"] p,
+body.high-contrast [class*="card"] span,
+body.high-contrast [class*="card"] li {
+    color: #fff !important;
+}
+
+/* Iconos y cuadritos de iconos */
+body.high-contrast [class*="icon"] {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+/* SVG */
+body.high-contrast svg {
+    color: #fff !important;
+}
+
+/* Enlaces */
+body.high-contrast a {
+    color: #ffff00 !important;
+    text-decoration: underline !important;
+}
+
+/* Botones */
+body.high-contrast button {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+}
+
+/* Inputs */
+body.high-contrast input,
+body.high-contrast textarea,
+body.high-contrast select {
+    background-color: #000 !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
+}
