@@ -91,6 +91,28 @@
             color: var(--accent-blue);
         }
 
+        .back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 10px;
+  padding: 10px 13px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: rgba(255,255,255,.94);
+  color: var(--primary-dark);
+  font-size: .8rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-soft);
+  transform: translateX(-2px);
+}
+
+
         /* --- TARJETAS CALCADAS DEL PROTOTIPO --- */
         .vocabulary-card {
             background: #ffffff;

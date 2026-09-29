@@ -43,10 +43,10 @@
             colors: {
                 title: "Weekly vocabulary: colors",
                 items: [
-                    { eng: "Red", esp: "Rojo", def: "The color of blood, rubies, or ripe strawberries.", img:"https://i.pinimg.com/1200x/57/2e/44/572e446e7ecd1261d1973b7e11f1d622.jpg" },
-                    { eng: "Blue", esp: "Azul", def: "The color of the clear sky or the deep ocean.", img:"https://i.pinimg.com/736x/d1/32/f0/d132f0fa2cb01b66bea35307ca78b490.jpg" },
-                    { eng: "Yellow", esp: "Amarillo", def: "The color of lemons, ripe bananas, or the bright sun.", img:"https://i.pinimg.com/736x/ed/87/91/ed87919ef58e48e7de217e39fff81804.jpg" },
-                    { eng: "Green", esp: "Verde", def: "The color of growing grass, leaves, and emeralds.",img:"https://i.pinimg.com/736x/c5/bf/87/c5bf877f5164ce5caedb0e588d509d0e.jpg" }
+                    { eng: "Red", esp: "Rojo", def: "The color of blood, rubies, or ripe strawberries.", img:"https://th.bing.com/th/id/R.4281b99082d3a0090f8308bd7bb6afa8?rik=Hwuy9hppJKExDA&riu=http%3a%2f%2fwww.solidbackgrounds.com%2fimages%2f2560x1440%2f2560x1440-red-solid-color-background.jpg&ehk=JM%2bpBbi3WsLKe%2b3IiGij7NqtvGdax7ZRx5q1iUtATRA%3d&risl=&pid=ImgRaw&r=0" },
+                    { eng: "Blue", esp: "Azul", def: "The color of the clear sky or the deep ocean.", img:"https://wallpapercave.com/wp/wp11757770.jpg" },
+                    { eng: "Yellow", esp: "Amarillo", def: "The color of lemons, ripe bananas, or the bright sun.", img:"https://tse3.mm.bing.net/th/id/OIP.q25WikUFGxbe3PaJdvnK-QHaEo?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" },
+                    { eng: "Green", esp: "Verde", def: "The color of growing grass, leaves, and emeralds.",img:"https://tse4.mm.bing.net/th/id/OIP.DbmbigexAjzOm1D24DLChQHaFj?r=0&w=2400&h=1800&rs=1&pid=ImgDetMain&o=7&rm=3" }
                 ]
             },
             animals: {
@@ -72,29 +72,14 @@
                 items: [
                     { eng: "Sunny", esp: "Soleado", def: "Bright with sunlight and minimal or no clouds.", img:"https://i.pinimg.com/1200x/f8/fe/74/f8fe74e49374c31ec8dd2dd9471b154f.jpg" },
                     { eng: "Rainy", esp: "Lluvioso", def: "Having a great deal of rainfall over a period.", img:"https://i.pinimg.com/1200x/7b/11/6b/7b116bc5e657189c3cf2f0ed18e22c48.jpg" },
-                    { eng: "Windy", esp: "Ventoso", def: "Characterized by strong winds or moving air.", img:"https://i.pinimg.com/1200x/7b/11/6b/7b116bc5e657189c3cf2f0ed18e22c48.jpg" },
-                    { eng: "Cloudy", esp: "Nublado", def: "Overcast with clouds, blocking direct sunlight.", img:"https://i.pinimg.com/1200x/7b/11/6b/7b116bc5e657189c3cf2f0ed18e22c48.jpg"}
+                    { eng: "Windy", esp: "Ventoso", def: "Characterized by strong winds or moving air.", img:"https://cdn.pixabay.com/photo/2019/06/23/07/19/palm-trees-4293013_1280.jpg" },
+                    { eng: "Cloudy", esp: "Nublado", def: "Overcast with clouds, blocking direct sunlight.", img:"https://tse4.mm.bing.net/th/id/OIP.Ozk6ADbWpyKNVdMkINLaCAHaEG?r=0&w=1201&h=665&rs=1&pid=ImgDetMain&o=7&rm=3"}
                 ]
             },
-            sports: {
-                title: "Weekly vocabulary: sports",
-                items: [
-                    { eng: "Soccer", esp: "Fútbol", def: "A game played by two teams of eleven players with a round ball.", img:""},
-                    { eng: "Basketball", esp: "Baloncesto", def: "A game played on a court where players throw a ball into a high hoop.", img:"" },
-                    { eng: "Tennis", esp: "Tenis", def: "A sport in which two or four players use rackets to hit a ball over a net.", img:"" },
-                    { eng: "Swimming", esp: "Natación", def: "The sport or activity of moving through water using your limbs.", img:"" }
-                ]
-            },
-            house: {
-                title: "Weekly vocabulary: house rooms",
-                items: [
-                    { eng: "Kitchen", esp: "Cocina", def: "A room or area where food is prepared and cooked.", img:"" },
-                    { eng: "Bedroom", esp: "Dormitorio", def: "A room used primarily for sleeping and resting.", img:"" },
-                    { eng: "Bathroom", esp: "Baño", def: "A room containing a toilet and tub or shower for personal hygiene.", img:"" },
-                    { eng: "Living Room", esp: "Sala de Estar", def: "A room in a house for general and everyday social use.", img:"" }
-                ]
-            }
         };
+
+
+
 
         const grid = document.getElementById('dynamic-grid');
         const pageTitle = document.getElementById('page-title');
@@ -112,9 +97,6 @@
                 grid.innerHTML += `
                     <div class="col">
                         <div class="vocabulary-card" onclick="showVocabulary('${key}')">
-                            <div class="image-placeholder">
-                                [Topic: ${capitalizedTopic}]
-                            </div>
                             <div class="card-content-area">
                                 <h3 class="card-title" style="text-transform: capitalize;">${key} Vocabulary</h3>
                                 <div class="card-subtitle">Click here to enter</div>
