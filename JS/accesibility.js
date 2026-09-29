@@ -453,6 +453,64 @@ document.addEventListener("DOMContentLoaded", () => {
         "Keep practising": "Sigue practicando"
     });
 
+    Object.assign(translations, {
+        "Skip to main content": "Saltar al contenido principal",
+        "Learn at your own pace": "Aprende a tu propio ritmo",
+        "Learn English with": "Aprende inglés con",
+        "Inclusion": "Inclusión",
+        "Quality, and Confidence": "calidad y confianza",
+        "Go ahead and say just a little more about what you do.": "Anímate a contar un poco más sobre lo que haces.",
+        "More information": "Más información",
+        "About us": "Sobre nosotros",
+        "We are dedicated to providing English courses in a comfortable and safe environment.": "Nos dedicamos a ofrecer cursos de inglés en un entorno cómodo y seguro.",
+        "Mission": "Misión",
+        "That our users learn English quickly and confidently.": "Que nuestros usuarios aprendan inglés con rapidez y confianza.",
+        "Vision": "Visión",
+        "To promote inclusion and offer English courses in a safe way.": "Promover la inclusión y ofrecer cursos de inglés en un entorno seguro.",
+        "Welcome to Oak English!": "¡Bienvenido a Oak English!",
+        "Learning English here is a calm, intuitive, and hassle-free experience.": "Aprender inglés aquí es una experiencia tranquila, intuitiva y sin complicaciones.",
+        "Practice your Reading, Listening, Writing and Speaking.": "Practica tu lectura, comprensión auditiva, escritura y expresión oral.",
+        "Learn more": "Saber más",
+        "Practice and improve your grammar.": "Practica y mejora tu gramática.",
+        "Expand your vocabulary with essential words for everyday life.": "Amplía tu vocabulario con palabras esenciales para la vida diaria.",
+        "Suggestions for you": "Sugerencias para ti",
+        "Daily Vocabulary: Words for Every Day": "Vocabulario diario: palabras para cada día",
+        "Learn the words you need for your normal routine. These are the most common words you will use.": "Aprende las palabras que necesitas en tu rutina diaria. Son las palabras que usarás con más frecuencia.",
+        "My Study Guide: Personalized Exercises": "Mi guía de estudio: ejercicios personalizados",
+        "This section is just for you. Here, you will find special exercises based on what you need.": "Esta sección es para ti. Aquí encontrarás ejercicios adaptados a tus necesidades.",
+        "A calm, inclusive space to learn English at your own pace — no pressure, no rush.": "Un espacio tranquilo e inclusivo para aprender inglés a tu ritmo, sin presión ni prisas.",
+        "Interactive Games": "Juegos interactivos",
+        "Play with Words": "Juega con las palabras",
+        "Connect with us": "Conecta con nosotros",
+        "All rights reserved.": "Todos los derechos reservados.",
+        "Privacy": "Privacidad",
+        "Contact": "Contacto",
+        "Read page": "Leer página",
+        "Start": "Comenzar",
+        "Back": "Volver",
+        "Next": "Siguiente",
+        "Previous": "Anterior",
+        "Close": "Cerrar",
+        "Check answers": "Comprobar respuestas",
+        "Submit": "Enviar",
+        "Restart": "Reiniciar",
+        "Score": "Puntuación",
+        "Instructions": "Instrucciones",
+        "Choose a level": "Elige un nivel",
+        "Watch videos": "Ver videos",
+        "Play": "Reproducir",
+        "Pause": "Pausar",
+        "Stop": "Detener",
+        "Save": "Guardar",
+        "Settings": "Configuración",
+        "Profile": "Perfil",
+        "Log out": "Cerrar sesión",
+        "Log in": "Iniciar sesión",
+        "Sign in": "Iniciar sesión",
+        "Create an account": "Crear una cuenta"
+});
+
+    let translationObserver = null;
     const originalText = new Map();
     const originalAttributes = new WeakMap();
     const originalTitle = document.title;
@@ -461,13 +519,20 @@ document.addEventListener("DOMContentLoaded", () => {
         .sort((first, second) => second[0].length - first[0].length);
 
     function replaceTranslations(text) {
-        return translationEntries.reduce((result, [key, value]) => {
-            const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-            const isWord = /^[\p{L}\d]/u.test(key) && /[\p{L}\d]$/u.test(key);
-            const pattern = isWord ? `\\b${escapedKey}\\b` : escapedKey;
-            return result.replace(new RegExp(pattern, "gu"), value);
-        }, text);
+        const normalized = text.replace(/\s+/g, ' ').trim();
+        if (Object.prototype.hasOwnProperty.call(translations, normalized)) {
+            return text.match(/^\s*/)[0] + translations[normalized] + text.match(/\s*$/)[0];
+        }
+        // One pass prevents translated words from being translated a second time.
+        return text.replace(translationPattern, match => translations[match] ?? match);
     }
+
+    const escapeTranslation = key => key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const translationPattern = new RegExp(translationEntries.map(([key]) => {
+        const escaped = escapeTranslation(key);
+        return /^[\p{L}\d]/u.test(key) && /[\p{L}\d]$/u.test(key)
+            ? `(?<![\\p{L}\\p{N}])${escaped}(?![\\p{L}\\p{N}])` : escaped;
+    }).join('|'), 'gu');
 
     function captureVisiblePage(root = document.body) {
         const textNodes = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -507,6 +572,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function translatePage(toSpanish, root = document.body) {
         isTranslating = true;
+        translationObserver?.disconnect();
         const textNodes = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
         const nodes = [];
         let node;
@@ -542,8 +608,8 @@ document.addEventListener("DOMContentLoaded", () => {
             ["aria-label", "title", "placeholder", "alt"].forEach(attribute => {
                 const original = savedAttributes[attribute];
                 if (original === undefined) return;
-                if (toSpanish && translations[original]) {
-                    element.setAttribute(attribute, translations[original]);
+                if (toSpanish) {
+                    element.setAttribute(attribute, replaceTranslations(original));
                 } else if (!toSpanish) {
                     element.setAttribute(attribute, original);
                 }
@@ -576,9 +642,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 : (toSpanish ? "🔇 Leer al pasar el ratón: Desactivado" : "🔇 Read on hover: Off");
         }
 
-        queueMicrotask(() => {
-            isTranslating = false;
-        });
+        isTranslating = false;
+        translationObserver?.observe(document.body, { childList: true, characterData: true, subtree: true });
     }
 
     const LANGUAGE_KEY = "oakEnglishLanguage";
@@ -595,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
     captureVisiblePage();
     translatePage(spanishEnabled);
 
-    const translationObserver = new MutationObserver(mutations => {
+    translationObserver = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (isTranslating) return;
 
